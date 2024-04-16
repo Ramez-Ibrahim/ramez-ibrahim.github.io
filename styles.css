@@ -1,0 +1,1452 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+body {
+  transition: 0.3s;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(244, 241, 241);
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+}
+
+#preloader {
+	background: white url(images/loader.gif) no-repeat center center;
+	background-size: 60%;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: 100;
+}
+
+.dark #preloader {
+	background: #21242d url(images/loaderD.webp) no-repeat center center;
+	background-size: 50%;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: 100;
+}
+
+h1 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 300;
+  margin: 50px 0 10px 0;
+}
+
+p {
+  margin: 0px;
+  font-size: 20px;
+}
+
+/* Add basic styles for the links */
+.links {
+  color: rgb(0, 150, 255);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative; /* Required for positioning pseudo-element */
+  transition: transform 0.3s ease;
+}
+
+/* Add the hover effect using the :hover pseudo-class */
+.links:hover {
+  color:  rgb(0, 110, 215); /* Increase the scale to dilate the link */
+}
+
+.dark .links:hover {
+  color: rgb(84, 183, 188); /* Increase the scale to dilate the link */
+}
+
+/* Add a dark color to the links in dark mode */
+.dark .links {
+  color: rgb(105, 229, 235);
+}
+
+.additional-content {
+  position: absolute;
+  bottom: -1675px;
+  right: 10px;
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57)
+}
+
+.credit {
+  position: absolute;
+  bottom: -1820px; /* Added "px" unit */
+  right: 10px; /* Added "px" unit */
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+}
+
+.dark .credit {
+  color: white;
+}
+
+.orgin {
+  position: absolute;
+  bottom: -3405px; /* Added "px" unit */
+  right: 10px; /* Added "px" unit */
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+}
+
+.dark .orgin {
+  color: white;
+}
+
+.inspiration {
+  position: absolute;
+  bottom: -4650px; /* Added "px" unit */
+  right: 10px; /* Added "px" unit */
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+}
+
+.dark .inspiration {
+  color: white;
+}
+
+
+.dark .additional-content {
+ color: white;
+}
+
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+/* Style for the menu container */
+.menu {
+  display: flex;
+  align-items: center;
+  padding-right: 570px;
+}
+
+/* Style for the links with underline on hover */
+.menu-bar {
+  padding-right: 30px;
+  padding-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: inline-block; /* Ensure the border only takes up the word's width */
+  position: relative; /* Create a new positioning context */
+}
+
+/* Create the gap between words */
+.menu-bar::after {
+  content: " ";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%; /* Set the width to span the entire text */
+  height: 2px; /* Set the height to adjust the underline thickness */
+  background-color: transparent; /* Transparent background for the gap */
+}
+
+/* When hovering over the link, apply the underline effect */
+.menu-bar:hover::after {
+  background-color: rgb(0, 150, 255); /* Change to the desired underline color */
+  border-raduis: 30px;
+  width: calc(100% - 30px); /* Adjust the width to cover the gap */
+}
+
+.menu-bar .idu {
+  border-bottom: 2.5px solid green; /* Change the color and style as needed */
+  padding-bottom: 2px; /* Adjust the padding as needed */
+}
+
+.dark .menu-bar .idu {
+  border-bottom: 2.5px solid #DB4105; /* Change the color and style as needed */
+  padding-bottom: 2px; /* Adjust the padding as needed */
+}
+
+.typewrite {
+  overflow: hidden; /* Hide overflowing characters */
+  white-space: nowrap; /* Prevent line breaks */
+  animation: typewriter 4s steps(200); /* Adjust the animation duration as needed */
+  border-right: 2px solid transparent; /* Create a cursor effect */
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0; /* Start with no width */
+  }
+  100% {
+    width: 100%; /* Finish with full width */
+  }
+}
+
+
+.dark .menu-bar {
+	color: white;
+}
+
+/* When hovering over the link, apply the underline effect */
+.dark .menu-bar:hover::after {
+  background-color: rgb(105, 229, 235); /* Change to the desired underline color */
+  border-raduis: 30px;
+  width: calc(100% - 30px); /* Adjust the width to cover the gap */
+}
+
+.switch {
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(39, 38, 38);
+  position: relative;
+}
+
+.flicker {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: 0.3s;
+  box-shadow: inset 4px 4px 4px rgb(255, 255, 255), inset -4px -4px 4px rgb(195 193 198 / 90%);
+}
+
+.dark {
+  background-color: rgb(57, 57, 57);
+  transition: 0.3s;
+}
+
+.moon {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 0 rgb(255, 255, 255);
+  position: absolute;
+  top: 5px;
+  left: 45px;
+}
+
+.sun {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  margin-left: 10px;
+}
+
+.dark .flicker {
+  transform: translateX(40px);
+  box-shadow: inset 4px 4px 4px rgb(255, 255, 255), inset -4px -4px 4px rgb(255, 255, 255);
+}
+
+.dark > * {
+  color: rgb(255, 255, 255);
+}
+
+.main {
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.main-text {
+  padding: 30px;
+  margin-bottom: 100px;
+}
+
+body p.sub-heading {
+	padding: 30px;
+	margin-bottom: 10px;
+	font-size: 50px;
+	text-align: center
+}
+
+.square {
+  width: 98%;
+  margin: 1%;
+  height: 350px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.dark .square {
+  background-color: rgb(71, 71, 71);
+}
+
+#special img:not(.share) {
+	width: 350px;
+  	height: auto;
+}
+
+#special {
+	height: 690px; 
+}
+
+
+#threads img {
+  width: 350px;
+  height: auto;
+  border-radius: 50px;
+}
+
+#cloud h2 {
+	font-size: 30px;
+	padding: 10px;
+}
+
+#cloudF h2 {
+	font-size: 30px;
+	padding: 7px;
+}
+
+#cloudF {
+	height: 690px; 
+}
+
+#cloudF img:not(.share){
+	width: 350px;
+  	height: auto;
+	padding-top: 10px;	
+}
+
+#placeholder {
+	background-color: rgb(244, 241, 241);
+
+}
+
+.dark #placeholder {
+	background-color: rgb(57, 57, 57);
+
+}
+
+#clouds {
+	height: 700px; 
+}
+
+#cloud h2 {
+	font-size: 30px;
+	padding: 10px;
+}
+
+#clouds {
+	height: 690px; 
+}
+
+#cloud img:not(.share) {
+  width: 350px;
+  height: auto;
+  padding-top: 10px;
+}
+
+#clouds h2 {
+	font-size: 30px;
+	padding: 10px;
+}
+
+#clouds img:not(.share) {
+  width: 350px;
+  height: auto;
+  padding-top: 10px;
+}
+
+#amazon img {
+  width: 350px;
+  height: auto;
+}
+
+#calc img {
+  width: 350px;
+  height: auto;
+}
+
+#dino img {
+  width: 350px;
+  height: auto;
+}
+
+#elon img {
+  width: 335px;
+  height: auto;
+}
+
+#barista img {
+  width: 350px;
+  height: auto;
+}
+
+#web img {
+  width: 350px;
+  height: auto;
+}
+
+#todo img {
+  width: 350px;
+  height: auto;
+}
+
+
+#netflix img {
+  width: 350px; /* Set the desired width for the image */
+  height: auto;
+  border-radius: 50px;
+}
+
+#expneses img {
+  width: 350px; /* Set the desired width for the image */
+  height: auto;
+  border-radius: 50px;
+}
+
+#dino img {
+  width: 350px; /* Set the desired width for the image */
+  height: auto;
+}
+
+#notes img {
+  width: 350px; /* Set the desired width for the image */
+  height: auto;
+}
+
+#markets img {
+  width: 430px;
+  height: auto;
+}
+
+.sub-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+  width: 50%;
+  height: 350px;
+  display: block;
+  margin-bottom: 100px;
+}
+
+.cube {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-25deg) skew(25deg);
+}
+
+.cube:before {
+  position: absolute;
+  content: "";
+  width: 21px;
+  height: 100%;
+  transform: skewY(-45deg);
+  left: -20px;
+  bottom: -10px;
+}
+
+.cube:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 21px;
+  transform: skewX(-45deg);
+  left: -10px;
+  bottom: -20px;
+}
+
+#html {
+  left: 100px;
+  bottom: 80px;
+  background-image: url("images/html-logo.png");
+  background-size: cover;
+  background-color: rgb(175, 119, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#chash {
+  left: 100px;
+  bottom: 80px;
+  background-image: url("images/chash-logo.png");
+  background-size: cover;
+  background-color: rgb(175, 119, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#python {
+  left: 250px;
+  bottom: 240px;
+  background-image: url("images/python-logo.png");
+  background-size: contain;
+  background-color: rgb(227, 119, 191);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#java {
+  left: 100px;
+  bottom: 80px;
+  background-image: url("images/java-logo.png");
+  background-size: cover;
+  background-color: rgb(175, 119, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+html::-webkit-scrollbar {
+  width: 0.5vw;
+
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: rgb(90, 110, 130);
+  border-radius: 100px; /* Adjust the radius to make the corners rounded */
+}
+
+/* For the .dark class */
+.dark::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 100px; /* Adjust the radius to make the corners rounded */
+}
+
+
+#html:before {
+  background-color: rgb(189, 154, 221);
+}
+
+#html:after {
+  background-color: rgb(205, 188, 221);
+}
+
+#chash:before {
+  background-color: rgb(189, 154, 221);
+}
+
+#chash:after {
+  background-color: rgb(205, 188, 221);
+}
+
+#java:before {
+  background-color: rgb(189, 154, 221);
+}
+
+#java:after {
+  background-color: rgb(205, 188, 221);
+}
+
+#css {
+  left: 250px;
+  bottom: 240px;
+  background-image: url("images/css-logo.png");
+  background-size: cover;
+  background-color: rgb(227, 119, 191);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#css:before {
+  background-color: rgb(221, 154, 207);
+}
+
+#css:after {
+  background-color: rgb(221, 188, 211);
+}
+
+#swift {
+  left: 250px;
+  bottom: 240px;
+  background-image: url("images/swift-logo.png");
+  background-size: cover;
+  background-color: rgb(227, 119, 191);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#swift:before {
+  background-color: rgb(221, 154, 207);
+}
+
+#swift:after {
+  background-color: rgb(221, 188, 211);
+}
+
+#python:before {
+  background-color: rgb(221, 154, 207);
+}
+
+#python:after {
+  background-color: rgb(221, 188, 211);
+}
+
+#javascript {
+  left: 450px;
+  bottom: 200px;
+  background-image: url("images/javascript-logo.png");
+  background-size: cover;
+  background-color: rgb(119, 227, 186);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#javascript:before {
+  background-color: rgb(154, 221, 202);
+}
+
+#javascript:after {
+  background-color: rgb(188, 221, 212);
+}
+
+#sql {
+  left: 450px;
+  bottom: 200px;
+  background-image: url("images/sql-logo.png");
+  background-size: cover;
+  background-color: rgb(119, 227, 186);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#sql:before {
+  background-color: rgb(154, 221, 202);
+}
+
+#sql:after {
+  background-color: rgb(188, 221, 212);
+}
+
+#typescript {
+  left: 450px;
+  bottom: 200px;
+  background-image: url("images/typescript-logo.png");
+  background-size: cover;
+  background-color: rgb(119, 227, 186);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#typescript:before {
+  background-color: rgb(154, 221, 202);
+}
+
+#typescript:after {
+  background-color: rgb(188, 221, 212);
+}
+
+#react {
+  left: 350px;
+  bottom: 40px;
+  background-image: url("images/react-logo.png");
+  background-size: cover;
+  background-color: rgb(119, 193, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#react:before {
+  background-color: rgb(154, 189, 221);
+}
+
+#react:after {
+  background-color: rgb(188, 200, 221);
+}
+
+#cloudic {
+  left: 350px;
+  bottom: 40px;
+  background-image: url("images/cloud-logo.png");
+  background-size: cover;
+  background-color: rgb(119, 193, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+
+#cloudic:before {
+  background-color: rgb(154, 189, 221);
+}
+
+#cloudic:after {
+  background-color: rgb(188, 200, 221);
+}
+
+#cplus {
+  left: 350px;
+  bottom: 40px;
+  background-image: url("images/c++-logo.png");
+  background-size: contain; /* Apply background-size to the background image */
+  background-color: rgb(119, 193, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/15%);
+  margin: 0; /* Remove margin if not needed */
+  border: none; /* Remove border if not needed */
+  box-sizing: border-box; /* Ensure box sizing includes padding and border */
+}
+
+#cplus:before {
+	background-color: rgb(154, 189, 221);
+}
+
+#cplus:after {
+  background-color: rgb(188, 200, 221);
+}
+
+
+.dark #html,
+.dark #css,
+.dark #javascript,
+.dark #react,
+.dark #java,
+.dark #cplus,
+.dark #swift,
+.dark #typescript,
+.dark #cloudic,
+.dark #sql,
+.dark #chash,
+.dark #python {
+  box-shadow: -60px 60px 20px rgb(255 255 255 / 15%);
+}
+
+#about-footer {
+  display: flex;
+  justify-content: center;
+  padding: 70px 30px;
+  background-color: rgb(198, 193, 190);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 100px 30px;
+  background-color: rgb(198, 193, 190);
+}
+
+.dark #about-footer {
+  background-color: black
+}
+
+.dark footer {
+  background-color: rgb(28, 28, 28);
+}
+
+
+.dark footer {
+  background-color: rgb(28, 28, 28);
+}
+
+@media only screen and (min-width: 970px) {
+  .main-text {
+    width: 50%;
+  }
+
+  .square {
+    width: 48%;
+    margin: 1%;
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .hero-image {
+    position: relative;
+    width: 50%;
+    height: 350px;
+    display: block;
+    margin-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-text {
+    width: 100%;
+  }
+
+  .square {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+/* styles.css */
+
+.contact {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  margin-right: 400px;
+  text-align: center;
+}
+
+.contact:hover {
+  transform: scale(1.2); /* Increase the size by 20% on hover (adjust as needed) */
+  cursor: pointer;
+}
+
+.dark .contact{
+  color: rgb(255, 255, 255);
+}
+
+/* Add the fade-in animation for the squares */
+@keyframes fade-in-square {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the fade-in animation to the squares */
+.square.show {
+  display: block;
+  animation: fade-in-square 1.5s; /* Adjust the duration as needed */
+}
+
+/* Add the fade-in animation for the cubes */
+@keyframes fade-in-cube {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; /* Full opacity at the end of the animation */
+  }
+}
+
+/* Apply the fade-in animation to the cube logos */
+.cube {
+  opacity: 1; /* Set the default opacity to 1 (visible) */
+  animation: fade-in-cube 4s; /* Set the duration to 4 seconds */
+}
+
+/* Rest of your existing code... */
+
+
+
+
+
+
+/* Add new styles for squares on the specific page */
+.page-specific .square {
+  width: calc(33.33% - 20px); /* 20px is the total margin width between squares (10px on each side) */
+  margin: 10px; /* Adjust the margin as needed to create spacing between squares */
+}
+
+/* Optional: Increase the height of the squares to accommodate content */
+.page-specific .square {
+  height: 600px; /* Adjust the height as needed */
+}
+
+/* Clear float for every third square to start a new row */
+.page-specific .square:nth-child(3n+1) {
+  clear: left;
+}
+
+/* Add specific styles for larger screens on the specific page */
+@media only screen and (min-width: 970px) {
+  .page-specific .square {
+    width: calc(33.33% - 20px); /* 20px is the total margin width between squares (10px on each side) */
+    margin: 10px; /* Adjust the margin as needed to create spacing between squares */
+  }
+}
+
+
+.share {
+ padding-top: 10px;
+ width: 80px;
+ text-align: center;
+ transition: transform 0.3s ease-in-out;
+}
+
+.share:hover {
+  transform: scale(1.2); /* Increase the size of the .share image on hover */
+  cursor: pointer;
+}
+
+
+/* Style the .carousel element with left padding */
+.carousel {
+  width: 80vw;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  /* Other styles for .carousel */
+}
+
+.carousel-container {
+  width: 80vw;
+  height: 80vh; /* Adjust the height as needed */
+  padding-left: 130px; /* Adjust the left padding as needed */
+  overflow: hidden; /* Hide any content that overflows due to padding */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+/* The rest of your CSS remains the same */
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+}
+
+.slide > a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 100px; /* Adjust the value to control the roundness of the corners */
+  transition: transform 0.3s ease;
+}
+
+.slide > a img:hover {
+  cursor: pointer;
+  transform: scale(0.8); /* You can adjust the scale factor as desired */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: black;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.dark .carousel-button:hover,
+.dark .carousel-button:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+#notes .icons {
+	width: 40px;
+	height: auto;
+}
+
+#amazon .icons {
+	width: 40px;
+	height: auto;
+}
+
+#calc .icons {
+	width: 40px;
+	height: auto;
+}
+
+#dino .icons {
+	width: 40px;
+	height: auto;
+}
+
+#elon .icons {
+	width: 40px;
+	height: auto;
+}
+
+#web .icons {
+	width: 40px;
+	height: auto;
+}
+
+#todo .icons {
+	width: 40px;
+	height: auto;
+}
+
+/* styles.css */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.pfp {
+  height: 500px;
+  margin-right: 10px;
+  margin-bottom: 100px;
+  width: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: fadeIn 3s ease-in-out forwards; /* Use 'forwards' to retain the final state */
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+#footer .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.wrapper .icon{
+  margin: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon span{
+  display: block;
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon span i{
+  line-height: 60px;
+  font-size: 25px;
+}
+.wrapper .icon .tooltip{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon:hover .tooltip{
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.icon .tooltip:before{
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover span{
+  color: white;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip{
+  text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+}
+.wrapper .linkedin:hover span,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip:before{
+  background: #0072b1;
+}
+.wrapper .twitter:hover span,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip:before{
+  background: #46C1F6;
+}
+.wrapper .instagram:hover span,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip:before{
+  background: #e1306c;
+}
+.wrapper .github:hover span,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip:before{
+  background: #333;
+}
+.wrapper .envelope:hover span,
+.wrapper .envelope:hover .tooltip,
+.wrapper .envelope:hover .tooltip:before {
+  background: #DE463B;
+}
+
+.dark .wrapper .icon span i {
+  color: black;
+}
+
+.dark .wrapper .icon:hover span i {
+  color: white;
+}
+
+.container-fluid{
+	padding-right: 300px;
+}
+
+.ms-content {
+	width: 200px;
+	height: 200px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border: 10px solid #2ea4f2;
+	border-radius: 100%;
+}
+
+.ms-content-inside {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition: transform 0.3s ease;
+}
+
+.ms-content-inside:hover {
+	cursor: pointer;
+	transform: scale(0.7); 
+}
+
+.ms-line-down-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: rotate(0deg);
+	transition: transform 0s ease;
+}
+#ms-download {
+	display: none;
+}
+#ms-download:checked ~ .ms-line-down-container {
+	transform: rotate(-360deg);
+	transition: transform 1.5s ease 1.25s;
+}
+
+.ms-line-down {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	width: 10px;
+	height: 125px;
+	background: #90EE90;
+	border-radius: 50px;
+	transition: height .5s ease;
+}
+
+#ms-download:checked ~ .ms-line-down-container .ms-line-down {
+	height: 10px;
+	top: -20px;
+	animation: ms-bounce .5s forwards .55s;
+}
+#ms-download:checked ~ .ms-line-down-container .ms-line-down:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -94px;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	height: 200px;
+	border: 10px solid transparent;
+	border-radius: 100%;
+	animation: ms-border-fill .5s forwards 3s;
+}
+
+.ms-line-point {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 58px;
+	height: 130px;
+	transition: height .15s ease .45s;
+}
+
+#ms-download:checked ~ .ms-line-point {
+	height: 60px;
+}
+
+#ms-download:checked ~ .ms-line-point:before {
+	transform: rotate(90deg);
+	right: -10px;
+	animation: ms-check-right .25s forwards 3s;
+}
+
+#ms-download:checked ~ .ms-line-point:after {
+	transform: rotate(-90deg);
+	left: -10px;
+	animation: ms-check-left .25s forwards 3s;
+}
+
+.ms-line-point:before,
+.ms-line-point:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 75px;
+	bottom: -10px;
+	background: #90EE90;
+	border-radius: 50px;
+	transition: transform .15s ease .47s, left .15s ease .47s, right .15s ease .47s;
+}
+
+.ms-line-point:before {
+	right: 0px;
+	transform: rotate(45deg);
+}
+
+.ms-line-point:after {
+	left: 0px;
+	transform: rotate(-45deg);
+}
+
+@keyframes ms-bounce {
+	0% {
+		top: -20px;
+	}
+	25% {
+		top: -250px;
+	}
+	50% {
+		top: -275px;
+	}
+	100% {
+		top: -190px;
+	}
+}
+
+@keyframes ms-check-left {
+	0% {
+		transform: rotate(-90deg);
+		left: -10px;
+		height: 75px;
+	}
+	100% {
+		transform: rotate(-45deg);
+		left: 0px;
+		height: 45px;
+	}
+}
+
+@keyframes ms-check-right {
+	0% {
+		transform: rotate(90deg);
+		right: -10px;
+		height: 75px;
+		bottom: -10px;
+	}
+	100% {
+		transform: rotate(45deg);
+		right: 10px;
+		height: 80px;
+		bottom: -15px;
+	}
+}
+
+
+@keyframes ms-border-fill {
+	0% {
+		border: 10px solid transparent;
+	}
+	100% {
+		border: 10px solid #blue;
+	}
+}
+
+
+.text-box {
+    margin-left: 550px;
+	position: relative;
+	font-size: 40px;
+	line-height: 50px; /* Set to the same value as the button's height */
+	max-width: 200px;
+	text-align: center;
+ 
+}
+
+.btn{
+	margin-top: -150px;
+	width: 200px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #53a4f4;
+    color: #90EE90;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #53a4f4;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.pageicon {
+	height: 28px;
+	width: 28px;
+	position: absolute;
+	padding-top: 43px;
+	padding-left: 63px;
+	transition: transform 0.3s ease;
+	transform-origin: center center;
+}
+
+
+.pageicon:hover {
+	transform: scale(1.3);
+}
+
+.date {
+	padding-top: 40px;
+	font-size: 25px;
+}
+
+.date2 {
+	padding-top: 30px;
+	font-size: 25px;
+}
+
+
+

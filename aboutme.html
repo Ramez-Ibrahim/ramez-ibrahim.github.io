@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Code Cave | Ramez Ibrahim</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+  <img src="images/favicon.png" class="pageicon">
+  <header>
+    <div class="menu">
+      <a href="index.html" class="menu-bar">Home</a>
+      <a href="projects.html" class="menu-bar">Projects</a>
+      <a href="certifications.html" class="menu-bar">Certifications</a>
+      <a href="aboutme.html" class="menu-bar"><span class="idu">About Me</span></a>
+    </div>
+    <div class="switch">
+      <div class="moon"></div>
+      <div class="flicker"></div>
+      <img src="images/brightness.png" class="sun">
+    </div>
+  </header>
+
+  <section class="main">
+    <div class="main-text">
+      <h1 class="typewrite">About Me</h1>
+      <p>Welcome to my Projects!</p>
+      <br/>
+      <p>Explore a collection of my diverse and innovative coding projects, showcasing my passion for problem-solving and creativity through code</p>
+      <br/>
+      <a href="#footer" class="links">Contact Me ></a>
+    </div>
+  <img src="images/pfp-test.jpg" class="pfp">
+  </section>
+  <p class="sub-heading">Intro</p>
+  <p class="sub-heading">How & Why I got into Tech</p>
+  <p class="sub-heading">Tech Mentors</p>
+  <section>
+    <div class="carousel-container">
+      <section aria-label="Newest Photos">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+          <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <a href="https://www.youtube.com/@mkbhd" target="_blank">
+      			<img src="images/mkbhd.png" alt="MKBHD Logo">
+    		</a>
+            </li>
+            <li class="slide">
+              <a href="https://www.youtube.com/@LinusTechTips" target="_blank">
+      			<img src="images/ltt.png" alt="LTT Logo">
+    		</a>
+            </li>
+            <li class="slide">
+    		<a href="https://www.youtube.com/@Mrwhosetheboss" target="_blank">
+      			<img src="images/mrwhoestheboss.png" alt="Mrwhosetheboss Logo">
+    		</a>
+ 	    </li>
+            <li class="slide">
+    		<a href="https://www.youtube.com/@NetworkChuck" target="_blank">
+      			<img src="images/networkchuck.png" alt="Network Chuck Logo">
+    		</a>
+ 	    </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+  <p class="sub-heading">Other Hobbies & Intrests</p>
+  <p class="sub-heading">Open Source Cotributions</p>
+  <p class="sub-heading">Resume</p>
+  <div class="container-fluid">
+	<div class="row">
+		<div id="ms-container">
+			<label for="ms-download">
+				<div class="ms-content">
+					<div class="ms-content-inside">
+						<input type="checkbox" id="ms-download" />
+						<div class="ms-line-down-container">
+							<div class="ms-line-down"></div>
+						</div>
+						<div class="ms-line-point"></div>
+					</div>
+				</div>
+			</label>
+		</div>
+	</div>
+  </div>
+  <div class="text-box">
+    <a href="https://drive.google.com/file/d/1hBqL_eIPVukocVafp6UnOcir3OHmqqEa/view?usp=sharing" class="btn btn-white btn-animate" target="_blank">Preview</a>
+  </div>
+  <p class="sub-heading">Contact Me</p>
+  <div class="wrapper">
+         <div class="icon envelope" onclick="redirectToMail()">
+    		<div class="tooltip">
+        		Email
+    		</div>
+    		<span><i class="far fa-envelope"></i></span>
+	 </div>
+  	 <div class="icon twitter" onclick="redirectToX()">
+  		<div class="tooltip">
+    			X.com
+  		</div>
+  		<span><i class="fa-brands fa-x-twitter"></i></span>
+	 </div>
+         <div class="icon instagram" onclick="redirectToInstgram()">
+            <div class="tooltip">
+               Instagram
+            </div>
+            <span><i class="fab fa-instagram"></i></span>
+         </div>
+         <div class="icon github" onclick="redirectToGitHub()">
+            <div class="tooltip">
+               Github
+            </div>
+            <span><i class="fab fa-github"></i></span>
+         </div>
+         <div class="icon linkedin" onclick="redirectToLinkedIn()">
+    		<div class="tooltip">
+        		LinkedIn
+    		</div>
+   	 <span><i class="fab fa-linkedin-in"></i></span>
+	</div>
+      </div>
+  </div>
+  <footer id="about-footer">
+    <a href="https://github.com/kubowania/light-dark-mode-portfolio" target="_blank" class="credit"> This Site Was Based On This GitHub Project By: Ania Kubow </a>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

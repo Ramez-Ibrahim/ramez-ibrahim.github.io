@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Internet Connection</title>
+    <style>
+        body {
+            background-color: #282828;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0050a6;
+        }
+    </style>
+</head>
+<body>
+    <h1>No Internet Connection</h1>
+    <p>Check your network connection and try again.</p>
+    <button id="retryButton">Retry</button>
+
+    <script>
+        // Function to check internet connectivity
+        function checkInternetConnection() {
+            return navigator.onLine;
+        }
+
+        // Function to handle retry button click
+        function handleRetryButtonClick() {
+            if (checkInternetConnection()) {
+                // Redirect to the main page when the internet connection is available
+                window.location.href = 'https://yourwebsite.com';
+            }
+        }
+
+        // Check internet connectivity on page load
+        if (!checkInternetConnection()) {
+            // Internet is not available, show the retry button
+            document.getElementById('retryButton').style.display = 'block';
+        }
+
+        // Add click event listener to the retry button
+        document.getElementById('retryButton').addEventListener('click', handleRetryButtonClick);
+    </script>
+</body>
+</html>
