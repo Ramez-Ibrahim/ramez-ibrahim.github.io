@@ -348,7 +348,8 @@ body p.sub-heading {
 .dark .to-top2:hover { transform: translateY(-5px); box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3); background: rgba(71, 71, 71, 0.5); }
 
 /* Footer & Socials */
-footer { display: flex; justify-content: center; align-items: center; padding: 80px 30px; background-color: transparent; }
+/* FIX 2: Make footer padding responsive */
+footer { display: flex; justify-content: center; align-items: center; padding: 80px 15px; background-color: transparent; }
 .dark footer { background-color: transparent; }
 html::-webkit-scrollbar { width: 0.5vw; }
 html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radius: 100px; }
@@ -387,26 +388,17 @@ html { scroll-behavior: smooth; }
 
 /* --- START: MOBILE HERO SECTION (2x2 COLORED GLASS GRID) --- */
 @media only screen and (max-width: 768px) {
-  /* FIX 1: Add spacing between project squares on mobile */
   .square { 
-    width: 100%; 
-    height: auto; 
-    padding: 15px;
+    width: 100%; height: auto; padding: 15px;
     margin-bottom: 20px;
   }
   .square img { width: 250px !important; }
 
-  /* 2x2 Grid Container */
   .hero-image {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    height: auto;
-    margin-bottom: 40px;
-    position: static;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 15px; height: auto; margin-bottom: 40px; position: static;
   }
 
-  /* Base styles for the new grid cards */
   .cube {
     position: static; transform: none; animation: none;
     width: 100%; height: auto; aspect-ratio: 1 / 1;
@@ -431,22 +423,10 @@ html { scroll-behavior: smooth; }
   #react .tech-logo { background-image: url("images/react-logo.png"); }
 
   /* Light Mode: Colored glass with solid borders for pop */
-  #react { 
-    background-color: rgba(80, 180, 240, 0.4) !important;
-    border: 2px solid rgb(60, 150, 210) !important;
-  }
-  #javascript { 
-    background-color: rgba(70, 220, 170, 0.4) !important;
-    border: 2px solid rgb(50, 190, 140) !important;
-  }
-  #html { 
-    background-color: rgba(160, 90, 230, 0.4) !important;
-    border: 2px solid rgb(130, 70, 200) !important;
-  }
-  #css { 
-    background-color: rgba(230, 85, 180, 0.4) !important;
-    border: 2px solid rgb(200, 65, 150) !important;
-  }
+  #react { background-color: rgba(80, 180, 240, 0.4) !important; border: 2px solid rgb(60, 150, 210) !important; }
+  #javascript { background-color: rgba(70, 220, 170, 0.4) !important; border: 2px solid rgb(50, 190, 140) !important; }
+  #html { background-color: rgba(160, 90, 230, 0.4) !important; border: 2px solid rgb(130, 70, 200) !important; }
+  #css { background-color: rgba(230, 85, 180, 0.4) !important; border: 2px solid rgb(200, 65, 150) !important; }
   
   /* Dark Mode: Colored glass with transparent border */
   .dark .cube {
@@ -494,10 +474,7 @@ html { scroll-behavior: smooth; }
   .wrapper .icon { margin: 0 5px; }
   .wrapper .icon span { height: 40px; width: 40px; }
   .wrapper .icon span i { line-height: 40px; font-size: 18px; }
-  /* FIX 3: Reduce footer padding on small screens to prevent cutoff */
-  #footer .wrapper {
-    padding: 15px 15px;
-  }
+  #footer .wrapper { padding: 15px 15px; }
 }
 
 /* Header styles */
@@ -512,10 +489,18 @@ html { scroll-behavior: smooth; }
 
 /* Mobile Menu Styles */
 @media only screen and (max-width: 768px) {
-    .header-wrapper { padding: 15px 20px; }
-    .header-title { display: block; font-size: 16px; }
-    /* FIX 2: Add margin to push controls to the right */
-    .header-brand { margin-right: auto; }
+    /* FIX 3: Make header padding responsive */
+    .header-wrapper { padding: 15px; }
+    .header-title { 
+      display: block; 
+      font-size: 16px; 
+      /* Prevent long titles from breaking layout */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-brand { 
+      margin-right: 10px; /* Add a little space */
+    }
     .pageicon { margin: 0 !important; width: 36px; height: 36px; }
     .hamburger { display: block; order: 2; }
     .bar { width: 30px; height: 4px; margin: 6px auto; }
@@ -527,7 +512,7 @@ html { scroll-behavior: smooth; }
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
-    .hamburger.active { position: fixed; top: 25px; right: 20px; }
+    .hamburger.active { position: fixed; top: 25px; right: 15px; }
     .menu { position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column; background-color: rgb(244, 241, 241); width: 100%; height: 100vh; transition: 0.3s; padding-right: 0; z-index: 100; display: flex; justify-content: center; align-items: center; padding-top: 0; }
     .dark .menu { background-color: rgb(57, 57, 57); }
     .menu.active { left: 0; }
@@ -543,9 +528,11 @@ html { scroll-behavior: smooth; }
 }
 
 .header-controls { display: flex; align-items: center; gap: 20px; transition: gap 0.3s ease; }
-/* FIX 4: Target html and body to prevent scrolling when menu is open */
-html.menu-open, body.menu-open {
-    overflow: hidden;
+/* FIX 4: CSS part of the scroll lock for iOS */
+html.menu-open { 
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
 }
 .header-wrapper.scrolled { background-color: rgba(244, 241, 241, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .dark .header-wrapper.scrolled { background-color: rgba(57, 57, 57, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }

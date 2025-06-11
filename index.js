@@ -2,11 +2,23 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 
+// FIX: Robust scroll prevention for iOS Safari
+const preventScroll = (e) => {
+    e.preventDefault();
+};
+
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
+    const isActive = hamburger.classList.toggle('active');
     menu.classList.toggle('active');
-    // MODIFIED: Apply to the <html> tag to reliably prevent scrolling on mobile
-    document.documentElement.classList.toggle('menu-open');
+    document.documentElement.classList.toggle('menu-open', isActive);
+
+    if (isActive) {
+        // When menu is open, prevent scrolling via touch events
+        window.addEventListener('touchmove', preventScroll, { passive: false });
+    } else {
+        // When menu is closed, allow scrolling
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
+    }
 });
 
 // Close menu when clicking on a link
@@ -15,10 +27,12 @@ menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         menu.classList.remove('active');
-        // MODIFIED: Also remove from the <html> tag
         document.documentElement.classList.remove('menu-open');
+        // Also remove the scroll prevention when a link is clicked
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
     });
 });
+
 
 // Dark mode switch functionality
 const switchElements = document.querySelectorAll('.switch');
@@ -134,7 +148,7 @@ function fadeInLogos() {
 document.addEventListener("DOMContentLoaded", function() {
     fadeInLogos();
 
-    // --- MODIFIED: JS-DRIVEN TYPEWRITER EFFECT ---
+    // JS-DRIVEN TYPEWRITER EFFECT
     const typewriterElement = document.querySelector('.typewrite');
     if (typewriterElement) {
         const textToType = typewriterElement.textContent; // Get the text from HTML
@@ -262,7 +276,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-closeButton.addEventListener("click", togglePopup);
+if (closeButton) {
+    closeButton.addEventListener("click", togglePopup);
+}
+
 
 // Fade-in elements on load
 document.addEventListener('DOMContentLoaded', function() {
