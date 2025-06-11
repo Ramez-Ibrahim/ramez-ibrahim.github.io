@@ -6,64 +6,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Code Cave | Ramez Ibrahim</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div id="preloader"></div>
-	<img src="images/favicon.png" class="pageicon">
-    <header>
+
+    <header class="header-wrapper">
+        <a href="index.html" class="header-brand">
+            <img src="images/favicon.png" class="pageicon">
+            <span class="header-title">Code Cave | Ramez Ibrahim</span>
+        </a>
+
         <div class="menu">
-            <a href="" class="menu-bar"><span class="idu">Home</span></a>
+            <a href="index.html" class="menu-bar"><span class="idu">Home</span></a>
             <a href="projects.html" class="menu-bar">Projects</a>
             <a href="certifications.html" class="menu-bar">Certifications</a>
             <a href="aboutme.html" class="menu-bar">About Me</a>
         </div>
-        <div class="switch">
-            <div class="moon"></div>
-            <div class="flicker"></div>
-            <img src="images/brightness.png" class="sun">
+
+        <div class="header-controls">
+            <div class="switch">
+                <div class="moon"></div>
+                <div class="flicker"></div>
+                <img src="images/brightness.png" class="sun">
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </header>
+
 
     <section class="main">
         <div class="main-text">
             <h1 class="typewrite">Ramez Ibrahim</h1>
             <p>Welcome to the Code Cave!</p>
             <br/>
-            <p>I am a Software Developer. Born in Egypt but raised in the UAE and Singapore.</p>
+            <p>From the heart of Egypt, fueled by code and curiosity, I chase one mission — to put a ding in the universe.</p>
             <br/>
             <a href="#footer" class="links">Contact Me ></a>
         </div>
 
         <div class="hero-image">
-            <div class="cube fade-in-logo" id="react"></div>
-            <div class="cube fade-in-logo" id="javascript"></div>
-            <div class="cube fade-in-logo" id="html"></div>
-            <div class="cube fade-in-logo" id="css"></div>
+            <!-- MODIFIED: Removed the language name spans -->
+            <div class="cube" id="react">
+                <div class="tech-logo"></div>
+            </div>
+            <div class="cube" id="javascript">
+                <div class="tech-logo"></div>
+            </div>
+            <div class="cube" id="html">
+                <div class="tech-logo"></div>
+            </div>
+            <div class="cube" id="css">
+                <div class="tech-logo"></div>
+            </div>
         </div>
     </section>
+
+    <a href="#" class="to-top2">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
+    
     <p class="sub-heading">Flagship Projects</p>
 
     <section class="sub-section">
-        <div class="square" id="markets">
-            <h2>Markets 360</h2>
-            <p>Tracks Crypto, Currencies, and Stocks with Ease</p>
-            <br/>
-            <a href="https://github.com/kubowania/Project-04" target="_blank" class="links">Check It Out ></a>
-            <br/>
-            <img src="images/markets.png" alt="Markets 360 Logo">
-        </div>
         <div class="square" id="amazon">
-            <h2>Amazon Clone</h2>
-            <p>E-Commerce Giant With My Space Twist</p>
+            <h2>Calendar</h2>
+            <p>An intuitive app for managing your schedule and events</p>
+            <br/>
+            <a href="https://github.com/Ramez-Ibrahim/Calendar" target="_blank" class="links">Check It Out ></a>
+            <br/>
+            <img src="images/calendar.png" alt="Markets 360 Logo">
+        </div>
+        <div class="square" id="netflix">
+            <h2>RoomMate</h2>
+            <p>A smart tool that assigns rooms based on preferences</p>
             <br/>
             <a href="https://github.com/kubowania" target="_blank" class="links">Check It Out ></a>
             <br/>
             <br/>
-            <img src="images/amazon.png" alt="Amazon Logo">
+            <img src="images/roommate.png" alt="RoomMate Logo">
         </div>
         <div class="square" id="netflix">
-            <h2>Netflix Clone</h2>
+            <h2>Netflix 2.0</h2>
             <p>A Streaming and Entertainment Powerhouse</p>
             <br/>
             <a href="https://github.com/kubowania" target="_blank" class="links">Check It Out ></a>
@@ -72,15 +100,17 @@
             <img src="images/netflix.png" alt="Netflix Logo">
         </div>
         <div class="square" id="threads">
-            <h2>Threads Clone</h2>
+            <h2>ChatGPT 2.0</h2>
             <p>Text Based Social Media Platform</p>
             <br/>
             <a href="https://github.com/kubowania" target="_blank" class="links">Check It Out ></a>
             <br/>
             <br/>
-            <img src="images/threads.webp" alt="Threads Logo">
+            <img src="images/netflix.png" alt="Threads Logo">
         </div>
     </section>
+
+   
 
     <footer id="footer">
       <div class="wrapper">
@@ -115,9 +145,8 @@
    	 <span><i class="fab fa-linkedin-in"></i></span>
 	</div>
       </div>
-      <a href="https://github.com/kubowania/light-dark-mode-portfolio" target="_blank" class="additional-content"> This Site Was Based On This GitHub Project By: Ania Kubow </a>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

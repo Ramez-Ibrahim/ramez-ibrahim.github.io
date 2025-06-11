@@ -88,24 +88,30 @@ function showSquaresTogether(dataIdValue, delay) {
 }
 
 showSquaresTogether("cloud0", 1500);
-showSquaresTogether("cloud1", 1500);
-showSquaresTogether("cloud2", 1500);
 
-showSquaresTogether("cloud3", 2500);
-showSquaresTogether("cloud4", 2500);
-showSquaresTogether("cloud5", 2500);
+showSquaresTogether("cs", 2500);
 
-showSquaresTogether("cloud6", 3500);
+showSquaresTogether("cloud1", 3500);
 
-showSquaresTogether("lang0", 4500);
-showSquaresTogether("lang1", 4500);
-showSquaresTogether("lang2", 4500);
+showSquaresTogether("cloud2", 4500);
 
-showSquaresTogether("lang3", 5500);
-showSquaresTogether("lang4", 5500);
-showSquaresTogether("lang5", 5500);
+showSquaresTogether("cloud3", 5500);
 
-showSquaresTogether("lang6", 6500);
+showSquaresTogether("cloud4", 6500);
+
+showSquaresTogether("lang0", 7500);
+
+showSquaresTogether("lang1", 7500);
+
+showSquaresTogether("lang2", 7500);
+
+showSquaresTogether("lang3", 8500);
+
+showSquaresTogether("lang4", 8500);
+
+showSquaresTogether("lang5", 8500);
+
+showSquaresTogether("lang6", 9500);
 
 // Add more squares and delays as needed
 
@@ -240,17 +246,17 @@ function redirectToMail() {
 
 function redirectToInstgram() {
     // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://www.instagram.com/ramez_amr_ibrahim/', '_blank');
+    window.open('https://www.instagram.com/ramezibrahimm/', '_blank');
 }
 
 function redirectToX() {
     // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://twitter.com/ramez26015', '_blank');
+    window.open('https://x.com/ramezibrahimm', '_blank');
 }
 
 function redirectToGitHub() {
     // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://github.com/Ramez08', '_blank');
+    window.open('https://github.com/Ramez-Ibrahim', '_blank');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -298,11 +304,89 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+const openPopupButtons = document.querySelectorAll("#popup-trigger, #popup-trigger2, #popup-trigger3, #popup-trigger4");
+const popup = document.querySelector(".popup");
+const popupOverlay = document.querySelector(".popup-overlay");
+const closeButton = document.getElementById("close-popup");
+
+// Function to toggle popup and overlay visibility
+function togglePopup() {
+  popup.classList.toggle("show");
+  popupOverlay.classList.toggle("active");
+}
+
+// Add event listener to all openPopupButtons
+openPopupButtons.forEach(button => {
+  button.addEventListener("click", togglePopup);
+});
+
+// Add event listener for the "Esc" key
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 27 && popup.classList.contains("show")) { // Check if the pressed key is "Esc" and popup is open
+    togglePopup(); // Call the togglePopup function to close the popup
+  }
+});
+
+// Add event listener to the close button
+
+closeButton.addEventListener("click", togglePopup);
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all buttons with the class 'to-top'
+  const toTopButtons = document.querySelectorAll(".to-top");
+
+  if (toTopButtons.length > 0) {
+    console.log("Found to-top buttons:", toTopButtons.length);
+
+    window.addEventListener("scroll", () => {
+      const scrollOffset = window.pageYOffset;
+      const threshold = 10;
+
+      console.log("Scroll Offset:", scrollOffset);
+
+      toTopButtons.forEach(button => {
+        if (scrollOffset > threshold) {
+          if (button.style.opacity !== '1') {
+            console.log("Making button visible:", button);
+          }
+          button.style.opacity = '1';
+          button.style.pointerEvents = 'auto';
+          button.style.bottom = '35px'; // Adjust as needed
+        } else {
+          if (button.style.opacity !== '0') {
+            console.log("Hiding button:", button);
+          }
+          button.style.opacity = '0';
+          button.style.pointerEvents = 'none';
+          button.style.bottom = '30px'; // Adjust as needed
+        }
+      });
+    });
+  } else {
+    console.log("No to-top buttons found.");
+  }
+});
 
 
 
 
 
+// Get the button
+let mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

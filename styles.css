@@ -335,6 +335,12 @@ body p.sub-heading {
 	padding-top: 10px;	
 }
 
+#cloud img:not(.share){
+	width: 350px;
+    height: 23px;
+	padding-top: 10px;	
+}
+
 #placeholder {
 	background-color: rgb(244, 241, 241);
 
@@ -420,7 +426,6 @@ body p.sub-heading {
 #expneses img {
   width: 350px; /* Set the desired width for the image */
   height: auto;
-  border-radius: 50px;
 }
 
 #dino img {
@@ -984,6 +989,21 @@ footer {
 	height: auto;
 }
 
+#expneses .icons {
+  width: 40px;
+  height: auto;
+}
+
+#barista .icons {
+  width: 40px;
+  height: auto;
+}
+
+#threads .icons {
+  width: 40px;
+  height: auto;
+}
+
 #amazon .icons {
 	width: 40px;
 	height: auto;
@@ -1026,6 +1046,17 @@ footer {
   margin-bottom: 100px;
   width: auto;
   border-radius: 50%;
+  object-fit: cover;
+  animation: fadeIn 3s ease-in-out forwards; /* Use 'forwards' to retain the final state */
+  opacity: 0;
+}
+
+.project-icon {
+  height: 400px;
+  margin-right: 50px;
+  margin-bottom: 100px;
+  width: auto;
+  border-radius: 20%;
   object-fit: cover;
   animation: fadeIn 3s ease-in-out forwards; /* Use 'forwards' to retain the final state */
   opacity: 0;
@@ -1428,14 +1459,33 @@ footer {
 	width: 28px;
 	position: absolute;
 	padding-top: 43px;
-	padding-left: 63px;
+	padding-left: 60px;
 	transition: transform 0.3s ease;
 	transform-origin: center center;
 }
 
+.material-icons.backButton {
+  font-size: xx-large;
+	position: absolute;
+	padding-top: 43px;
+	padding-left: 60px;
+  color: black;
+	transition: transform 0.3s ease;
+	transform-origin: center center;
+}
 
-.pageicon:hover {
-	transform: scale(1.3);
+.dark .material-icons.backButton {
+  color: white;
+}
+
+.dark .material-icons.backButton:hover {
+  transform: scale(1.2);
+  color: red;
+}
+
+.material-icons.backButton:hover {
+  transform: scale(1.2);
+  color: green;
 }
 
 .date {
@@ -1448,5 +1498,408 @@ footer {
 	font-size: 25px;
 }
 
+.popup {
+  align-items: center;
+  display: none; /* Hide the popup by default */
+  position: fixed; /* Position the popup centered */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: white; /* Popup background color */
+  padding: 20px; /* Popup padding */
+  border: 1px solid #ddd; /* Popup border */
+  z-index: 1; /* Popup on top of other content */
+  border-radius: 50px;
+}
+
+.dark .popup {
+  align-items: center;
+  display: none; /* Hide the popup by default */
+  position: fixed; /* Position the popup centered */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: rgb(57, 57, 57); /* Popup background color */
+  padding: 20px; /* Popup padding */
+  border: 1px solid rgb(57, 57, 57);; /* Popup border */
+  z-index: 1; /* Popup on top of other content */
+  border-radius: 50px;
+}
+
+.popup.show { /* Style the popup when it's displayed */
+  display: block;
+}
+
+#popup-trigger, #popup-trigger2, #popup-trigger3, #popup-trigger4 {
+  cursor: default;  /* Default cursor */
+  transition: all 0.2s ease-in-out;  /* Combined transition */
+  transform: scale(1);  /* Base state - no scaling */
+  cursor: pointer;
+}
+
+#popup-trigger:hover, #popup-trigger3:hover {
+  transform: scale(1.1);  /* Slightly scale up on hover */
+  text-decoration: underline;  /* Add underline on hover */
+}
+
+#popup-trigger2:hover, #popup-trigger4:hover {
+  transform: scale(1.05);  /* Slightly scale up on hover */
+  text-decoration: underline;  /* Add underline on hover */
+}
+
+.popup-overlay {
+  position: fixed;  /* Make it cover the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;  /* Span the entire width and height */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);  /* Semi-transparent background */
+  opacity: 0;  /* Hide it initially */
+  transition: opacity 0.3s ease-in-out;  /* Add smooth transition */
+  z-index: -1;  /* Place it behind the popup (adjust if needed) */
+  filter: blur(50px);
+}
+
+.dark .popup-overlay {
+  position: fixed;  /* Make it cover the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;  /* Span the entire width and height */
+  height: 100%;
+  background-color: rgb(255, 255, 255, 0.2);  /* Semi-transparent background */
+  opacity: 0;  /* Hide it initially */
+  transition: opacity 0.3s ease-in-out;  /* Add smooth transition */
+  z-index: -1;  /* Place it behind the popup (adjust if needed) */
+}
+
+.popup-overlay.active {
+  opacity: 1;  /* Make the overlay visible */
+  z-index: 1;
+}
+
+.popup-content h2 {
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+
+.dark .popup-content h2 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+
+.popup-content p {
+  font-size: large;
+  text-align: justify;
+  padding: 10px;
+  padding-bottom: 60px;
+}
+
+.dark .popup-content p {
+  color: white;
+  font-size: large;
+  text-align: justify;
+  padding: 10px;
+  padding-bottom: 60px;
+}
+
+.popup-content button {
+  background-color: transparent;
+  border: 0;
+  font-size: 30px;
+  width: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 0; /* Places the button at the top */
+  right: 0; /* Places the button at the right */
+  margin: 15px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.dark .popup-content button {
+  color: white;
+  background-color: transparent;
+  border: 0;
+  font-size: 30px;
+  width: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 0; /* Places the button at the top */
+  right: 0; /* Places the button at the right */
+  margin: 15px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.popup-content button:hover {
+  opacity: 0.7;
+  background-color: lightgray;
+}
+
+.dark .popup-content button:hover {
+  opacity: 0.7;
+  background-color: gray;
+}
+
+.to-top {
+  background-color: rgb(0, 150, 255);
+  position: fixed;
+  bottom: 30px; /* Adjust based on the JavaScript value */
+  right: 35px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  color: whitesmoke;
+  text-decoration: none;
+  opacity: 0; /* Start hidden */
+  pointer-events: none; /* Disable interaction */
+  transition: opacity 0.4s, bottom 0.4s; /* Smooth transitions for opacity and position */
+  z-index: 2;
+}
+
+.dark .to-top {
+  background-color: #DB4105;
+  color: white;
+}
+
+.dark .to-top:hover {
+  color: #46C1F6;
+}
 
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+.BackTop{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: rgba(218, 218, 218, 0.25);
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.dark .logos {
+  background: rgba(17, 17, 17, 0.25);
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), whitesmoke);
+}
+
+.dark .logos:before {
+  background: linear-gradient(to left, rgba(17, 17, 17, 0) 0%, rgba(60, 60, 60, 0.7) 100%);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), whitesmoke);
+}
+
+.dark .logos:after {
+  background: linear-gradient(to right, rgba(17, 17, 17, 0) 0%, rgba(60, 60, 60, 0.7) 100%);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.harvard {
+  margin: 0;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 35px;
+  margin: 0 40px;
+  object-fit: contain;
+  min-width: 100px;
+}
+
+.slider_title {
+  margin-left: 55px;
+  margin-bottom: 20px;
+  font-size: x-large;
+}
+
+.slider-wrapper {
+	position: relative;
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
+.dark .slider {
+  box-shadow: 0 1.5rem 8rem -0.75rem hsla(0, 0%, 100%, 0.5);
+}
+
+.slider {
+	display: flex;
+	aspect-ratio: 3 / 2;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+	border-radius: 0.5rem;
+	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+	scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider img {
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+	object-fit: cover;
+}
+
+.slider-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.slider-nav a {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #fff;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+	opacity: 1;
+}
+
+/* button */
+.btn {
+  margin-left: 525px;
+  margin-bottom: 100px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  font-size: medium;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.dark .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #f8b4b4, #f8d0b4, #f8f8b4, #b4f8b4,
+    #b4f8f3, #b4c1f8, #f8b4f3, #f8b4b4
+  );
+
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+  
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
+}
