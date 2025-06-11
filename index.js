@@ -5,7 +5,8 @@ const menu = document.querySelector('.menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     menu.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
+    // MODIFIED: Apply to the <html> tag to reliably prevent scrolling on mobile
+    document.documentElement.classList.toggle('menu-open');
 });
 
 // Close menu when clicking on a link
@@ -14,7 +15,8 @@ menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         menu.classList.remove('active');
-        document.body.classList.remove('menu-open');
+        // MODIFIED: Also remove from the <html> tag
+        document.documentElement.classList.remove('menu-open');
     });
 });
 
