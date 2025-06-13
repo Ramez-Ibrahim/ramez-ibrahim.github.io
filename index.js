@@ -36,17 +36,25 @@ menuLinks.forEach(link => {
 
 // Dark mode switch functionality
 const switchElements = document.querySelectorAll('.switch');
-const currentHour = new Date().getHours();
+const favicon = document.getElementById('favicon');
+const headerIcon = document.querySelector('.pageicon');
+
+const lightIconPath = 'images/favicon.png';
+const darkIconPath = 'images/lightmodeicon.png'; // Assumes you created this file
 
 // Function to set dark mode
 function setDarkMode() {
     document.body.classList.add('dark');
+    if (favicon) favicon.href = darkIconPath;
+    if (headerIcon) headerIcon.src = darkIconPath;
     localStorage.setItem('mode', 'dark');
 }
 
 // Function to set light mode
 function setLightMode() {
     document.body.classList.remove('dark');
+    if (favicon) favicon.href = lightIconPath;
+    if (headerIcon) headerIcon.src = lightIconPath;
     localStorage.setItem('mode', 'light');
 }
 
