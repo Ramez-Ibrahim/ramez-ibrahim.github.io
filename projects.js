@@ -1,122 +1,171 @@
-/* ---- Page-specific scripts for projects.html ---- */
+// Hamburger menu functionality
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
+// Robust scroll prevention for iOS Safari
+const preventScroll = (e) => {
+    e.preventDefault();
+};
+
+hamburger.addEventListener('click', () => {
+    const isActive = hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.documentElement.classList.toggle('menu-open', isActive);
+
+    if (isActive) {
+        // When menu is open, prevent scrolling via touch events
+        window.addEventListener('touchmove', preventScroll, { passive: false });
+    } else {
+        // When menu is closed, allow scrolling
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
+    }
+});
+
+// Close menu when clicking on a link
+const menuLinks = document.querySelectorAll('.menu-bar');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+        document.documentElement.classList.remove('menu-open');
+        // Also remove the scroll prevention when a link is clicked
+        window.removeEventListener('touchmove', preventScroll, { passive: false });
+    });
+});
 
 
-/**
- * -----------------------------------------------------------------------------
- * Footer Icon Redirects
- * These functions are in the global scope to be accessible by 'onclick' attributes
- * in the HTML.
- * -----------------------------------------------------------------------------
- */
+// Dark mode switch functionality
+const switchElements = document.querySelectorAll('.switch');
+const favicon = document.getElementById('favicon');
+const headerIcon = document.querySelector('.pageicon');
 
+const lightIconPath = 'images/favicon.png';
+const darkIconPath = 'images/lightmodeicon.png';
+
+// Function to set dark mode
+function setDarkMode() {
+    document.body.classList.add('dark');
+    if (favicon) favicon.href = darkIconPath;
+    if (headerIcon) headerIcon.src = darkIconPath;
+    localStorage.setItem('mode', 'dark');
+}
+
+// Function to set light mode
+function setLightMode() {
+    document.body.classList.remove('dark');
+    if (favicon) favicon.href = lightIconPath;
+    if (headerIcon) headerIcon.src = lightIconPath;
+    localStorage.setItem('mode', 'light');
+}
+
+// Toggle mode when switch is clicked
+switchElements.forEach(switchElement => {
+    switchElement.addEventListener('click', () => {
+        if (document.body.classList.contains('dark')) {
+            setLightMode();
+        } else {
+            setDarkMode();
+        }
+    });
+});
+
+// Check if user has a preference stored in local storage
+const currentMode = localStorage.getItem('mode');
+if (currentMode === 'dark') {
+    setDarkMode();
+} else if (currentMode === 'light') {
+    setLightMode();
+} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    setDarkMode();
+} else {
+    setLightMode(); // Default to light mode
+}
+
+// Social media redirect functions
 function redirectToLinkedIn() {
-  window.open('https://www.linkedin.com/in/ramez-ibrahim-4708721b4/', '_blank');
+    window.open('https://www.linkedin.com/in/ramez-ibrahim-4708721b4/', '_blank');
 }
 
 function redirectToMail() {
-  window.open('mailto:ramezamr2008@gmail.com', '_blank');
+    window.open('mailto:ramezamr2008@gmail.com', '_blank');
 }
 
 function redirectToInstgram() {
-  window.open('https://www.instagram.com/ramezibrahimm/', '_blank');
+    window.open('https://www.instagram.com/ramezibrahimm/', '_blank');
 }
 
 function redirectToX() {
-  window.open('https://x.com/ramezibrahimm', '_blank');
+    window.open('https://x.com/ramezibrahimm', '_blank');
 }
 
-// Corrected the GitHub username to be consistent with all project links on the page.
 function redirectToGitHub() {
-  window.open('https://github.com/Ramez08', '_blank');
+    window.open('https://github.com/Ramez-Ibrahim', '_blank');
 }
 
+// Preloader functionality
+var loader = document.getElementById("preloader");
+window.addEventListener("load", function() {
+    loader.style.display = "none";
+});
 
-/**
- * -----------------------------------------------------------------------------
- * DOM-dependent Scripts
- * This code runs after the HTML document has been fully loaded and parsed.
- * -----------------------------------------------------------------------------
- */
-document.addEventListener('DOMContentLoaded', () => {
+// Sticky navigation bar on scroll
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header-wrapper');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-  /* -------- Dark/Light Mode Toggle -------- */
-  const switchElement = document.querySelector('.switch');
 
-  const setDarkMode = () => {
-    document.body.classList.add('dark');
-    localStorage.setItem('mode', 'dark');
-  };
+// Back to top button functionality
+document.addEventListener("DOMContentLoaded", () => {
+    const toTopButton = document.querySelector(".to-top2");
 
-  const setLightMode = () => {
-    document.body.classList.remove('dark');
-    localStorage.setItem('mode', 'light');
-  };
+    if (toTopButton) {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 100) {
+                toTopButton.style.opacity = '1';
+                toTopButton.style.pointerEvents = 'auto';
+                toTopButton.style.bottom = '35px';
+            } else {
+                toTopButton.style.opacity = '0';
+                toTopButton.style.pointerEvents = 'none';
+                toTopButton.style.bottom = '30px';
+            }
+        });
+    }
 
-  // Add click listener to the theme switch
-  if (switchElement) {
-    switchElement.addEventListener('click', () => {
-      if (document.body.classList.contains('dark')) {
-        setLightMode();
-      } else {
-        setDarkMode();
-      }
+    // JS-DRIVEN TYPEWRITER EFFECT
+    const typewriterElement = document.querySelector('.typewrite');
+    if (typewriterElement) {
+        const textToType = typewriterElement.textContent;
+        const typingSpeed = 150;
+        let charIndex = 0;
+
+        typewriterElement.textContent = ''; // Clear initial content
+
+        function type() {
+            if (charIndex < textToType.length) {
+                typewriterElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                // Typing is finished, remove the cursor
+                typewriterElement.classList.add('typing-done');
+            }
+        }
+        setTimeout(type, 500); // Start typing after a short delay
+    }
+    
+    // Project square animations
+    const projectSquares = document.querySelectorAll('.sub-section .square');
+    projectSquares.forEach((square, index) => {
+        // Stagger the animation for each pair of squares
+        const delay = 500 + Math.floor(index / 2) * 200;
+        setTimeout(() => {
+            square.classList.add('show');
+        }, delay);
     });
-  }
-
-  // Set initial theme based on user's preference or system settings
-  const currentMode = localStorage.getItem('mode');
-  if (currentMode === 'dark') {
-    setDarkMode();
-  } else if (currentMode === 'light') {
-    setLightMode();
-  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    setDarkMode();
-  } else {
-    setLightMode(); // Default to light mode
-  }
-
-
-  /* -------- Project Square Fade-in Animation -------- */
-  // This function adds the 'show' class to a project square after a specified delay,
-  // triggering the CSS fade-in animation.
-  const showSquareWithDelay = (squareId, delay) => {
-    setTimeout(() => {
-      const square = document.getElementById(squareId);
-      if (square) {
-        square.classList.add("show");
-      }
-    }, delay);
-  };
-
-  // Stagger the appearance of the project squares
-  showSquareWithDelay("notes", 500);
-  showSquareWithDelay("amazon", 500);
-  showSquareWithDelay("calc", 700);
-  showSquareWithDelay("threads", 700);
-  showSquareWithDelay("expneses", 900);
-  showSquareWithDelay("dino", 900);
-  showSquareWithDelay("web", 1100);
-  showSquareWithDelay("todo", 1100);
-  showSquareWithDelay("elon", 1300);
-  showSquareWithDelay("barista", 1300);
-
-
-  /* -------- "Back to Top" Button -------- */
-  const toTopButton = document.querySelector(".to-top");
-
-  if (toTopButton) {
-    window.addEventListener("scroll", () => {
-      // Show the button after the user has scrolled down 100 pixels
-      if (window.pageYOffset > 100) {
-        toTopButton.style.opacity = '1';
-        toTopButton.style.pointerEvents = 'auto';
-        toTopButton.style.bottom = '35px';
-      } else {
-        toTopButton.style.opacity = '0';
-        toTopButton.style.pointerEvents = 'none';
-        toTopButton.style.bottom = '30px';
-      }
-    });
-  }
-
 });

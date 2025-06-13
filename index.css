@@ -536,6 +536,9 @@ html { scroll-behavior: smooth; }
     .dark .menu { background-color: rgb(57, 57, 57); }
     .menu.active { left: 0; }
     .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; }
+    .menu-bar:hover::after {
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 576px) {
     .header-controls { gap: 15px; }

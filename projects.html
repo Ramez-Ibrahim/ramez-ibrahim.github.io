@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8" />
-    <title>Code Cave | Ramez Ibrahim</title>
-    <link rel="stylesheet" href="projects.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-  </head>
+    <title>Code Cave | Ramez Ibrahim</title>
+    <link id="favicon" rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <div id="preloader"></div>
 
-  <body>
+    <header class="header-wrapper">
+        <a href="index.html" class="header-brand">
+            <img src="images/favicon.png" class="pageicon">
+            <span class="header-title">Code Cave | Ramez Ibrahim</span>
+        </a>
 
-    <img src="images/favicon.png" class="pageicon">
+        <div class="menu">
+            <a href="index.html" class="menu-bar">Home</a>
+            <a href="projects.html" class="menu-bar"><span class="idu">Projects</span></a>
+            <a href="certifications.html" class="menu-bar">Certifications</a>
+            <a href="aboutme.html" class="menu-bar">About Me</a>
+        </div>
 
-    <header>
-	    <div class="menu">
-   		  <a href="index.html" class="menu-bar">Home</a>
-		    <a href="projects.html" class="menu-bar"><span class="idu">Projects</span></a>
-		    <a href="certifications.html" class="menu-bar">Certifications</a>
-		    <a href="aboutme.html" class="menu-bar">About Me</a>
-	    </div>
-  	  <div class="switch">
-    		<div class="moon"></div>
-    		<div class="flicker"></div>
-		    <img src="images/brightness.png" class="sun">
-  	  </div>
+        <div class="header-controls">
+            <div class="switch">
+                <div class="moon"></div>
+                <div class="flicker"></div>
+                <img src="images/brightness.png" class="sun">
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </header>
 
     <section class="main">
@@ -33,192 +43,177 @@
         <h1 class="typewrite">Projects</h1>
         <p>Welcome to my Projects!</p>
         <br/>
-        <p>Explore a collection of my diverse and innovative coding projects, showcasing my passion for problem-solving and creativity through code</p>
+        <p>Explore a collection of my diverse and innovative coding projects, showcasing my passion for problem-solving and creativity through code.</p>
         <br/>
         <a href="#footer" class="links">Contact Me ></a>
       </div>
 
       <div class="hero-image">
-        <div class="cube" id="cplus"></div>
-        <div class="cube" id="typescript"></div>
-        <div class="cube" id="chash"></div>
-        <div class="cube" id="swift"></div>
+          <div class="cube" id="cplus"><div class="tech-logo"></div></div>
+          <div class="cube" id="typescript"><div class="tech-logo"></div></div>
+          <div class="cube" id="chash"><div class="tech-logo"></div></div>
+          <div class="cube" id="swift"><div class="tech-logo"></div></div>
       </div>
-
     </section>
+    
+    <a href="#" class="to-top2">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
 
     <section class="sub-section">
       <div class="square" id="notes">
         <h2>Note Taking App</h2>
         <p>Synced Notes, Sleek Interface, Powerful Organization</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Note-Taking-App" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <img src="images/notes.png" alt="Note Taking App Logo">
+	    <img src="images/notes.png" alt="Note Taking App Logo">
       </div>
 
       <div class="square" id="amazon">
         <h2>Rock Paper Scissors</h2>
         <p>Paper Giant With My Space Twist</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Rock-Paper-Scissors" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/rockpaperscissors.png" alt="Rock Paper Scissors Icon">
+	    <img src="images/rockpaperscissors.png" alt="Rock Paper Scissors Icon">
       </div>
 
       <div class="square" id="calc">
         <h2>Calculator</h2>
         <p>Transforms Numbers Into Answers</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Calculator" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/calculator.png" alt="Calculator Icon">
+	    <img src="images/calculator.png" alt="Calculator Icon">
       </div>
 
       <div class="square" id="threads">
         <h2>Snake Game</h2>
         <p>Slithering Fun, Grow, Conquer, Don't Crash</p>
-        <img src="images/python-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+            <img src="images/python-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Snake-Game/" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/snake.png" alt="Snake Icon">
+	    <img src="images/snake.png" alt="Snake Icon">
       </div>
 
       <div class="square" id="expneses">
         <h2>Finance App</h2>
         <p>Monitor stock prices and market trends</p>
-        <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <img src="images/python-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+            <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+            <img src="images/python-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Finance-App/" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/stocks.png" alt="Expense Tracker Icon">
+	    <img src="images/stocks.png" alt="Expense Tracker Icon">
       </div>
 
       <div class="square" id="dino">
         <h2>Dino Game</h2>
         <p>Pixel Escape, Jump, Dodge, Endless Joy.</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Dino-Game" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/dino.png" alt="Google Dino">
+	    <img src="images/dino.png" alt="Google Dino">
       </div>
 
       <div class="square" id="web">
         <h2>Web Scraper</h2>
         <p>Automated Data Voyager, Finding Web's Hidden Gems</p>
-	      <img src="images/js-logo.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Web-Scraper" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/webscraper.png" alt="Web Scraper Icon">
+	    <img src="images/webscraper.png" alt="Web Scraper Icon">
       </div>
 
       <div class="square" id="todo">
         <h2>ToDo List App</h2>
         <p>Life's Guide, Tasks Tamed, Productivity Unleashed</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Todo-App" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/todo.png" alt="Todo App Icon">
+	    <img src="images/todo.png" alt="Todo App Icon">
       </div>
 
       <div class="square" id="elon">
         <h2>Elon Musk Site</h2>
         <p>Unraveling Elon Musk: Portfolio Biography Site</p>
-	      <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-	      <br/>
+        <div class="tech-stack-icons">
+	        <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/ramez08.github.io" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/elon.png" alt="Amazon Logo">
+	    <img src="images/elon.png" alt="Elon Musk Site Screenshot">
       </div>
 
       <div class="square" id="barista">
         <h2>Weather App</h2>
         <p>Get real-time weather updates and forecasts</p>
-        <img src="images/js-logo.png" class="icons">
-	      <img src="images/html-icon.png" class="icons">
-	      <img src="images/css-icon.png" class="icons">
-        <br/>
+        <div class="tech-stack-icons">
+            <img src="images/js-logo.png" class="icons">
+	        <img src="images/html-icon.png" class="icons">
+	        <img src="images/css-icon.png" class="icons">
+        </div>
         <a href="https://github.com/Ramez08/Weather-App/" target="_blank" class="links">Check It Out ></a>
-	      <br/>
-	      <br/>
-	      <img src="images/weather.png" alt="Robot Barista Icon">
+	    <img src="images/weather.png" alt="Weather App Screenshot">
       </div>
     </section>
 
-    <a href="#" class="to-top">
-      <p>h</p>
-    </a>
-
     <footer id="footer">
       <div class="wrapper">
-        <div class="icon envelope" onclick="redirectToMail()">
-    		  <div class="tooltip">
-        	  Email
-    		  </div>
-    		  <span><i class="far fa-envelope"></i></span>
-	      </div>
-        
-  	    <div class="icon twitter" onclick="redirectToX()">
-  		    <div class="tooltip">
-    			  X.com
-  		    </div>
-  		    <span><i class="fa-brands fa-x-twitter"></i></span>
-	      </div>
-        
-        <div class="icon instagram" onclick="redirectToInstgram()">
-          <div class="tooltip">
-            Instagram
-          </div>
-          <span><i class="fab fa-instagram"></i></span>
-        </div>
-
-        <div class="icon github" onclick="redirectToGitHub()">
-          <div class="tooltip">
-            Github
-          </div>
+         <div class="icon envelope" onclick="redirectToMail()">
+    		<div class="tooltip">
+        		Email
+    		</div>
+    		<span><i class="far fa-envelope"></i></span>
+	 </div>
+  	 <div class="icon twitter" onclick="redirectToX()">
+  		<div class="tooltip">
+    			X.com
+  		</div>
+  		<span><i class="fa-brands fa-x-twitter"></i></span>
+	 </div>
+         <div class="icon instagram" onclick="redirectToInstgram()">
+            <div class="tooltip">
+               Instagram
+            </div>
+            <span><i class="fab fa-instagram"></i></span>
+         </div>
+         <div class="icon github" onclick="redirectToGitHub()">
+            <div class="tooltip">
+               Github
+            </div>
             <span><i class="fab fa-github"></i></span>
-        </div>
-
-        <div class="icon linkedin" onclick="redirectToLinkedIn()">
-    		  <div class="tooltip">
+         </div>
+         <div class="icon linkedin" onclick="redirectToLinkedIn()">
+    		<div class="tooltip">
         		LinkedIn
-    		  </div>
-   	      <span><i class="fab fa-linkedin-in"></i></span>
-	      </div>
+    		</div>
+   	 <span><i class="fab fa-linkedin-in"></i></span>
+	</div>
       </div>
     </footer>
-    
-    <script src="projects.js"></script>
 
-  </body>
+    <script src="projects.js"></script>
+</body>
 </html>
