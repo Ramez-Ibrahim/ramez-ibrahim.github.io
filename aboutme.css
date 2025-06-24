@@ -610,8 +610,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   }
   .dark .menu { background-color: rgb(57, 57, 57); }
   .menu.active { left: 0; }
-  .nav.menu { display: none; }
-  .menu.active { display: flex; }
+  /* REMOVED .nav.menu and .menu.active { display: flex } rules */
   .menu-bar { margin: 16px 0; font-size: 24px; }
   .menu-bar:hover::after { width: 100%; }
   .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
