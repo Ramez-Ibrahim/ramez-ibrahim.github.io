@@ -3,142 +3,164 @@
 <head>
   <meta charset="utf-8" />
   <title>Code Cave | Ramez Ibrahim</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="aboutme.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link id="favicon" rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
 <body>
-  <img src="images/favicon.png" class="pageicon">
-  <header>
-    <div class="menu">
-      <a href="index.html" class="menu-bar">Home</a>
-      <a href="projects.html" class="menu-bar">Projects</a>
-      <a href="certifications.html" class="menu-bar">Certifications</a>
-      <a href="aboutme.html" class="menu-bar"><span class="idu">About Me</span></a>
+  <div id="preloader"></div>
+
+  <header class="header-wrapper">
+    <div class="header-left">
+      <a href="index.html" class="header-brand">
+          <img src="images/favicon.png" class="pageicon">
+          <span class="header-title">Code Cave | Ramez Ibrahim</span>
+      </a>
+      <nav class="menu">
+          <a href="index.html" class="menu-bar">Home</a>
+          <a href="projects.html" class="menu-bar">Projects</a>
+          <a href="certifications.html" class="menu-bar">Certifications</a>
+          <a href="aboutme.html" class="menu-bar"><span class="idu">About Me</span></a>
+      </nav>
     </div>
-    <div class="switch">
-      <div class="moon"></div>
-      <div class="flicker"></div>
-      <img src="images/brightness.png" class="sun">
+
+    <div class="header-controls">
+        <div class="switch">
+            <div class="moon"></div>
+            <div class="flicker"></div>
+            <img src="images/brightness.png" class="sun">
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </div>
   </header>
 
-  <a href="#" class="to-top">
+  <a href="#" class="to-top2">
     <i class="fa-solid fa-angles-up"></i>
   </a>
 
-  <section class="main">
-    <div class="main-text">
-      <h1 class="typewrite">About Me</h1>
-      <p>Welcome to my Projects!</p>
-      <br/>
-      <p>Explore a collection of my diverse and innovative coding projects, showcasing my passion for problem-solving and creativity through code</p>
-      <br/>
-      <a href="#footer" class="links">Contact Me ></a>
-    </div>
-    <img src="images/pfp-test.jpg" class="pfp">
-  </section>
-
-  <p class="sub-heading">Intro</p>
-  <p class="sub-heading">How & Why I got into Tech</p>
-  <p class="sub-heading">Tech Mentors</p>
-
-  <section>
-    <div class="carousel-container">
-      <section aria-label="Newest Photos">
-        <div class="carousel" data-carousel>
-          <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
-          <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
-          <ul data-slides>
-            <li class="slide" data-active>
-              <a href="https://www.youtube.com/@mkbhd" target="_blank">
-      			<img src="images/mkbhd.png" alt="MKBHD Logo">
-    		</a>
-            </li>
-            <li class="slide">
-              <a href="https://www.youtube.com/@LinusTechTips" target="_blank">
-      			<img src="images/ltt.png" alt="LTT Logo">
-    		</a>
-            </li>
-            <li class="slide">
-    		<a href="https://www.youtube.com/@Mrwhosetheboss" target="_blank">
-      			<img src="images/mrwhoestheboss.png" alt="Mrwhosetheboss Logo">
-    		</a>
- 	    </li>
-            <li class="slide">
-    		<a href="https://www.youtube.com/@NetworkChuck" target="_blank">
-      			<img src="images/networkchuck.png" alt="Network Chuck Logo">
-    		</a>
- 	    </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <p class="sub-heading">Other Hobbies & Intrests</p>
-  <p class="sub-heading">Open Source Cotributions</p>
-  <p class="sub-heading">Resume</p>
-  <div class="container-fluid">
-	<div class="row">
-		<div id="ms-container">
-			<label for="ms-download">
-				<div class="ms-content">
-					<div class="ms-content-inside">
-						<input type="checkbox" id="ms-download" />
-						<div class="ms-line-down-container">
-							<div class="ms-line-down"></div>
-						</div>
-						<div class="ms-line-point"></div>
-					</div>
-				</div>
-			</label>
-		</div>
-	</div>
-  </div>
-  <div class="text-box">
-    <a href="https://drive.google.com/file/d/1hBqL_eIPVukocVafp6UnOcir3OHmqqEa/view?usp=sharing" class="btn btn-white btn-animate" target="_blank">Preview</a>
-  </div>
-  <p class="sub-heading">Contact Me</p>
-
-  <div class="wrapper">
-         <div class="icon envelope" onclick="redirectToMail()">
-    		<div class="tooltip">
-        		Email
-    		</div>
-    		<span><i class="far fa-envelope"></i></span>
-	 </div>
-  	 <div class="icon twitter" onclick="redirectToX()">
-  		<div class="tooltip">
-    			X.com
-  		</div>
-  		<span><i class="fa-brands fa-x-twitter"></i></span>
-	 </div>
-         <div class="icon instagram" onclick="redirectToInstgram()">
-            <div class="tooltip">
-               Instagram
-            </div>
-            <span><i class="fab fa-instagram"></i></span>
-         </div>
-         <div class="icon github" onclick="redirectToGitHub()">
-            <div class="tooltip">
-               Github
-            </div>
-            <span><i class="fab fa-github"></i></span>
-         </div>
-         <div class="icon linkedin" onclick="redirectToLinkedIn()">
-    		<div class="tooltip">
-        		LinkedIn
-    		</div>
-   	 <span><i class="fab fa-linkedin-in"></i></span>
-	</div>
+  <main>
+    <section class="main">
+      <div class="main-text">
+        <h1 class="typewrite">About Me</h1>
+        <p>Learn who is Ramez Ibrahim</p>
+        <br/>
+        <p>Explore a collection of my diverse and innovative coding projects, showcasing my passion for problem-solving and creativity through code.</p>
+        <br/>
+        <a href="#footer" class="links">Contact Me ></a>
       </div>
-  </div>
-  <footer id="about-footer">
-    <a href="https://github.com/kubowania/light-dark-mode-portfolio" target="_blank" class="credit"> This Site Was Based On This GitHub Project By: Ania Kubow </a>
+      <div class="pfp-container">
+        <img src="images/pfp.jpg" class="pfp" alt="A photo of Ramez Ibrahim">
+      </div>
+    </section>
+
+    <h2>How & Why I got into Tech</h2>
+    <h2>Initial Motivators</h2>
+
+    <section class="mentors-grid">
+      <a href="https://www.youtube.com/@mkbhd" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="mkbhd">
+        <img src="images/mkbhd.png" alt="MKBHD Logo">
+        <span class="mentor-name">Marques Brownlee</span>
+      </a>
+      <a href="https://www.youtube.com/@LinusTechTips" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="LinusTechTips">
+        <img src="images/ltt.png" alt="Linus Tech Tips Logo">
+        <span class="mentor-name">Linus Tech Tips</span>
+      </a>
+      <a href="https://www.youtube.com/@Mrwhosetheboss" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="Mrwhosetheboss">
+        <img src="images/mrwhoestheboss.png" alt="Mrwhosetheboss Logo">
+        <span class="mentor-name">Mrwhosetheboss</span>
+      </a>
+      <a href="https://www.youtube.com/@NetworkChuck" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="NetworkChuck">
+        <img src="images/networkchuck.png" alt="Network Chuck Logo">
+        <span class="mentor-name">NetworkChuck</span>
+      </a>
+      <a href="https://www.youtube.com/@Fireship" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="Fireship">
+        <img src="images/fireship.png" alt="Fireship Logo">
+        <span class="mentor-name">Fireship</span>
+      </a>
+      <a href="https://www.youtube.com/@austinevans" target="_blank" rel="noopener noreferrer" class="mentor-card" data-yt-username="austinevans">
+        <img src="images/austinevans.png" alt="Austin Evans Logo">
+        <span class="mentor-name">Austin Evans</span>
+      </a>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- START: Redesigned Resume & Contributions Area -->
+    <!-- ============================================= -->
+    <section class="career-section">
+      <h2>My Resume & Contributions</h2>
+      <div class="career-card">
+        
+        <div class="resume-info">
+          <h3>My Resume</h3>
+          <p>A detailed look at my skills, experience, and projects. View it online or download a PDF for your convenience.</p>
+          <div class="button-group">
+            <a href="https://drive.google.com/file/d/1hBqL_eIPVukocVafp6UnOcir3OHmqqEa/view?usp=sharing" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-eye"></i> Preview Online
+            </a>
+            <a href="https://drive.google.com/uc?export=download&id=1hBqL_eIPVukocVafp6UnOcir3OHmqqEa" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="github-info">
+          <h3>My GitHub Activity</h3>
+          <p>A snapshot of the languages I use most frequently in my public repositories on GitHub.</p>
+          
+          <!-- GitHub Language Stats Card Section -->
+          <div class="github-stats-container">
+            <!-- Light Mode Image -->
+            <img id="github-stats-light" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ramez-Ibrahim&layout=compact&hide_border=true&bg_color=00000000&title_color=393939&icon_color=0077ff&text_color=393939&langs_count=8" alt="Ramez Ibrahim's Most Used Languages on GitHub - Light Mode">
+            <!-- Dark Mode Image -->
+            <img id="github-stats-dark" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ramez-Ibrahim&layout=compact&hide_border=true&bg_color=00000000&title_color=ffffff&icon_color=69e5eb&text_color=ffffff&langs_count=8" alt="Ramez Ibrahim's Most Used Languages on GitHub - Dark Mode">
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- =========================================== -->
+    <!-- END: Redesigned Resume & Contributions Area -->
+    <!-- =========================================== -->
+
+    <h2>Other Hobbies & Intrests</h2>
+    <h2>What Am I Up To Now?</h2>
+
+  </main>
+
+  <footer id="footer">
+    <div class="wrapper">
+      <a href="mailto:ramezamr2008@gmail.com" class="icon envelope" aria-label="Email">
+        <div class="tooltip">Email</div>
+        <span><i class="far fa-envelope"></i></span>
+      </a>
+      <a href="https://x.com/ramezibrahimm" target="_blank" rel="noopener noreferrer" class="icon twitter" aria-label="X.com / Twitter">
+        <div class="tooltip">X.com</div>
+        <span><i class="fa-brands fa-x-twitter"></i></span>
+      </a>
+      <a href="https://www.instagram.com/ramezibrahimm/" target="_blank" rel="noopener noreferrer" class="icon instagram" aria-label="Instagram">
+        <div class="tooltip">Instagram</div>
+        <span><i class="fab fa-instagram"></i></span>
+      </a>
+      <a href="https://github.com/Ramez-Ibrahim" target="_blank" rel="noopener noreferrer" class="icon github" aria-label="Github">
+        <div class="tooltip">Github</div>
+        <span><i class="fab fa-github"></i></span>
+      </a>
+      <a href="https://www.linkedin.com/in/ramez-ibrahim-4708721b4/" target="_blank" rel="noopener noreferrer" class="icon linkedin" aria-label="LinkedIn">
+        <div class="tooltip">LinkedIn</div>
+        <span><i class="fab fa-linkedin-in"></i></span>
+      </a>
+    </div>
+    <div class="credit">
+      <p>Coded Line by Line — Ramez Ibrahim <a href="https://github.com/Ramez-Ibrahim" target="_blank" rel="noopener noreferrer"></a></p>
+    </div>
   </footer>
 
-  <script src="scripts.js"></script>
+  <script src="aboutme.js"></script>
 </body>
 </html>
