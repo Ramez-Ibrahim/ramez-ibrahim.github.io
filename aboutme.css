@@ -258,9 +258,9 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  width: 90%;
+  width: 100%;
   max-width: 1000px; /* MODIFIED: This limits the grid to a max of 3 columns */
-  margin: 0 auto 40px auto;
+  margin: 0 auto 10px auto;
   padding: 20px;
 }
 
@@ -590,7 +590,6 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 }
 
 @media only screen and (max-width: 768px) {
-  .header-left { gap: 15px; }
   .main-text { width: 100%; }
   .pfp-container { height: 300px; width: 300px; }
   .header-wrapper { padding: 15px; }
@@ -637,7 +636,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .wrapper a.icon { margin: 0 10px; }
   .wrapper a.icon span { height: 50px; width: 50px; }
   .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
-  .mentors-grid { width: 100%; padding: 10px; gap: 15px;}
+  .mentors-grid { width: 100%; padding: 5px; gap: 15px;}
   .career-section { padding: 10px; }
   .career-card { padding: 20px; }
 }
