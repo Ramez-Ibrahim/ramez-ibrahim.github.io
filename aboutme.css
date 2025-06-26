@@ -1,3 +1,4 @@
+
 /* Google Font import for Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
@@ -584,6 +585,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .career-card { padding: 30px; }
 }
 
+
 @media only screen and (max-width: 768px) {
   .main-text { width: 100%; }
   .pfp-container { height: 300px; width: 300px; }
@@ -616,9 +618,11 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
   .to-top2:hover { background: rgba(255, 255, 255, 0.8); }
   .dark .to-top2 { background: rgba(71, 71, 71, 0.5); }
-  .dark .to-top2:hover { background: rgba(71, 71, 71, 0.7); }
+  .dark .to-top2:hover { background: rgba(71, 71, 0.7); }
   .career-card h3 { font-size: 24px; }
   .career-card p { font-size: 15px; }
+  .career-card { padding: 20px; }
+  
 }
 
 @media only screen and (max-width: 576px) {
@@ -637,11 +641,22 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .career-card { padding: 20px; }
 }
 
-@media only screen and (max-width: 400px) {
+/* === MODIFIED SECTION FOR SMALL VIEWPORTS === */
+@media only screen and (max-width: 420px) { /* MODIFIED: Increased breakpoint to cover 402px */
   .header-controls { gap: 10px; }
+  .career-section { padding: 0px; }
+  .career-card { padding: 20px 15px; margin-left: 10px; } 
   .header-title { display: none; }
   .wrapper a.icon { margin: 0 5px; }
   .wrapper a.icon span { height: 40px; width: 40px; }
   .wrapper a.icon span i { line-height: 40px; font-size: 18px; }
   #footer .wrapper { padding: 15px 15px; }
+
+  /* ADDED: Adjustments for mentor cards on very small screens */
+  .mentors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .mentor-card {
+    padding: 20px;
+  }
 }
