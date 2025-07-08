@@ -363,37 +363,18 @@ body p.sub-heading {
 .dark .to-top2 { background: rgba(71, 71, 71, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); color: whitesmoke; }
 .dark .to-top2:hover { transform: translateY(-5px); box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3); background: rgba(71, 71, 71, 0.5); }
 
-/* MODIFIED: Footer & Socials section */
+/* --- MODIFIED: Footer & Socials Section --- */
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 15px 20px;
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; padding: 40px 15px 20px;
   background-color: transparent;
 }
-.dark footer {
-  background-color: transparent;
-}
-
-html::-webkit-scrollbar { width: 0.5vw; }
-html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radius: 100px; }
-.dark::-webkit-scrollbar-thumb { background-color: #555; border-radius: 100px; }
-html { scroll-behavior: smooth; }
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
 #footer .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 30px;
-  margin-bottom: 20px;
+  display: flex; justify-content: center; align-items: center;
+  padding: 20px 30px; margin-bottom: 20px;
   transition: background 0.3s, border 0.3s, padding 0.3s;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
@@ -402,21 +383,52 @@ html { scroll-behavior: smooth; }
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
-.wrapper .icon { margin: 0 20px; text-align: center; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative; z-index: 2; transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); text-decoration: none; }
-.wrapper .icon span { display: block; height: 60px; width: 60px; background: #fff; border-radius: 50%; position: relative; z-index: 2; box-shadow: 0px 10px 10px rgba(0,0,0,0.1); transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-.wrapper .icon span i { line-height: 60px; font-size: 25px; color: #333;}
-.wrapper .icon .tooltip { position: absolute; top: 0; z-index: 1; background: #fff; color: #fff; padding: 10px 18px; font-size: 20px; font-weight: 500; border-radius: 25px; opacity: 0; pointer-events: none; box-shadow: 0px 10px 10px rgba(0,0,0,0.1); transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-.wrapper .icon:hover .tooltip { top: -70px; opacity: 1; pointer-events: auto; }
-.icon .tooltip:before { position: absolute; content: ""; height: 15px; width: 15px; background: #fff; left: 50%; bottom: -6px; transform: translateX(-50%) rotate(45deg); transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-.wrapper .icon:hover span i { color: white; } /* MODIFIED: Correctly targets the icon on hover */
-.wrapper .icon:hover span, .wrapper .icon:hover .tooltip { text-shadow: 0px -1px 0px rgba(0,0,0,0.4); }
+.wrapper a.icon {
+  margin: 0 20px; text-align: center; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; flex-direction: column;
+  position: relative; z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-decoration: none;
+}
+.wrapper a.icon span {
+  display: block; height: 60px; width: 60px; background: #fff;
+  border-radius: 50%; position: relative; z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper a.icon span i { line-height: 60px; font-size: 25px; color: #333; }
+.wrapper a.icon .tooltip {
+  position: absolute; top: 0; z-index: 1; background: #fff; color: #fff;
+  padding: 10px 18px; font-size: 20px; font-weight: 500; border-radius: 25px;
+  opacity: 0; pointer-events: none; box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper a.icon:hover .tooltip { top: -70px; opacity: 1; pointer-events: auto; }
+.icon .tooltip:before {
+  position: absolute; content: ""; height: 15px; width: 15px;
+  background: #fff; left: 50%; bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper a.icon:hover span i { color: white; }
+.wrapper a.icon:hover span, .wrapper a.icon:hover .tooltip { text-shadow: 0px -1px 0px rgba(0,0,0,0.4); }
 .wrapper .linkedin:hover span, .wrapper .linkedin:hover .tooltip, .wrapper .linkedin:hover .tooltip:before { background: #0072b1; }
 .wrapper .twitter:hover span, .wrapper .twitter:hover .tooltip, .wrapper .twitter:hover .tooltip:before { background: #46C1F6; }
 .wrapper .instagram:hover span, .wrapper .instagram:hover .tooltip, .wrapper .instagram:hover .tooltip:before { background: #e1306c; }
 .wrapper .github:hover span, .wrapper .github:hover .tooltip, .wrapper .github:hover .tooltip:before { background: #333; }
 .wrapper .envelope:hover span, .wrapper .envelope:hover .tooltip, .wrapper .envelope:hover .tooltip:before { background: #DE463B; }
-.dark .wrapper .icon span i { color: black; }
-.dark .wrapper .icon:hover span i { color: white; }
+.dark .wrapper a.icon span i { color: black; }
+.dark .wrapper a.icon:hover span i { color: white; }
+
+.credit { font-size: 12px; text-align: center; }
+.credit a { color: rgb(57, 57, 57); text-decoration: none; font-weight: 500; }
+.dark .credit a { color: white; }
+/* ------------------------------------------- */
+
+html::-webkit-scrollbar { width: 0.5vw; }
+html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radius: 100px; }
+.dark::-webkit-scrollbar-thumb { background-color: #555; border-radius: 100px; }
+html { scroll-behavior: smooth; }
 
 /* Responsive design */
 @media only screen and (min-width: 970px) {
@@ -438,6 +450,8 @@ html { scroll-behavior: smooth; }
   .hero-image {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 15px; height: auto; margin-bottom: 40px; position: static;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 
   .cube {
@@ -492,6 +506,10 @@ html { scroll-behavior: smooth; }
   .hero-image { width: 100%; margin-bottom: 50px; }
   .menu { padding-right: 150px; }
   body p.sub-heading { font-size: 36px; padding: 15px; }
+  .sub-section {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
 }
 @media only screen and (max-width: 768px) {
     .main-text { width: 100%; }
@@ -499,23 +517,24 @@ html { scroll-behavior: smooth; }
     .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
     .to-top2:hover { background: rgba(255, 255, 255, 0.8); }
     .dark .to-top2 { background: rgba(71, 71, 71, 0.5); }
-    .dark .to-top2:hover { background: rgba(71, 71, 71, 0.7); }
+    .dark .to-top2:hover { background: rgba(71, 71, 0.7); }
 }
 @media only screen and (max-width: 576px) {
   h1 { font-size: 36px; line-height: 40px; }
   p { font-size: 16px; }
   .links { font-size: 16px; }
-  .wrapper .icon { margin: 0 10px; }
-  .wrapper .icon span { height: 50px; width: 50px; }
-  .wrapper .icon span i { line-height: 50px; font-size: 20px; }
+  .wrapper a.icon { margin: 0 10px; }
+  .wrapper a.icon span { height: 50px; width: 50px; }
+  .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
   .square img { width: 200px !important; }
 }
-@media only screen and (max-width: 400px) {
-  .menu-bar { font-size: 14px; padding-right: 10px; }
-  .wrapper .icon { margin: 0 5px; }
-  .wrapper .icon span { height: 40px; width: 40px; }
-  .wrapper .icon span i { line-height: 40px; font-size: 18px; }
-  #footer .wrapper { padding: 15px 15px; }
+@media only screen and (max-width: 420px) {
+  .header-controls { gap: 10px; }
+  .header-title { display: none; }
+  .wrapper a.icon { margin: 0 8px; }
+  .wrapper a.icon span { height: 45px; width: 45px; }
+  .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
+  #footer .wrapper { padding: 15px 20px; }
 }
 
 /* Header styles */
@@ -587,16 +606,3 @@ html.menu-open {
   background-color: rgba(57, 57, 57, 0.85);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
-
-.credit { font-size: 12px; text-align: center; }
-.credit a { color: rgb(57, 57, 57); text-decoration: none; font-weight: 500; }
-.dark .credit a { color: white; }
-
-@media only screen and (max-width: 420px) { /* MODIFIED: Increased breakpoint to cover 402px */
-  .header-controls { gap: 10px; }
-  .header-title { display: none; }
-  .wrapper a.icon { margin: 0 5px; }
-  .wrapper a.icon span { height: 40px; width: 40px; }
-  .wrapper a.icon span i { line-height: 40px; font-size: 18px; }
-  #footer .wrapper { padding: 15px 15px; }
-} 

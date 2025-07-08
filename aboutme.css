@@ -1,4 +1,3 @@
-
 /* Google Font import for Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
@@ -575,7 +574,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 @media only screen and (max-width: 992px) {
   h2 { font-size: 36px; padding: 15px; }
   h1 { font-size: 50px; line-height: 50px; }
-  .main { flex-direction: column; height: auto; padding: 150px 20px 20px 20px; }
+  .main { flex-direction: column; height: auto; padding: 110px 20px 20px 20px; } /* MODIFIED: Reduced top padding from 150px to 110px */
   .main-text {
     width: 100% !important;
     margin-bottom: 40px;
@@ -636,21 +635,21 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .wrapper a.icon { margin: 0 10px; }
   .wrapper a.icon span { height: 50px; width: 50px; }
   .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
-  .mentors-grid { width: 100%; padding: 5px; gap: 15px;}
+  .mentors-grid { width: 100%; padding: 15px; gap: 15px; box-sizing: border-box;}
   .career-section { padding: 10px; }
   .career-card { padding: 20px; }
 }
 
 /* === MODIFIED SECTION FOR SMALL VIEWPORTS === */
-@media only screen and (max-width: 420px) { /* MODIFIED: Increased breakpoint to cover 402px */
+@media only screen and (max-width: 420px) {
   .header-controls { gap: 10px; }
-  .career-section { padding: 0px; }
-  .career-card { padding: 20px 15px; margin-left: 10px; } 
+  .career-section { padding: 0 15px; }
+  .career-card { padding: 20px 15px; margin-left: 0; }
   .header-title { display: none; }
-  .wrapper a.icon { margin: 0 5px; }
-  .wrapper a.icon span { height: 40px; width: 40px; }
-  .wrapper a.icon span i { line-height: 40px; font-size: 18px; }
-  #footer .wrapper { padding: 15px 15px; }
+  .wrapper a.icon { margin: 0 8px; }
+  .wrapper a.icon span { height: 45px; width: 45px; }
+  .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
+  #footer .wrapper { padding: 15px 20px; }
 
   /* ADDED: Adjustments for mentor cards on very small screens */
   .mentors-grid {
