@@ -82,10 +82,7 @@ p {
   display: flex; align-items: center; gap: 12px; text-decoration: none;
 }
 .pageicon { margin-left: 28px; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; }
-.header-title {
-  display: none; font-family: 'Poppins', sans-serif; font-weight: 500;
-  color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease;
-}
+.header-title { display: none; font-family: 'Poppins', sans-serif; font-weight: 500; color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease; }
 .dark .header-title { color: white; }
 
 .menu {
@@ -569,8 +566,6 @@ html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radi
 .dark::-webkit-scrollbar-thumb { background-color: #555; border-radius: 100px; }
 html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 
-
-/* --- Media Queries for Responsiveness --- */
 @media only screen and (max-width: 992px) {
   h2 { font-size: 36px; padding: 15px; }
   h1 { font-size: 50px; line-height: 50px; }
@@ -589,6 +584,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .main-text { width: 100%; }
   .pfp-container { height: 300px; width: 300px; }
   .header-wrapper { padding: 15px; }
+  /* MODIFIED: Removed display:block since it's now the default */
   .header-title { display: block; font-size: 16px; overflow: hidden; text-overflow: ellipsis; }
   .header-brand { margin-right: 10px; }
   .pageicon { margin: 0 !important; width: 36px; height: 36px; }
@@ -645,7 +641,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .header-controls { gap: 10px; }
   .career-section { padding: 0 15px; }
   .career-card { padding: 20px 15px; margin-left: 0; }
-  .header-title { display: none; }
+  .header-title { display: block; font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
   .wrapper a.icon { margin: 0 8px; }
   .wrapper a.icon span { height: 45px; width: 45px; }
   .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
