@@ -360,7 +360,7 @@ p {
 #typescript:before { background-color: rgb(154, 221, 202); }
 #typescript:after { background-color: rgb(188, 221, 212); }
 
-#cplus { left: 350px; bottom: 40px; background-image: url("images/c++-logo.png"); background-size: contain; background-color: rgb(119, 193, 227); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%); }
+#cplus { left: 350px; bottom: 40px; background-image: url("images/c++-logo.png"); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: rgb(119, 193, 227); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%); }
 #cplus:before { background-color: rgb(154, 189, 221); }
 #cplus:after { background-color: rgb(188, 200, 221); }
 
@@ -462,6 +462,8 @@ html { scroll-behavior: smooth; }
   .hero-image {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 15px; height: auto; margin-bottom: 40px; position: static;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 
   .cube {
@@ -515,6 +517,10 @@ html { scroll-behavior: smooth; }
   .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
   .hero-image { width: 100%; margin-bottom: 50px; }
   .menu { padding-right: 150px; }
+  .sub-section {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
 }
 @media only screen and (max-width: 768px) {
     .main-text { width: 100%; }
@@ -611,3 +617,52 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 .credit { font-size: 12px; text-align: center; }
 .credit a { color: rgb(57, 57, 57); text-decoration: none; font-weight: 500; }
 .dark .credit a { color: white; }
+
+/* Custom styles for very small screens (402px and below) to make project boxes shorter */
+@media only screen and (max-width: 402px) {
+  .square {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 8px; /* Reduce space between elements */
+  }
+
+  .square > img:last-of-type {
+    max-width: 160px !important; /* Make the image smaller */
+  }
+
+  .square h2 {
+    font-size: 28px; /* Slightly smaller title */
+  }
+
+  .square p {
+    font-size: 15px; /* Slightly smaller paragraph text */
+  }
+
+  .tech-stack-icons .icons {
+    width: 35px; /* Make tech icons a bit smaller */
+  }
+
+  .wrapper a.icon {
+    margin: 0 5px;
+  }
+  .wrapper a.icon span {
+    height: 50px;
+    width: 50px;
+  }
+  .wrapper a.icon span i {
+    line-height: 50px;
+    font-size: 18px;
+  }
+  #footer .wrapper {
+    padding: 15px 15px;
+  }
+
+  /* Adjust 'to-top' button to prevent overlap */
+  .to-top2 {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    right: 15px;
+    bottom: 25px;
+  }
+}
