@@ -79,7 +79,7 @@ p {
 }
 
 .menu-bar {
-  padding-right: 30px;
+  margin-right: 30px; /* MODIFIED: Used margin for spacing */
   padding-top: 5px;
   font-family: 'Poppins', sans-serif;
   color: rgb(57, 57, 57);
@@ -120,7 +120,7 @@ p {
 .dark .menu-bar:hover::after {
   background-color: rgb(105, 229, 235);
   border-radius: 30px;
-  width: calc(100% - 30px);
+  width: 100%; /* MODIFIED: Set to 100% to match text width correctly */
 }
 
 /* Typewriter animation */

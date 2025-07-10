@@ -11,6 +11,26 @@ const preventScroll = (e) => {
     e.preventDefault();
 };
 
+// --- Gracefully Hide Broken GitHub Stat Cards ---
+function hideBrokenGitHubCards() {
+  // Select all images within the GitHub card items
+  const githubImages = document.querySelectorAll('.github-card-item img');
+
+  githubImages.forEach(img => {
+    // Add an 'error' event listener to each image
+    img.addEventListener('error', () => {
+      // Find the closest parent container for the card
+      const cardContainer = img.closest('.github-card-item');
+      // If the container is found, hide it completely
+      if (cardContainer) {
+        console.warn(`GitHub stats image failed to load. Hiding card: ${img.src}`);
+        cardContainer.style.display = 'none';
+      }
+    });
+  });
+}
+
+
 // --- Main Execution after DOM is loaded ---
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -161,6 +181,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Call the function to start loading the images
   loadMentorProfilePictures();
 
+  // Call the function to hide broken stat cards
+  hideBrokenGitHubCards();
 
   // --- Resume Download Animation & Trigger ---
   const downloadCheckbox = document.getElementById('ms-download');

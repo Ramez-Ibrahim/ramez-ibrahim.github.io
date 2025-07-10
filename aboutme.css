@@ -318,6 +318,7 @@ p {
   margin-bottom: 40px;
 }
 
+/* --- MODIFIED: Career Card Layout --- */
 .career-card {
   max-width: 1200px;
   margin: 0 auto;
@@ -331,27 +332,28 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 
-  /* Flexbox Layout */
+  /* Flexbox Layout - CHANGED TO COLUMN */
   display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: flex-start;
+  flex-direction: column; /* Stacks the rows vertically */
+  gap: 40px; /* Space between the rows */
+  align-items: flex-start; /* Aligns content to the left */
 }
 
-.resume-info {
-  flex: 1;
-  min-width: 300px;
+/* --- MODIFIED: New Row Container Styles --- */
+.resume-container, .github-container {
+  width: 100%; /* Ensure rows take full width */
 }
 
-/* MODIFIED: Alignment for GitHub section */
-.github-info {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: left; /* This will center the stats card */
-  text-align: left; /* This will center the h3 and p text */
+/* Style for the separator line */
+.resume-container {
+  padding-top: 40px;
+  border-top: 1px solid rgba(57, 57, 57, 0.15);
 }
+.dark .resume-container {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+/* --- END MODIFICATION --- */
+
 
 .career-card h3 {
   margin-top: 0;
@@ -363,7 +365,7 @@ p {
   font-size: 16px;
   line-height: 1.6;
   opacity: 0.8;
-  max-width: 450px; /* Constrain paragraph width for readability */
+  max-width: 650px; /* Increased width for better readability in the new layout */
 }
 
 /* Button Styles */
@@ -373,16 +375,6 @@ p {
   flex-wrap: wrap;
   gap: 15px;
 }
-
-/* MODIFIED: Ensure buttons in resume section stay left-aligned */
-.resume-info .button-group {
-    justify-content: flex-start;
-}
-/* MODIFIED: Center buttons if we were to add them to the github-info section */
-.github-info .button-group {
-    justify-content: center;
-}
-
 
 .btn {
   padding: 12px 24px;
@@ -426,24 +418,38 @@ p {
 }
 
 /* GitHub Stats Card Styles */
-.github-stats-container {
+.github-cards-wrapper {
   margin-top: 25px;
-  width: 100%;
-  max-width: 450px; /* Adjust as needed */
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to stack on smaller screens */
+  gap: 40px;       /* MODIFIED: Increased gap for more spacing */
+  justify-content: flex-start; /* Aligns cards to the left */
+  align-items: center; /* Vertically center-aligns the cards */
 }
-.github-stats-container img {
+
+.github-card-item {
+  flex: 1; /* Allows cards to grow and share space */
+  min-width: 320px; /* Defines the minimum width before wrapping */
+  max-width: 450px;
+}
+
+.github-card-item img {
   width: 100%;
   height: auto;
-  display: block; 
 }
-#github-stats-dark {
-  display: none;
+
+/* Reusable class-based dark mode toggling for images */
+.light-mode-img {
+  display: block; /* Show by default in light mode */
 }
-.dark #github-stats-light {
-  display: none;
+.dark-mode-img {
+  display: none;  /* Hide by default in light mode */
 }
-.dark #github-stats-dark {
-  display: block;
+.dark .light-mode-img {
+  display: none; /* Hide in dark mode */
+}
+.dark .dark-mode-img {
+  display: block; /* Show in dark mode */
 }
 
 /* Dark Mode for Career Section */
@@ -641,7 +647,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .header-controls { gap: 10px; }
   .career-section { padding: 0 15px; }
   .career-card { padding: 20px 15px; margin-left: 0; }
-  .header-title { display: block; font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+  .header-title { font-size: 14px; }
   .wrapper a.icon { margin: 0 8px; }
   .wrapper a.icon span { height: 45px; width: 45px; }
   .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
