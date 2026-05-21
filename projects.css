@@ -77,7 +77,8 @@ p {
 .menu {
   display: flex;
   align-items: center;
-  padding-right: 549px; /* This large padding value is maintained to preserve the original header layout */
+  gap: 30px;
+  padding-right: 0;
 }
 
 .menu-bar {
@@ -510,7 +511,7 @@ html { scroll-behavior: smooth; }
 
 /* General Responsive Improvements */
 @media only screen and (max-width: 1200px) {
-  .menu { padding-right: 300px; }
+  /* placeholder for future adjustments */
 }
 @media only screen and (max-width: 992px) {
   h1 { font-size: 50px; line-height: 50px; }
@@ -518,7 +519,6 @@ html { scroll-behavior: smooth; }
   .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
   .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
   .hero-image { width: 100%; margin-bottom: 50px; }
-  .menu { padding-right: 150px; }
   .sub-section {
     padding: 0 15px;
     box-sizing: border-box;

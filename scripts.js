@@ -1,387 +1,66 @@
-const switchElement = document.querySelector('.switch');
-const currentHour = new Date().getHours();
+// Global constants for icon paths
+const lightIconPath = 'images/favicon.png';
+const darkIconPath = "images/lightmodeicon.png";
 
-// Function to set dark mode
-function setDarkMode() {
-  document.body.classList.add('dark');
-  localStorage.setItem('mode', 'dark');
-}
-
-// Function to set light mode
-function setLightMode() {
-  document.body.classList.remove('dark');
-  localStorage.setItem('mode', 'light');
-}
-
-// Toggle mode when switch is clicked
-switchElement.addEventListener('click', () => {
-  if (document.body.classList.contains('dark')) {
-    setLightMode();
-    } else {
-      setDarkMode();
-    }
-});
-
-// Check if user has a preference stored in local storage
-const currentMode = localStorage.getItem('mode');
-if (currentMode === 'dark') {
-  setDarkMode();
-} else if (currentMode === 'light') {
-  setLightMode();
-} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  setDarkMode();
-} else {
-  setLightMode(); // Default to light mode
-}
-
-// Add this code to your existing JavaScript file
-
-// Function to show the square after a delay
-function showSquareWithDelay(squareId, delay) {
-  setTimeout(function () {
-    var square = document.getElementById(squareId);
-    square.classList.add("show");
-  }, delay);
-}
-
-
-function showSquaresTogether(className, delay) {
-  setTimeout(function () {
-    var squares = document.getElementsByClassName(className);
-    for (var i = 0; i < squares.length; i++) {
-      squares[i].classList.add("show");
-    }
-  }, delay);
-}
-
-// Call the function with the class name and a delay
-
-
-
-// Call the function with the square IDs and desired delays
-// For example, if you want "markets" to appear after 1 second, and "amazon" after 2 seconds:
-showSquareWithDelay("markets", 1500);
-showSquareWithDelay("amazon", 1500);
-showSquareWithDelay("notes", 1500);
-
-showSquareWithDelay("threads", 2500);
-showSquareWithDelay("calc", 2500);
-showSquareWithDelay("netflix", 2500);
-
-showSquareWithDelay("expneses", 3500);
-showSquareWithDelay("dino", 3500);
-
-showSquareWithDelay("web", 4500);
-showSquareWithDelay("todo", 4500);
-
-showSquareWithDelay("barista", 5500);
-showSquareWithDelay("elon", 5500);
-
-
-function showSquaresTogether(dataIdValue, delay) {
-  setTimeout(function () {
-    var elements = document.querySelectorAll('[data-id="' + dataIdValue + '"]');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].classList.add("show");
-    }
-  }, delay);
-}
-
-showSquaresTogether("cloud0", 1500);
-
-showSquaresTogether("cs", 2500);
-
-showSquaresTogether("cloud1", 3500);
-
-showSquaresTogether("cloud2", 4500);
-
-showSquaresTogether("cloud3", 5500);
-
-showSquaresTogether("cloud4", 6500);
-
-showSquaresTogether("lang0", 7500);
-
-showSquaresTogether("lang1", 7500);
-
-showSquaresTogether("lang2", 7500);
-
-showSquaresTogether("lang3", 8500);
-
-showSquaresTogether("lang4", 8500);
-
-showSquaresTogether("lang5", 8500);
-
-showSquaresTogether("lang6", 9500);
-
-// Add more squares and delays as needed
-
-// Function to toggle dark mode
-function toggleDarkMode() {
-  const body = document.querySelector('body');
-  if (body.classList.contains('dark-mode')) {
-    body.classList.remove('dark-mode');
-  } else {
-    body.classList.add('dark-mode');
-  }
-}
-
-// Check if dark mode preference exists in Local Storage
-const darkModePref = localStorage.getItem('darkMode');
-if (darkModePref !== null) {
-  toggleDarkMode();
-}
-
-// Event listener for the light/dark mode switch
-document.querySelector('.switch').addEventListener('click', () => {
-  toggleDarkMode();
-  // Save user's preference to Local Storage
-  if (document.body.classList.contains('dark-mode')) {
-    localStorage.setItem('darkMode', 'enabled');
-  } else {
-    localStorage.removeItem('darkMode');
-  }
-});
-
-// Function to fade in logos after page load
-function fadeInLogos() {
-  console.log("FadeInLogos function called");
-  const cubes = document.querySelectorAll(".cube");
-  setTimeout(() => {
-    cubes.forEach((cube) => {
-      cube.classList.add("fade-in-logo");
-    });
-  }, 500);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  fadeInLogos();
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the current hour
-  const currentHour = new Date().getHours();
-
-  // Call the fadeInLogos function
-  fadeInLogos();
-});
-
-// Function to fade in logos after page load
-function fadeInLogos() {
-  console.log("FadeInLogos function called");
-  const cubes = document.querySelectorAll(".cube");
-  setTimeout(() => {
-    cubes.forEach((cube) => {
-      cube.classList.add("fade-in-logo");
-    });
-  }, 500);
-}
-
-// Assuming you have an image element with the "share" class and a data-link attribute
-var shareImages = document.querySelectorAll(".share");
-
-shareImages.forEach(function(shareImage) {
-    shareImage.addEventListener("click", function() {
-        var linkToCopy = shareImage.getAttribute("data-link");
-        copyToClipboard(linkToCopy);
-    });
-});
-
+// Function to copy text to clipboard (modern API)
 function copyToClipboard(text) {
-    var tempInput = document.createElement("input");
-    tempInput.value = text;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-    alert("Link copied to clipboard: " + text);
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Link copied to clipboard: " + text);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
 }
 
 
-var loader = document.getElementById("preloader");
-window.addEventListener("load", function() {
-    loader.style.display = "none";
-});
+// Function to fade in logos after page load
+function fadeInLogos() {
+  const cubes = document.querySelectorAll(".cube");
+  setTimeout(() => {
+    cubes.forEach((cube) => {
+      cube.classList.add("fade-in-logo");
+    });
+  }, 500);
+}
 
-const buttons = document.querySelectorAll("[data-carousel-button]")
+// Placeholder functions for download animation
+function showAnimation() { /* Implement your code to show the animation here */ }
+function hideAnimation() { /* Implement your code to hide or remove the animation here */ }
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]")
-
-    const activeSlide = slides.querySelector("[data-active]")
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    if (newIndex < 0) newIndex = slides.children.length - 1
-    if (newIndex >= slides.children.length) newIndex = 0
-
-    slides.children[newIndex].dataset.active = true
-    delete activeSlide.dataset.active
-  })
-})
-
-
-// scripts.js
-document.addEventListener('DOMContentLoaded', function () {
-  // Get all elements with the class "fade-in"
-  var fadeElements = document.querySelectorAll('.fade-in');
-  
-  // Loop through the elements and remove the "fade-in" class
-  fadeElements.forEach(function (element) {
-    element.classList.remove('fade-in');
-  });
-});
-
+// Social media redirect functions
 function redirectToLinkedIn() {
-    // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://www.linkedin.com/in/ramez-ibrahim-4708721b4/', '_blank');
+    window.open('https://www.linkedin.com/in/ramez-ibrahim-4708721b4/', '_blank', 'noopener noreferrer');
 }
 
 function redirectToMail() {
-    // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('mailto:ramezamr2008@gmail.com', '_blank');
+    window.open('mailto:ramezamr2008@gmail.com', '_blank', 'noopener noreferrer');
 }
 
 function redirectToInstgram() {
-    // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://www.instagram.com/ramezibrahimm/', '_blank');
+    window.open('https://www.instagram.com/ramezibrahimm/', '_blank', 'noopener noreferrer');
 }
 
 function redirectToX() {
-    // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://x.com/ramezibrahimm', '_blank');
+    window.open('https://x.com/ramezibrahimm', '_blank', 'noopener noreferrer');
 }
 
 function redirectToGitHub() {
-    // Replace 'https://www.linkedin.com' with the URL you want to redirect to
-    window.open('https://github.com/Ramez-Ibrahim', '_blank');
+    window.open('https://github.com/Ramez-Ibrahim', '_blank', 'noopener noreferrer');
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const downloadButton = document.getElementById('ms-download');
+// Robust scroll prevention for iOS Safari
+const preventScroll = (e) => {
+    e.preventDefault();
+};
 
-  downloadButton.addEventListener('change', function () {
-    if (this.checked) {
-      // Show your animation here
-      showAnimation();
-
-      // Delay the download by a few seconds (adjust as needed)
-      setTimeout(function () {
-        // Specify the Google Drive file ID
-        const fileID = '12m5aOdtPF-X_yUWwVUe3njkiY0tXAMTj';
-
-        // Create a direct download link
-        const directDownloadLink = `https://drive.google.com/uc?export=download&id=${fileID}`;
-
-        // Create an anchor element
-        const downloadLink = document.createElement('a');
-
-        // Set the download link's attributes
-        downloadLink.href = directDownloadLink;
-        downloadLink.download = 'MYP5.pdf'; // Set the desired filename
-        downloadLink.target = '_blank';
-
-        // Add the download attribute to the anchor element
-        downloadLink.setAttribute('download', '');
-
-        // Trigger a click event on the anchor element to start the download
-        downloadLink.click();
-
-        // Hide or remove the animation if needed
-        hideAnimation();
-      }, 4000); // Delay for 4 seconds (adjust as needed)
-    }
-  });
-
-  function showAnimation() {
-    // Implement your code to show the animation here
-  }
-
-  function hideAnimation() {
-    // Implement your code to hide or remove the animation here
-  }
-});
-
-const openPopupButtons = document.querySelectorAll("#popup-trigger, #popup-trigger2, #popup-trigger3, #popup-trigger4");
-const popup = document.querySelector(".popup");
-const popupOverlay = document.querySelector(".popup-overlay");
-const closeButton = document.getElementById("close-popup");
-
-// Function to toggle popup and overlay visibility
-function togglePopup() {
-  popup.classList.toggle("show");
-  popupOverlay.classList.toggle("active");
-}
-
-// Add event listener to all openPopupButtons
-openPopupButtons.forEach(button => {
-  button.addEventListener("click", togglePopup);
-});
-
-// Add event listener for the "Esc" key
-document.addEventListener('keydown', function(event) {
-  if (event.keyCode === 27 && popup.classList.contains("show")) { // Check if the pressed key is "Esc" and popup is open
-    togglePopup(); // Call the togglePopup function to close the popup
-  }
-});
-
-// Add event listener to the close button
-
-closeButton.addEventListener("click", togglePopup);
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Select all buttons with the class 'to-top'
-  const toTopButtons = document.querySelectorAll(".to-top");
-
-  if (toTopButtons.length > 0) {
-    console.log("Found to-top buttons:", toTopButtons.length);
-
-    window.addEventListener("scroll", () => {
-      const scrollOffset = window.pageYOffset;
-      const threshold = 10;
-
-      console.log("Scroll Offset:", scrollOffset);
-
-      toTopButtons.forEach(button => {
-        if (scrollOffset > threshold) {
-          if (button.style.opacity !== '1') {
-            console.log("Making button visible:", button);
-          }
-          button.style.opacity = '1';
-          button.style.pointerEvents = 'auto';
-          button.style.bottom = '35px'; // Adjust as needed
-        } else {
-          if (button.style.opacity !== '0') {
-            console.log("Hiding button:", button);
-          }
-          button.style.opacity = '0';
-          button.style.pointerEvents = 'none';
-          button.style.bottom = '30px'; // Adjust as needed
-        }
-      });
-    });
-  } else {
-    console.log("No to-top buttons found.");
-  }
-});
-
-
-
-
-
-// Get the button
-let mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
+// Scroll function for myBtn (back to top)
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+  let mybutton = document.getElementById("myBtn");
+  if (mybutton) {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
   }
 }
 
@@ -390,3 +69,231 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// --- Robust Preloader Removal (Moved to Global Scope) ---
+const removePreloader = () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    console.log("Attempting to remove preloader.");
+    // Allow clicks to pass through immediately as it starts fading
+    preloader.style.pointerEvents = 'none';
+    preloader.style.transition = 'opacity 0.5s ease';
+    preloader.style.opacity = '0';
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 500);
+  }
+};
+
+// FAIL-SAFE: Force hide preloader after 2.5 seconds regardless of state
+const preloaderTimeout = setTimeout(() => {
+  console.log("Preloader fail-safe triggered.");
+  removePreloader();
+}, 2500);
+
+// Standard removal: Hide when everything is finished
+window.addEventListener('load', () => {
+  console.log("window.load event fired.");
+  clearTimeout(preloaderTimeout);
+  removePreloader();
+});
+
+// Immediate check in case the script loads late
+if (document.readyState === 'complete') {
+  clearTimeout(preloaderTimeout);
+  removePreloader();
+}
+
+// --- Single DOMContentLoaded Listener ---
+document.addEventListener("DOMContentLoaded", function () {
+  const favicon = document.getElementById("favicon");
+  const headerIcon = document.querySelector(".pageicon");
+  const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  /**
+   * Updates the UI elements that depend on JavaScript (icons)
+   * @param {boolean} isDark 
+   */
+  const updateThemeUI = (isDark) => {
+    const iconPath = isDark ? darkIconPath : lightIconPath;
+    if (favicon) favicon.href = iconPath;
+    if (headerIcon) headerIcon.src = iconPath;
+  };
+
+  /**
+   * Applies the theme to the body and saves to localStorage if requested
+   * @param {string} mode 'dark' | 'light'
+   * @param {boolean} save Whether to persist the choice
+   */
+  const applyTheme = (mode, save = false) => {
+    const isDark = mode === "dark";
+    document.body.classList.toggle("dark", isDark);
+    updateThemeUI(isDark);
+    if (save) localStorage.setItem("mode", mode);
+  };
+
+  // 1. Initial Load Logic
+  const savedMode = localStorage.getItem("mode");
+  if (savedMode) {
+    applyTheme(savedMode);
+  } else {
+    // Fallback to system preference if no manual choice exists
+    applyTheme(colorSchemeQuery.matches ? "dark" : "light");
+  }
+
+  // 2. System Preference Listener
+  // Updates theme automatically if OS theme changes, unless user has set a manual preference
+  colorSchemeQuery.addEventListener("change", (e) => {
+    if (!localStorage.getItem("mode")) {
+      applyTheme(e.matches ? "dark" : "light");
+    }
+  });
+
+  // 3. Manual Toggle Switch Logic
+  const switchElements = document.querySelectorAll(".switch");
+  switchElements.forEach((el) => {
+    el.addEventListener("click", () => {
+      const newMode = document.body.classList.contains("dark") ? "light" : "dark";
+      applyTheme(newMode, true);
+    });
+  });
+
+  // --- Global exposing for any legacy/external calls ---
+  window.setDarkMode = () => applyTheme("dark", true);
+  window.setLightMode = () => applyTheme("light", true);
+
+  // Scroll-linked animations for squares
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        scrollObserver.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.square').forEach(square => scrollObserver.observe(square));
+
+  // Fade in logos
+  fadeInLogos();
+
+  // Share functionality
+  var shareImages = document.querySelectorAll(".share");
+  shareImages.forEach(function(shareImage) {
+      shareImage.addEventListener("click", function() {
+          var linkToCopy = shareImage.getAttribute("data-link");
+          copyToClipboard(linkToCopy);
+      });
+  });
+
+  // Carousel functionality
+  const buttons = document.querySelectorAll("[data-carousel-button]");
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+      const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
+      if (slides) {
+        const activeSlide = slides.querySelector("[data-active]");
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+
+        if (newIndex < 0) newIndex = slides.children.length - 1;
+        if (newIndex >= slides.children.length) newIndex = 0;
+
+        if (slides.children[newIndex]) slides.children[newIndex].dataset.active = true;
+        if (activeSlide) delete activeSlide.dataset.active;
+      }
+    });
+  });
+
+  // Fade-in elements on load
+  var fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach(function (element) {
+    element.classList.remove('fade-in');
+  });
+
+  // Back to top button functionality for .to-top
+  const toTopButtons = document.querySelectorAll(".to-top, .to-top2");
+  if (toTopButtons.length > 0) {
+    window.addEventListener("scroll", () => {
+      const scrollOffset = window.pageYOffset;
+      const threshold = 10;
+      toTopButtons.forEach(button => {
+        if (scrollOffset > threshold) {
+          button.style.opacity = '1';
+          button.style.pointerEvents = 'auto';
+          button.style.bottom = '35px';
+        } else {
+          button.style.opacity = '0';
+          button.style.pointerEvents = 'none';
+          button.style.bottom = '30px';
+        }
+      });
+    });
+  }
+
+  // Popup functionality
+  const openPopupButtons = document.querySelectorAll("#popup-trigger, #popup-trigger2, #popup-trigger3, #popup-trigger4");
+  const popup = document.querySelector(".popup");
+  const popupOverlay = document.querySelector(".popup-overlay");
+  const closeButton = document.getElementById("close-popup");
+
+  function togglePopup() {
+    if (popup) popup.classList.toggle("show");
+    if (popupOverlay) popupOverlay.classList.toggle("active");
+  }
+
+  openPopupButtons.forEach(button => {
+    button.addEventListener("click", togglePopup);
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape" && popup && popup.classList.contains("show")) {
+      togglePopup();
+    }
+  });
+
+  if (closeButton) {
+    closeButton.addEventListener("click", togglePopup);
+  }
+
+  // Sticky navigation bar on scroll
+  const header = document.querySelector('.header-wrapper');
+  if (header) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+  }
+
+  // Hamburger menu functionality
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.menu');
+
+  if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => {
+          const isActive = hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+          document.documentElement.classList.toggle('menu-open', isActive);
+
+          if (isActive) {
+              window.addEventListener('touchmove', preventScroll, { passive: false });
+          } else {
+              window.removeEventListener('touchmove', preventScroll, { passive: false });
+          }
+      });
+
+      // Close menu when clicking on a link
+      const menuLinks = document.querySelectorAll('.menu-bar');
+      menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              hamburger.classList.remove('active');
+              navMenu.classList.remove('active');
+              document.documentElement.classList.remove('menu-open');
+              window.removeEventListener('touchmove', preventScroll, { passive: false });
+          });
+      });
+  }
+});
