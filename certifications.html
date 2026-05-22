@@ -4,29 +4,184 @@
   <head>
     <meta charset="utf-8" />
     <title>Code Cave | Ramez Ibrahim</title>
+    <link rel="stylesheet" href="projects.css"/>
     <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/favicon.png">
 	  <link rel="stylesheet" href="lightbox.css"/>
+    <style>
+      /* Override conflicting styles from styles.css */
+      header { display: unset !important; justify-content: unset !important; padding: unset !important; }
+      .header-wrapper { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 30px !important; }
+      .menu { padding-right: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; flex: 1 !important; justify-content: center !important; }
+      .menu-bar { padding-right: 0 !important; margin-right: 30px !important; padding-top: 5px !important; }
+      .menu-bar::after { width: 0 !important; }
+      .menu-bar:hover::after { width: 100% !important; }
+      .pageicon { position: unset !important; padding: unset !important; margin-top: 10px !important; margin-left: 28px !important; margin-right: 30px !important; height: 30px !important; width: 30px !important; }
+      .header-controls { display: flex !important; align-items: center !important; gap: 20px !important; }
+      .main { margin-top: 100px !important; }
+
+      /* New typewriter animation */
+      .typewrite {
+        display: inline-block !important;
+        border-right: 3px solid rgb(57, 57, 57) !important;
+        animation: blink-caret .75s step-end infinite !important;
+        white-space: nowrap !important;
+        overflow: unset !important;
+        width: unset !important;
+      }
+
+      @keyframes blink-caret {
+        50% { border-color: transparent; }
+      }
+
+      .typewrite.typing-done {
+        animation: none !important;
+        border-right-color: transparent !important;
+      }
+
+      .dark .typewrite {
+        border-right-color: white !important;
+      }
+
+      .dark .typewrite.typing-done {
+        border-right-color: transparent !important;
+      }
+
+      /* Override footer to use new design from projects.css */
+      footer {
+        display: flex !important; flex-direction: column !important; justify-content: center !important;
+        align-items: center !important; padding: 40px 15px 20px !important;
+        background-color: transparent !important;
+      }
+
+      #footer .wrapper {
+        display: flex !important; justify-content: center !important; align-items: center !important;
+        padding: 20px 30px !important; margin-bottom: 20px !important;
+        background: rgba(255, 255, 255, 0.4) !important; backdrop-filter: blur(10px) !important;
+        border-radius: 50px !important; border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+      }
+
+      .dark #footer .wrapper {
+        background: rgba(71, 71, 71, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .wrapper a.icon {
+        margin: 0 20px !important; text-align: center !important; cursor: pointer !important; display: flex !important;
+        align-items: center !important; justify-content: center !important; flex-direction: column !important;
+        position: relative !important; z-index: 2 !important;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+        text-decoration: none !important;
+      }
+
+      .wrapper a.icon span {
+        display: block !important; height: 60px !important; width: 60px !important; background: #fff !important;
+        border-radius: 50% !important; position: relative !important; z-index: 2 !important;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.1) !important;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+      }
+
+      .wrapper a.icon span i {
+        line-height: 60px !important; font-size: 25px !important; color: #333 !important;
+      }
+
+      .wrapper a.icon .tooltip {
+        position: absolute !important; top: 0 !important; z-index: 1 !important; background: #fff !important; color: #fff !important;
+        padding: 10px 18px !important; font-size: 20px !important; font-weight: 500 !important; border-radius: 25px !important;
+        opacity: 0 !important; pointer-events: none !important; box-shadow: 0px 10px 10px rgba(0,0,0,0.1) !important;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+      }
+
+      .wrapper a.icon:hover .tooltip {
+        top: -70px !important; opacity: 1 !important; pointer-events: auto !important;
+      }
+
+      .icon .tooltip:before {
+        position: absolute !important; content: "" !important; height: 15px !important; width: 15px !important;
+        background: #fff !important; left: 50% !important; bottom: -6px !important;
+        transform: translateX(-50%) rotate(45deg) !important;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+      }
+
+      .wrapper a.icon:hover span i {
+        color: white !important;
+      }
+
+      .wrapper a.icon:hover span, .wrapper a.icon:hover .tooltip {
+        text-shadow: 0px -1px 0px rgba(0,0,0,0.4) !important;
+      }
+
+      .wrapper .linkedin:hover span, .wrapper .linkedin:hover .tooltip, .wrapper .linkedin:hover .tooltip:before {
+        background: #0072b1 !important;
+      }
+
+      .wrapper .twitter:hover span, .wrapper .twitter:hover .tooltip, .wrapper .twitter:hover .tooltip:before {
+        background: #46C1F6 !important;
+      }
+
+      .wrapper .instagram:hover span, .wrapper .instagram:hover .tooltip, .wrapper .instagram:hover .tooltip:before {
+        background: #e1306c !important;
+      }
+
+      .wrapper .github:hover span, .wrapper .github:hover .tooltip, .wrapper .github:hover .tooltip:before {
+        background: #333 !important;
+      }
+
+      .wrapper .envelope:hover span, .wrapper .envelope:hover .tooltip, .wrapper .envelope:hover .tooltip:before {
+        background: #DE463B !important;
+      }
+
+      .dark .wrapper a.icon span i {
+        color: black !important;
+      }
+
+      .dark .wrapper a.icon:hover span i {
+        color: white !important;
+      }
+
+      .credit {
+        font-size: 12px !important; text-align: center !important; color: rgb(57, 57, 57) !important;
+        text-decoration: none !important; font-weight: 500 !important;
+      }
+
+      .dark .credit {
+        color: white !important;
+      }
+    </style>
   </head>
-  
+
   <body>
-    <img src="images/favicon.png" class="pageicon">
     <div id="preloader"></div>
-    <header>
-	<div class="menu">
-   		<a href="index.html" class="menu-bar">Home</a>
-		<a href="projects.html" class="menu-bar">Projects</a>
-		<a href="certifications.html" class="menu-bar"><span class="idu">Certifications</span></a>
-		<a href="aboutme.html" class="menu-bar">About Me</a>
-	</div>
-  	<div class="switch">
-    		<div class="moon"></div>
-    		<div class="flicker"></div>
-		<img src="images/brightness.png" class="sun">
- 	</div>
-   </header>
+    <header class="header-wrapper">
+        <a href="index.html" class="header-brand">
+            <img src="images/favicon.png" class="pageicon">
+            <span class="header-title">Code Cave | Ramez Ibrahim</span>
+        </a>
+
+        <div class="menu">
+            <a href="index.html" class="menu-bar">Home</a>
+            <a href="projects.html" class="menu-bar">Projects</a>
+            <a href="certifications.html" class="menu-bar"><span class="idu">Certifications</span></a>
+            <a href="aboutme.html" class="menu-bar">About Me</a>
+        </div>
+
+        <div class="header-controls">
+            <div class="switch">
+                <div class="moon"></div>
+                <div class="flicker"></div>
+                <img src="images/brightness.png" class="sun">
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
 
 
     <section class="main">
@@ -415,38 +570,28 @@
 
     <footer id="footer">
       <div class="wrapper">
-         <div class="icon envelope" onclick="redirectToMail()">
-    		<div class="tooltip">
-        		Email
-    		</div>
-    		<span><i class="far fa-envelope"></i></span>
-	    </div>
-  	 <div class="icon twitter" onclick="redirectToX()">
-  		<div class="tooltip">
-    			X.com
-  		</div>
-  		<span><i class="fa-brands fa-x-twitter"></i></span>
-	    </div>
-         <div class="icon instagram" onclick="redirectToInstgram()">
-            <div class="tooltip">
-               Instagram
-            </div>
-            <span><i class="fab fa-instagram"></i></span>
-         </div>
-         <div class="icon github" onclick="redirectToGitHub()">
-            <div class="tooltip">
-               Github
-            </div>
-            <span><i class="fab fa-github"></i></span>
-         </div>
-         <div class="icon linkedin" onclick="redirectToLinkedIn()">
-    		<div class="tooltip">
-        		LinkedIn
-    		</div>
-   	 <span><i class="fab fa-linkedin-in"></i></span>
-	</div>
+        <a href="#" class="icon envelope" onclick="redirectToMail(); return false;">
+          <div class="tooltip">Email</div>
+          <span><i class="far fa-envelope"></i></span>
+        </a>
+        <a href="#" class="icon twitter" onclick="redirectToX(); return false;">
+          <div class="tooltip">X.com</div>
+          <span><i class="fa-brands fa-x-twitter"></i></span>
+        </a>
+        <a href="#" class="icon instagram" onclick="redirectToInstgram(); return false;">
+          <div class="tooltip">Instagram</div>
+          <span><i class="fab fa-instagram"></i></span>
+        </a>
+        <a href="#" class="icon github" onclick="redirectToGitHub(); return false;">
+          <div class="tooltip">Github</div>
+          <span><i class="fab fa-github"></i></span>
+        </a>
+        <a href="#" class="icon linkedin" onclick="redirectToLinkedIn(); return false;">
+          <div class="tooltip">LinkedIn</div>
+          <span><i class="fab fa-linkedin-in"></i></span>
+        </a>
       </div>
-      <a href="https://github.com/kubowania/light-dark-mode-portfolio" target="_blank" class="inspiration"> This Site Was Based On This GitHub Project By: Ania Kubow </a>
+      <a href="https://github.com/kubowania/light-dark-mode-portfolio" target="_blank" class="credit"> This Site Was Based On This GitHub Project By: Ania Kubow </a>
     </footer>
   
     <div class="popup" id="popup">
@@ -456,6 +601,7 @@
       <button id="closePopup">Close</button>
     </div>
 
+  <script src="index.js"></script>
   <script src="scripts.js"></script>
 	<script src="lightbox-plus-jquery.js"></script>
 
