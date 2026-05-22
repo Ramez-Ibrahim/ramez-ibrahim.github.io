@@ -315,70 +315,27 @@ body p.sub-heading {
   border-radius: 50px;
 }
 
-#cloud h2 {
+#cloud, #cloudF, #clouds {
+	height: 690px;
+}
+
+#cloud h2, #cloudF h2, #clouds h2 {
 	font-size: 30px;
 	padding: 10px;
 }
 
-#cloudF h2 {
-	font-size: 30px;
-	padding: 7px;
-}
-
-#cloudF {
-	height: 690px; 
-}
-
-#cloudF img:not(.share){
+#cloud img:not(.share), #cloudF img:not(.share), #clouds img:not(.share) {
 	width: 350px;
-  	height: auto;
-	padding-top: 10px;	
-}
-
-#cloud img:not(.share){
-	width: 350px;
-    height: 23px;
-	padding-top: 10px;	
+	height: auto;
+	padding-top: 10px;
 }
 
 #placeholder {
 	background-color: rgb(244, 241, 241);
-
 }
 
 .dark #placeholder {
 	background-color: rgb(57, 57, 57);
-
-}
-
-#clouds {
-	height: 700px; 
-}
-
-#cloud h2 {
-	font-size: 30px;
-	padding: 10px;
-}
-
-#clouds {
-	height: 690px; 
-}
-
-#cloud img:not(.share) {
-  width: 350px;
-  height: auto;
-  padding-top: 10px;
-}
-
-#clouds h2 {
-	font-size: 30px;
-	padding: 10px;
-}
-
-#clouds img:not(.share) {
-  width: 350px;
-  height: auto;
-  padding-top: 10px;
 }
 
 #amazon img {
@@ -745,11 +702,6 @@ footer {
   background-color: rgb(28, 28, 28);
 }
 
-
-.dark footer {
-  background-color: rgb(28, 28, 28);
-}
-
 @media only screen and (min-width: 970px) {
   .main-text {
     width: 50%;
@@ -984,52 +936,9 @@ footer {
   right: 1rem;
 }
 
-#notes .icons {
-	width: 40px;
-	height: auto;
-}
-
-#expneses .icons {
-  width: 40px;
-  height: auto;
-}
-
-#barista .icons {
-  width: 40px;
-  height: auto;
-}
-
-#threads .icons {
-  width: 40px;
-  height: auto;
-}
-
-#amazon .icons {
-	width: 40px;
-	height: auto;
-}
-
-#calc .icons {
-	width: 40px;
-	height: auto;
-}
-
-#dino .icons {
-	width: 40px;
-	height: auto;
-}
-
-#elon .icons {
-	width: 40px;
-	height: auto;
-}
-
-#web .icons {
-	width: 40px;
-	height: auto;
-}
-
-#todo .icons {
+#notes .icons, #expneses .icons, #barista .icons, #threads .icons,
+#amazon .icons, #calc .icons, #dino .icons, #elon .icons,
+#web .icons, #todo .icons {
 	width: 40px;
 	height: auto;
 }
