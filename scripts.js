@@ -9,10 +9,12 @@ function initTypewriter() {
         const textToType = typewriterElement.textContent;
         const typingSpeed = 150;
         let charIndex = 0;
+        let displayText = '';
         typewriterElement.textContent = '';
         function type() {
             if (charIndex < textToType.length) {
-                typewriterElement.textContent += textToType.charAt(charIndex);
+                displayText += textToType.charAt(charIndex);
+                typewriterElement.textContent = displayText;
                 charIndex++;
                 setTimeout(type, typingSpeed);
             } else {
