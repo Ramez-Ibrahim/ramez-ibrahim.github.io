@@ -257,9 +257,14 @@ header {
   margin-left: 10px;
 }
 
+.dark .switch {
+  background-color: rgb(255, 255, 255);
+}
+
 .dark .flicker {
   transform: translateX(40px);
-  box-shadow: inset 4px 4px 4px rgb(255, 255, 255), inset -4px -4px 4px rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  box-shadow: none;
 }
 
 .dark > * {
@@ -1557,7 +1562,11 @@ footer {
 }
 
 .to-top {
-  background-color: rgb(0, 150, 255);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.15);
   position: fixed;
   bottom: 30px; /* Adjust based on the JavaScript value */
   right: 35px;
@@ -1567,22 +1576,30 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 35px;
-  color: whitesmoke;
+  font-size: 24px;
+  color: rgb(57, 57, 57);
   text-decoration: none;
   opacity: 0; /* Start hidden */
   pointer-events: none; /* Disable interaction */
-  transition: opacity 0.4s, bottom 0.4s; /* Smooth transitions for opacity and position */
+  transition: opacity 0.4s, bottom 0.4s, background 0.3s, transform 0.3s, box-shadow 0.3s, right 0.3s;
   z-index: 2;
 }
 
+.to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px 0 rgba(31, 38, 135, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .dark .to-top {
-  background-color: #DB4105;
-  color: white;
+  background: rgba(71, 71, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  color: whitesmoke;
 }
 
 .dark .to-top:hover {
-  color: #46C1F6;
+  background: rgba(71, 71, 71, 0.5);
 }
 
 
@@ -1673,6 +1690,22 @@ html {
   margin-right: 30px;
   margin-bottom: 20px;
   font-size: x-large;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  display: inline-block;
+  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+  width: fit-content;
+}
+
+.dark .slider_title {
+  background: rgba(71, 71, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 .slider-wrapper {

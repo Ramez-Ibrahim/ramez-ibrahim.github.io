@@ -218,8 +218,8 @@ p {
 
 .dark .flicker {
   transform: translateX(40px);
-  background-color: rgb(39, 38, 38);
-  box-shadow: inset 4px 4px 4px rgb(50 50 50 / 50%), inset -4px -4px 4px rgb(0 0 0 / 90%);
+  background-color: rgb(0, 0, 0);
+  box-shadow: none;
 }
 
 .dark .moon {

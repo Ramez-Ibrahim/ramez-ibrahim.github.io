@@ -210,8 +210,8 @@ p {
 
 .dark .flicker {
   transform: translateX(40px);
-  background-color: rgb(39, 38, 38); /* MODIFIED: Make flicker circle dark */
-  box-shadow: inset 4px 4px 4px rgb(50 50 50 / 50%), inset -4px -4px 4px rgb(0 0 0 / 90%); /* MODIFIED: New shadow for dark circle */
+  background-color: rgb(0, 0, 0);
+  box-shadow: none;
 }
 
 .dark .moon {
@@ -536,7 +536,7 @@ html { scroll-behavior: smooth; }
     .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
     .to-top2:hover { background: rgba(255, 255, 255, 0.8); }
     .dark .to-top2 { background: rgba(71, 71, 71, 0.5); }
-    .dark .to-top2:hover { background: rgba(71, 71, 0.7); }
+    .dark .to-top2:hover { background: rgba(71, 71, 71, 0.7); }
 }
 @media only screen and (max-width: 576px) {
   h1 { font-size: 36px; line-height: 40px; }
