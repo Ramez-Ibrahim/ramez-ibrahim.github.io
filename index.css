@@ -617,7 +617,7 @@ html { scroll-behavior: smooth; }
     .menu { position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column; background-color: rgb(244, 241, 241); width: 100%; height: 100vh; transition: 0.3s; padding-right: 0; z-index: 100; display: flex; justify-content: center; align-items: center; padding-top: 0; }
     .dark .menu { background-color: rgb(57, 57, 57); }
     .menu.active { left: 0; }
-    .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; }
+    .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; display: inline-block; }
     .menu-bar:hover::after {
         width: 100%;
     }
