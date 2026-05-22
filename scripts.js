@@ -2,6 +2,27 @@
 const lightIconPath = 'images/favicon.png';
 const darkIconPath = "images/lightmodeicon.png";
 
+// Typewriter animation function
+function initTypewriter() {
+    const typewriterElement = document.querySelector('.typewrite');
+    if (typewriterElement) {
+        const textToType = typewriterElement.textContent;
+        const typingSpeed = 150;
+        let charIndex = 0;
+        typewriterElement.textContent = '';
+        function type() {
+            if (charIndex < textToType.length) {
+                typewriterElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else {
+                typewriterElement.classList.add('typing-done');
+            }
+        }
+        type();
+    }
+}
+
 // Function to copy text to clipboard (modern API)
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
@@ -296,4 +317,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       });
   }
+});
+
+// Initialize typewriter animation after page loads
+window.addEventListener('load', function() {
+    initTypewriter();
 });
