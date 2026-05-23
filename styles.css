@@ -38,12 +38,62 @@ h2 {
   font-size: 40px;
   line-height: 40px;
   font-weight: 300;
-  margin: 50px 0 10px 0;
+  margin: 0 0 15px 0;
+}
+
+.square h2 {
+  margin: 0 0 8px 0;
+  font-size: 27px;
+  line-height: 31px;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 62px;
+  position: relative;
+  cursor: help;
+}
+
+.square h2:hover::after {
+  content: attr(data-full-title);
+  position: fixed;
+  bottom: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(57, 57, 57, 0.98);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: normal;
+  width: 320px;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-overflow: clip;
+  overflow: visible;
+  pointer-events: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dark .square h2:hover::after {
+  background: rgba(200, 200, 200, 0.98);
+  color: #222;
 }
 
 p {
   margin: 0px;
   font-size: 20px;
+}
+
+.square p {
+  margin: 5px 0;
+  font-size: 19px;
+  line-height: 1.3;
 }
 
 /* Add basic styles for the links */
@@ -52,8 +102,16 @@ p {
   font-size: 20px;
   text-decoration: none;
   font-weight: 500;
-  position: relative; /* Required for positioning pseudo-element */
+  position: relative;
   transition: transform 0.3s ease;
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.square .links {
+  font-size: 19px;
+  margin: 7px 0;
+  display: inline-block;
 }
 
 /* Add the hover effect using the :hover pseudo-class */
@@ -295,22 +353,39 @@ body p.sub-heading {
 .square {
   width: 98%;
   margin: 1%;
-  height: 350px;
+  height: 540px;
   background-color: rgb(255, 255, 255);
   text-align: center;
+  padding: 27px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.square:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dark .square {
   background-color: rgb(71, 71, 71);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #special img:not(.share) {
-	width: 350px;
-  	height: auto;
+	width: 315px;
+	height: 195px;
+	object-fit: contain;
+	padding: 8px 0;
+	margin: 8px 0;
 }
 
 #special {
-	height: 690px; 
+	height: 540px;
 }
 
 
@@ -321,18 +396,28 @@ body p.sub-heading {
 }
 
 #cloud, #cloudF, #clouds {
-	height: 690px;
+	height: 540px;
 }
 
 #cloud h2, #cloudF h2, #clouds h2 {
-	font-size: 30px;
-	padding: 10px;
+	font-size: 27px;
+	padding: 0;
+	margin: 0 0 8px 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 62px;
+	line-height: 31px;
 }
 
 #cloud img:not(.share), #cloudF img:not(.share), #clouds img:not(.share) {
-	width: 350px;
-	height: auto;
-	padding-top: 10px;
+	width: 315px;
+	height: 195px;
+	object-fit: contain;
+	padding: 8px 0;
+	margin: 8px 0;
 }
 
 #placeholder {
@@ -810,13 +895,10 @@ footer {
 
 /* Add new styles for squares on the specific page */
 .page-specific .square {
-  width: calc(33.33% - 20px); /* 20px is the total margin width between squares (10px on each side) */
-  margin: 10px; /* Adjust the margin as needed to create spacing between squares */
-}
-
-/* Optional: Increase the height of the squares to accommodate content */
-.page-specific .square {
-  height: 600px; /* Adjust the height as needed */
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  height: 540px;
+  min-height: 540px;
 }
 
 /* Clear float for every third square to start a new row */
@@ -827,8 +909,17 @@ footer {
 /* Add specific styles for larger screens on the specific page */
 @media only screen and (min-width: 970px) {
   .page-specific .square {
-    width: calc(33.33% - 20px); /* 20px is the total margin width between squares (10px on each side) */
-    margin: 10px; /* Adjust the margin as needed to create spacing between squares */
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    height: 540px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .page-specific .square {
+    width: 100%;
+    height: auto;
+    min-height: 480px;
   }
 }
 
@@ -1405,14 +1496,10 @@ footer {
   color: green;
 }
 
-.date {
-	padding-top: 40px;
-	font-size: 25px;
-}
-
-.date2 {
-	padding-top: 30px;
-	font-size: 25px;
+.date, .date2 {
+	margin-top: auto;
+	padding-top: 10px;
+	font-size: 19px;
 }
 
 .popup {
@@ -1690,22 +1777,6 @@ html {
   margin-right: 30px;
   margin-bottom: 20px;
   font-size: x-large;
-  padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  display: inline-block;
-  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
-  width: fit-content;
-}
-
-.dark .slider_title {
-  background: rgba(71, 71, 71, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 .slider-wrapper {
