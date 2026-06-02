@@ -45,6 +45,46 @@ function fadeInLogos() {
   }, 500);
 }
 
+function updateCertificationTitleTooltips() {
+  document.querySelectorAll(".square h2[data-full-title]").forEach((title) => {
+    title.classList.remove("is-truncated");
+    title.parentElement.dataset.titleTooltip = title.dataset.fullTitle;
+
+    const styles = window.getComputedStyle(title);
+    const lineClamp = Number.parseInt(styles.webkitLineClamp, 10);
+    const lineHeight = Number.parseFloat(styles.lineHeight);
+    let isTruncated = false;
+
+    if (lineClamp > 0 && lineHeight > 0) {
+      const clone = title.cloneNode(true);
+      clone.classList.remove("is-truncated");
+      clone.style.position = "absolute";
+      clone.style.visibility = "hidden";
+      clone.style.pointerEvents = "none";
+      clone.style.height = "auto";
+      clone.style.maxHeight = "none";
+      clone.style.width = `${title.clientWidth}px`;
+      clone.style.display = "block";
+      clone.style.overflow = "visible";
+      clone.style.textOverflow = "clip";
+      clone.style.webkitLineClamp = "unset";
+      clone.style.webkitBoxOrient = "unset";
+
+      title.parentElement.appendChild(clone);
+      isTruncated = clone.scrollHeight > (lineClamp * lineHeight) + 2;
+      clone.remove();
+    } else {
+      isTruncated = title.scrollHeight > title.clientHeight + 2 || title.scrollWidth > title.clientWidth + 2;
+    }
+
+    title.classList.toggle("is-truncated", isTruncated);
+  });
+}
+
+function scheduleCertificationTitleTooltipUpdate() {
+  window.requestAnimationFrame(updateCertificationTitleTooltips);
+}
+
 // Placeholder functions for download animation
 function showAnimation() { /* Implement your code to show the animation here */ }
 function hideAnimation() { /* Implement your code to hide or remove the animation here */ }
@@ -200,6 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fade in logos
   fadeInLogos();
 
+  updateCertificationTitleTooltips();
+  window.addEventListener("resize", scheduleCertificationTitleTooltipUpdate);
+  if (document.fonts) {
+    document.fonts.ready.then(updateCertificationTitleTooltips);
+  }
+
   // Share functionality
   var shareImages = document.querySelectorAll(".share");
   shareImages.forEach(function(shareImage) {
@@ -252,31 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     });
-  }
-
-  // Popup functionality
-  const openPopupButtons = document.querySelectorAll("#popup-trigger, #popup-trigger2, #popup-trigger3, #popup-trigger4");
-  const popup = document.querySelector(".popup");
-  const popupOverlay = document.querySelector(".popup-overlay");
-  const closeButton = document.getElementById("close-popup");
-
-  function togglePopup() {
-    if (popup) popup.classList.toggle("show");
-    if (popupOverlay) popupOverlay.classList.toggle("active");
-  }
-
-  openPopupButtons.forEach(button => {
-    button.addEventListener("click", togglePopup);
-  });
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape" && popup && popup.classList.contains("show")) {
-      togglePopup();
-    }
-  });
-
-  if (closeButton) {
-    closeButton.addEventListener("click", togglePopup);
   }
 
   // Sticky navigation bar on scroll
