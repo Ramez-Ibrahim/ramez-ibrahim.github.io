@@ -643,6 +643,46 @@ html.menu-open {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+/* Shared responsive polish */
+body {
+  overflow-x: hidden;
+}
+
+.header-wrapper {
+  background: rgba(244, 241, 241, 0.4);
+}
+
+.menu {
+  flex: 1;
+  justify-content: center;
+  gap: 30px;
+  padding-right: 0;
+}
+
+.menu-bar {
+  margin-right: 0;
+}
+
+.header-brand {
+  min-width: 220px;
+}
+
+.header-controls {
+  min-width: 120px;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-brand,
+  .header-controls {
+    min-width: 0;
+  }
+
+  .menu {
+    box-sizing: border-box;
+  }
+}
 .dark .header-wrapper.scrolled {
   background: rgba(57, 57, 57, 0.65);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);

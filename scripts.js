@@ -69,12 +69,24 @@ function updateCertificationTitleTooltips() {
       clone.style.textOverflow = "clip";
       clone.style.webkitLineClamp = "unset";
       clone.style.webkitBoxOrient = "unset";
+      clone.style.whiteSpace = "normal";
 
       title.parentElement.appendChild(clone);
-      isTruncated = clone.scrollHeight > (lineClamp * lineHeight) + 2;
+      const range = document.createRange();
+      range.selectNodeContents(clone);
+      const lineTops = Array.from(range.getClientRects()).reduce((tops, rect) => {
+        if (rect.width > 0 && !tops.some((top) => Math.abs(top - rect.top) < 1)) {
+          tops.push(rect.top);
+        }
+
+        return tops;
+      }, []);
+
+      isTruncated = lineTops.length > lineClamp;
+      range.detach();
       clone.remove();
     } else {
-      isTruncated = title.scrollHeight > title.clientHeight + 2 || title.scrollWidth > title.clientWidth + 2;
+      isTruncated = title.scrollHeight > title.clientHeight + 5 || title.scrollWidth > title.clientWidth + 5;
     }
 
     title.classList.toggle("is-truncated", isTruncated);

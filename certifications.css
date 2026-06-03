@@ -313,6 +313,10 @@ body p.sub-heading {
   transform: rotate(-25deg) skew(25deg);
 }
 
+.cube .tech-logo {
+  display: none;
+}
+
 .cube:before {
   position: absolute;
   content: "";
@@ -455,15 +459,146 @@ footer {
   }
 }
 
+@media only screen and (max-width: 992px) {
+  h1 { font-size: 50px; line-height: 50px; }
+  h2 { font-size: 32px; line-height: 32px; }
+  .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
+  .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
+  .hero-image { width: 100%; margin-bottom: 50px; }
+  .sub-section {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .main-text {
     width: 100%;
+  }
+
+  .hero-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: auto;
+    margin-bottom: 40px;
+    position: static;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .cube {
+    position: static;
+    transform: none;
+    animation: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-image: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .cube:before,
+  .cube:after {
+    display: none;
+  }
+
+  .cube .tech-logo {
+    display: block;
+    width: 65%;
+    height: 65%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #cloudic .tech-logo {
+    background-image: url("images/cloud-logo.png");
+  }
+
+  #sql .tech-logo {
+    background-image: url("images/sql-logo.png");
+  }
+
+  #java .tech-logo {
+    background-image: url("images/java-logo.png");
+  }
+
+  #python .tech-logo {
+    background-image: url("images/python-logo.png");
+  }
+
+  #cloudic {
+    background-color: rgba(80, 180, 240, 0.4) !important;
+    border: 2px solid rgb(60, 150, 210) !important;
+  }
+
+  #sql {
+    background-color: rgba(70, 220, 170, 0.4) !important;
+    border: 2px solid rgb(50, 190, 140) !important;
+  }
+
+  #java {
+    background-color: rgba(160, 90, 230, 0.4) !important;
+    border: 2px solid rgb(130, 70, 200) !important;
+  }
+
+  #python {
+    background-color: rgba(230, 85, 180, 0.4) !important;
+    border: 2px solid rgb(200, 65, 150) !important;
+  }
+
+  .dark .cube {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .dark #cloudic {
+    background-color: rgba(80, 180, 240, 0.3) !important;
+  }
+
+  .dark #sql {
+    background-color: rgba(70, 220, 170, 0.3) !important;
+  }
+
+  .dark #java {
+    background-color: rgba(160, 90, 230, 0.3) !important;
+  }
+
+  .dark #python {
+    background-color: rgba(230, 85, 180, 0.3) !important;
   }
 
   .square {
     width: 100%;
     height: auto;
   }
+}
+
+@media only screen and (max-width: 576px) {
+  h1 { font-size: 36px; line-height: 40px; }
+  p { font-size: 16px; }
+  .links { font-size: 16px; }
+  .wrapper a.icon { margin: 0 10px; }
+  .wrapper a.icon span { height: 50px; width: 50px; }
+  .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
+}
+
+@media only screen and (max-width: 420px) {
+  .header-controls { gap: 10px; }
+  .header-title { display: none; }
+  .wrapper a.icon { margin: 0 8px; }
+  .wrapper a.icon span { height: 45px; width: 45px; }
+  .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
+  #footer .wrapper { padding: 15px 20px; }
 }
 
 .switch:hover {
