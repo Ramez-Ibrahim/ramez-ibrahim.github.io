@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Code Cave | Ramez Ibrahim</title>
-    <link rel="stylesheet" href="projects.css"/>
+    <link rel="stylesheet" href="certifications.css"/>
     <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,14 +13,22 @@
     <style>
       /* Override conflicting styles from styles.css */
       header { display: unset !important; justify-content: unset !important; padding: unset !important; }
-      .header-wrapper { display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 30px !important; }
-      .menu { padding-right: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; flex: 1 !important; justify-content: center !important; }
+      .header-wrapper { display: flex !important; justify-content: center !important; align-items: center !important; padding: 30px !important; position: sticky !important; top: 0 !important; z-index: 50 !important; background: rgba(244, 241, 241, 0.7) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important; box-shadow: 0 4px 30px rgba(31, 38, 135, 0.1) !important; }
+      .header-brand { display: flex !important; align-items: center !important; text-decoration: none !important; gap: 15px !important; position: absolute !important; left: 60px !important; }
+      .header-title { font-size: 18px !important; font-weight: 600 !important; color: rgb(57, 57, 57) !important; display: none !important; }
+      .dark .header-title { color: white !important; }
+      .menu { padding-right: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; flex: 1 !important; justify-content: center !important; text-align: center !important; }
       .menu-bar { padding-right: 0 !important; margin-right: 30px !important; padding-top: 5px !important; }
       .menu-bar::after { width: 0 !important; }
       .menu-bar:hover::after { width: 100% !important; }
-      .pageicon { position: unset !important; padding: unset !important; margin-top: 10px !important; margin-left: 28px !important; margin-right: 30px !important; height: 30px !important; width: 30px !important; }
-      .header-controls { display: flex !important; align-items: center !important; gap: 20px !important; }
-      .main { margin-top: 100px !important; }
+      .pageicon { position: unset !important; padding: unset !important; margin: 0 !important; height: 30px !important; width: 30px !important; }
+      .header-controls { display: flex !important; align-items: center !important; gap: 20px !important; position: absolute !important; right: 60px !important; }
+      .dark .header-wrapper { background: rgba(57, 57, 57, 0.5) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important; }
+      .switch { position: relative !important; display: flex !important; align-items: center !important; }
+      .sun { display: none !important; }
+      .dark .sun { display: block !important; }
+      .hamburger { display: none !important; }
+      .main { margin-top: 40px !important; }
 
       /* New typewriter animation */
       .typewrite {
@@ -150,6 +158,11 @@
 
       .dark .credit {
         color: white !important;
+      }
+
+      @media only screen and (max-width: 992px) {
+        .hamburger { display: flex !important; }
+        .header-title { display: block !important; }
       }
     </style>
   </head>
