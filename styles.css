@@ -210,6 +210,13 @@ header {
   padding: 30px;
 }
 
+@media only screen and (max-width: 992px) {
+  header {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 /* Style for the menu container */
 .menu {
   display: flex;
@@ -1083,10 +1090,21 @@ footer {
 	height: auto;
 }
 
-/* styles.css */
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.5s ease;
+/* Hamburger Menu - Shared Styles */
+.hamburger { display: none; cursor: pointer; padding: 5px; z-index: 101; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: rgb(57, 57, 57); }
+.dark .bar { background-color: white; }
+
+/* Hamburger Menu Active State (Shared) */
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+.hamburger.active { position: fixed; top: 25px; right: 15px; }
+
+/* Mobile Override */
+@media only screen and (max-width: 992px) {
+  .hamburger { display: block; order: 2; }
+  .bar { width: 30px; height: 4px; margin: 6px auto; }
 }
 
 .pfp {

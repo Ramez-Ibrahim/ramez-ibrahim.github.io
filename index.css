@@ -702,23 +702,18 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .dark #javascript { background-color: rgba(70, 220, 170, 0.3) !important; }
   .dark #react { background-color: rgba(80, 180, 240, 0.3) !important; }
 
+
   /* Header & Mobile Menu */
-  .header-wrapper { padding: 15px; }
+  .header-wrapper { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
   .header-title { display: block; font-size: 16px; overflow: hidden; text-overflow: ellipsis; }
   .header-brand { margin-right: 10px; min-width: 0; }
   .header-controls { min-width: 0; }
   .pageicon { margin: 0 !important; width: 36px; height: 36px; }
-  .hamburger { display: block; order: 2; }
-  .bar { width: 30px; height: 4px; margin: 6px auto; }
   .switch { order: 1; width: 65px; height: 32px; margin-top: 4px; }
   .flicker { width: 24px; height: 24px; top: 4px; left: 4px; }
   .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
   .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
   .dark .flicker { transform: translateX(33px); }
-  .hamburger.active .bar:nth-child(2) { opacity: 0; }
-  .hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
-  .hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
-  .hamburger.active { position: fixed; top: 25px; right: 15px; }
   .menu {
     position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column;
     background-color: rgb(244, 241, 241); width: 100%; height: 100vh;
