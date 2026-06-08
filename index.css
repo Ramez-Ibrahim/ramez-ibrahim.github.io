@@ -1,6 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
 /* Page-Specific Styles for Home Page */
 
-/* Typewriter animation — overrides the old CSS-only width animation in styles.css */
+/* Base body styles */
+body {
+  transition: 0.3s;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(244, 241, 241);
+  font-family: 'Poppins', sans-serif;
+  color: rgb(57, 57, 57);
+  overflow-x: hidden;
+}
+
+/* Preloader */
+#preloader {
+  background: white url(images/loader.gif) no-repeat center center;
+  background-size: 60%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.dark #preloader {
+  background: #21242d url(images/loaderD.webp) no-repeat center center;
+  background-size: 50%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+/* Typography */
+h1 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 300;
+  margin: 50px 0 10px 0;
+}
+
+p {
+  margin: 0px;
+  font-size: 20px;
+}
+
+/* Links */
+.links {
+  color: rgb(0, 150, 255);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.links:hover {
+  color: rgb(0, 110, 215);
+}
+
+.dark .links:hover {
+  color: rgb(84, 183, 188);
+}
+
+.dark .links {
+  color: rgb(105, 229, 235);
+}
+
+/* ============================================= */
+/* Menu Styles                                   */
+/* ============================================= */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-right: 0;
+}
+
+.menu-bar {
+  margin-right: 30px;
+  padding-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: inline-block;
+  position: relative;
+}
+
+.menu-bar::after {
+  content: " ";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(0, 150, 255);
+  transition: width 0.2s ease-in-out;
+}
+
+.menu-bar:hover::after {
+  width: 100%;
+}
+
+.menu-bar .idu {
+  border-bottom: 2.5px solid green;
+  padding-bottom: 2px;
+}
+
+.dark .menu-bar .idu {
+  border-bottom: 2.5px solid #DB4105;
+  padding-bottom: 2px;
+}
+
+.dark .menu-bar {
+  color: white;
+}
+
+.dark .menu-bar:hover::after {
+  background-color: rgb(105, 229, 235);
+}
+
+/* ============================================= */
+/* Typewriter Animation                          */
+/* ============================================= */
 .typewrite {
   display: inline-block;
   border-right: 3px solid rgb(57, 57, 57);
@@ -25,7 +155,256 @@
   border-right-color: white;
 }
 
-/* Back-to-top button — glassmorphism style matching other pages */
+/* ============================================= */
+/* Theme Switch                                  */
+/* ============================================= */
+.switch {
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(39, 38, 38);
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.flicker {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  transition: 0.3s;
+  box-shadow: inset 4px 4px 4px rgb(255, 255, 255), inset -4px -4px 4px rgb(195 193 198 / 90%);
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+.moon {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 0 rgb(255, 255, 255);
+  position: absolute;
+  top: 5px;
+  left: 45px;
+  transition: box-shadow 0.3s;
+}
+
+.sun {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  opacity: 0;
+  margin-left: 10px;
+  transition: opacity 0.3s;
+}
+
+.dark .sun {
+  opacity: 1;
+}
+
+/* ============================================= */
+/* Dark Mode                                     */
+/* ============================================= */
+.dark {
+  background-color: rgb(57, 57, 57);
+  transition: 0.3s;
+}
+
+.dark .switch {
+  background-color: rgb(255, 255, 255);
+}
+
+.dark .flicker {
+  transform: translateX(40px);
+  background-color: rgb(0, 0, 0);
+  box-shadow: none;
+}
+
+.dark .moon {
+  box-shadow: 4px 4px 0 0 rgb(39, 38, 38);
+}
+
+.dark > * {
+  color: rgb(255, 255, 255);
+}
+
+/* ============================================= */
+/* Main Hero Section                             */
+/* ============================================= */
+.main {
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  padding-top: 120px;
+}
+
+.main-text {
+  padding: 30px;
+  margin-bottom: 100px;
+}
+
+body p.sub-heading {
+  padding: 30px;
+  margin-bottom: 10px;
+  font-size: 50px;
+  text-align: center;
+}
+
+/* ============================================= */
+/* Squares/Project Cards — Glassmorphism         */
+/* ============================================= */
+.square {
+  width: 98%;
+  margin: 1%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: background 0.3s, border 0.3s, opacity 1.5s, transform 1.5s;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  opacity: 0;
+  transform: translateY(50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  min-height: 400px;
+}
+
+.square > * {
+  margin-bottom: 10px;
+}
+
+.square > *:last-child {
+  margin-bottom: 0;
+}
+
+.square.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dark .square {
+  background: rgba(71, 71, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.square > img:last-of-type {
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.sub-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ============================================= */
+/* Hero Image / 3D Cubes (Desktop)               */
+/* ============================================= */
+.hero-image {
+  position: relative;
+  width: 50%;
+  height: 350px;
+  display: block;
+  margin-bottom: 100px;
+}
+
+.cube {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-25deg) skew(25deg);
+  animation: fade-in-cube 4s;
+}
+
+.cube .tech-logo {
+  display: none;
+}
+
+.cube:before {
+  position: absolute;
+  content: "";
+  width: 21px;
+  height: 100%;
+  transform: skewY(-45deg);
+  left: -20px;
+  bottom: -10px;
+}
+
+.cube:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 21px;
+  transform: skewX(-45deg);
+  left: -10px;
+  bottom: -20px;
+}
+
+#html {
+  left: 100px; bottom: 80px;
+  background-image: url("images/html-logo.png"); background-size: cover;
+  background-color: rgb(175, 119, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+#html:before { background-color: rgb(189, 154, 221); }
+#html:after { background-color: rgb(205, 188, 221); }
+
+#css {
+  left: 250px; bottom: 240px;
+  background-image: url("images/css-logo.png"); background-size: cover;
+  background-color: rgb(227, 119, 191);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+#css:before { background-color: rgb(221, 154, 207); }
+#css:after { background-color: rgb(221, 188, 211); }
+
+#javascript {
+  left: 450px; bottom: 200px;
+  background-image: url("images/javascript-logo.png"); background-size: cover;
+  background-color: rgb(119, 227, 186);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+#javascript:before { background-color: rgb(154, 221, 202); }
+#javascript:after { background-color: rgb(188, 221, 212); }
+
+#react {
+  left: 350px; bottom: 40px;
+  background-image: url("images/react-logo.png"); background-size: cover;
+  background-color: rgb(119, 193, 227);
+  box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
+}
+#react:before { background-color: rgb(154, 189, 221); }
+#react:after { background-color: rgb(188, 200, 221); }
+
+.dark #html, .dark #css, .dark #javascript, .dark #react {
+  box-shadow: -60px 60px 20px rgb(255 255 255 / 15%);
+}
+
+@keyframes fade-in-cube {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+/* ============================================= */
+/* Back-to-Top Button — Glassmorphism            */
+/* ============================================= */
 .to-top2 {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
@@ -69,23 +448,324 @@
   background: rgba(71, 71, 71, 0.5);
 }
 
-@media only screen and (max-width: 768px) {
-  .to-top2 {
-    right: 20px;
-    background: rgba(255, 255, 255, 0.6);
-  }
-  .to-top2:hover {
-    background: rgba(255, 255, 255, 0.8);
-  }
-  .dark .to-top2 {
-    background: rgba(71, 71, 71, 0.5);
-  }
-  .dark .to-top2:hover {
-    background: rgba(71, 71, 71, 0.7);
+/* ============================================= */
+/* Footer & Socials — Glassmorphism              */
+/* ============================================= */
+footer {
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; padding: 40px 15px 20px;
+  background-color: transparent;
+}
+
+#footer .wrapper {
+  display: flex; justify-content: center; align-items: center;
+  padding: 20px 30px; margin-bottom: 20px;
+  transition: background 0.3s, border 0.3s, padding 0.3s;
+  background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.dark #footer .wrapper {
+  background: rgba(71, 71, 71, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.wrapper a.icon {
+  margin: 0 20px; text-align: center; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; flex-direction: column;
+  position: relative; z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-decoration: none;
+}
+
+.wrapper a.icon span {
+  display: block; height: 60px; width: 60px; background: #fff;
+  border-radius: 50%; position: relative; z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper a.icon span i { line-height: 60px; font-size: 25px; color: #333; }
+
+.wrapper a.icon .tooltip {
+  position: absolute; top: 0; z-index: 1; background: #fff; color: #fff;
+  padding: 10px 18px; font-size: 20px; font-weight: 500; border-radius: 25px;
+  opacity: 0; pointer-events: none; box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper a.icon:hover .tooltip { top: -70px; opacity: 1; pointer-events: auto; }
+
+.icon .tooltip:before {
+  position: absolute; content: ""; height: 15px; width: 15px;
+  background: #fff; left: 50%; bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper a.icon:hover span i { color: white; }
+.wrapper a.icon:hover span, .wrapper a.icon:hover .tooltip { text-shadow: 0px -1px 0px rgba(0,0,0,0.4); }
+.wrapper .linkedin:hover span, .wrapper .linkedin:hover .tooltip, .wrapper .linkedin:hover .tooltip:before { background: #0072b1; }
+.wrapper .twitter:hover span, .wrapper .twitter:hover .tooltip, .wrapper .twitter:hover .tooltip:before { background: #46C1F6; }
+.wrapper .instagram:hover span, .wrapper .instagram:hover .tooltip, .wrapper .instagram:hover .tooltip:before { background: #e1306c; }
+.wrapper .github:hover span, .wrapper .github:hover .tooltip, .wrapper .github:hover .tooltip:before { background: #333; }
+.wrapper .envelope:hover span, .wrapper .envelope:hover .tooltip, .wrapper .envelope:hover .tooltip:before { background: #DE463B; }
+.dark .wrapper a.icon span i { color: black; }
+.dark .wrapper a.icon:hover span i { color: white; }
+
+/* Scrollbar */
+html::-webkit-scrollbar { width: 0.5vw; }
+html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radius: 100px; }
+.dark::-webkit-scrollbar-thumb { background-color: #555; border-radius: 100px; }
+html { scroll-behavior: smooth; }
+
+/* Credit */
+.credit { font-size: 12px; text-align: center; }
+.credit a { color: rgb(57, 57, 57); text-decoration: none; font-weight: 500; }
+.dark .credit a { color: white; }
+
+/* ============================================= */
+/* Header — Fixed Glassmorphism Navbar           */
+/* ============================================= */
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  z-index: 99;
+  background: rgba(244, 241, 241, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.dark .header-wrapper {
+  background: rgba(57, 57, 57, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 220px; }
+.pageicon { margin-top: 10px; margin-left: 28px; margin-right: 30px; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; }
+.header-title { display: none; font-family: 'Poppins', sans-serif; font-weight: 500; color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease; }
+.dark .header-title { color: white; }
+.hamburger { display: none; cursor: pointer; padding: 5px; z-index: 101; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: rgb(57, 57, 57); }
+.dark .bar { background-color: white; }
+.header-controls { display: flex; align-items: center; gap: 20px; transition: gap 0.3s ease; min-width: 120px; justify-content: flex-end; }
+
+/* Menu centering polish */
+.menu {
+  flex: 1;
+  justify-content: center;
+  gap: 30px;
+  padding-right: 0;
+}
+
+.menu-bar {
+  margin-right: 0;
+}
+
+/* Scroll effects */
+html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
+.header-wrapper.scrolled { background-color: rgba(244, 241, 241, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+.dark .header-wrapper.scrolled { background-color: rgba(57, 57, 57, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
+
+/* ============================================= */
+/* Responsive: Desktop Wide (>970px)             */
+/* ============================================= */
+@media only screen and (min-width: 970px) {
+  .main-text { width: 50%; }
+  .square {
+    width: 48%;
+    margin: 1%;
   }
 }
 
+/* ============================================= */
+/* Responsive: 1300px                            */
+/* ============================================= */
+@media only screen and (max-width: 1300px) {
+  .hero-image {
+    position: relative; width: 50%; height: 350px; display: block; margin-bottom: 100px;
+  }
+}
+
+/* ============================================= */
+/* Responsive: Tablet (992px)                    */
+/* ============================================= */
+@media only screen and (max-width: 992px) {
+  h1 { font-size: 50px; line-height: 50px; }
+  h2 { font-size: 32px; line-height: 32px; }
+  .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
+  .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
+  .hero-image { width: 100%; margin-bottom: 50px; }
+  .sub-section {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+}
+
+/* ============================================= */
+/* Responsive: Mobile (768px) — Hero Grid + Menu */
+/* ============================================= */
+@media only screen and (max-width: 768px) {
+  .main-text { width: 100%; }
+  .menu-bar { font-size: 16px; }
+
+  /* Back-to-top mobile adjustment */
+  .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
+  .to-top2:hover { background: rgba(255, 255, 255, 0.8); }
+  .dark .to-top2 { background: rgba(71, 71, 71, 0.5); }
+  .dark .to-top2:hover { background: rgba(71, 71, 71, 0.7); }
+
+  /* Project cards single column */
+  .square {
+    width: 100%; height: auto; padding: 15px;
+    margin-bottom: 20px;
+  }
+  .square > img:last-of-type { max-width: 250px !important; }
+
+  /* Mobile Hero Section (2x2 Colored Glass Grid) */
+  .hero-image {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 15px; height: auto; margin-bottom: 40px; position: static;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  .cube {
+    position: static; transform: none; animation: none;
+    width: 100%; height: auto; aspect-ratio: 1 / 1;
+    background-image: none !important;
+    display: flex; justify-content: center; align-items: center;
+    border-radius: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  }
+  .cube:before, .cube:after { display: none; }
+
+  .cube .tech-logo {
+    display: block; width: 65%; height: 65%;
+    background-size: contain; background-position: center; background-repeat: no-repeat;
+  }
+
+  /* Tech logo images for mobile grid */
+  #html .tech-logo { background-image: url("images/html-logo.png"); }
+  #css .tech-logo { background-image: url("images/css-logo.png"); }
+  #javascript .tech-logo { background-image: url("images/javascript-logo.png"); }
+  #react .tech-logo { background-image: url("images/react-logo.png"); }
+
+  /* Light Mode: Colored glass with solid borders for pop */
+  #html { background-color: rgba(160, 90, 230, 0.4) !important; border: 2px solid rgb(130, 70, 200) !important; }
+  #css { background-color: rgba(230, 85, 180, 0.4) !important; border: 2px solid rgb(200, 65, 150) !important; }
+  #javascript { background-color: rgba(70, 220, 170, 0.4) !important; border: 2px solid rgb(50, 190, 140) !important; }
+  #react { background-color: rgba(80, 180, 240, 0.4) !important; border: 2px solid rgb(60, 150, 210) !important; }
+
+  /* Dark Mode: Colored glass with transparent border */
+  .dark .cube {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .dark #html { background-color: rgba(160, 90, 230, 0.3) !important; }
+  .dark #css { background-color: rgba(230, 85, 180, 0.3) !important; }
+  .dark #javascript { background-color: rgba(70, 220, 170, 0.3) !important; }
+  .dark #react { background-color: rgba(80, 180, 240, 0.3) !important; }
+
+  /* Header & Mobile Menu */
+  .header-wrapper { padding: 15px; }
+  .header-title { display: block; font-size: 16px; overflow: hidden; text-overflow: ellipsis; }
+  .header-brand { margin-right: 10px; min-width: 0; }
+  .header-controls { min-width: 0; }
+  .pageicon { margin: 0 !important; width: 36px; height: 36px; }
+  .hamburger { display: block; order: 2; }
+  .bar { width: 30px; height: 4px; margin: 6px auto; }
+  .switch { order: 1; width: 65px; height: 32px; margin-top: 4px; }
+  .flicker { width: 24px; height: 24px; top: 4px; left: 4px; }
+  .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
+  .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
+  .dark .flicker { transform: translateX(33px); }
+  .hamburger.active .bar:nth-child(2) { opacity: 0; }
+  .hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+  .hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+  .hamburger.active { position: fixed; top: 25px; right: 15px; }
+  .menu {
+    position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column;
+    background-color: rgb(244, 241, 241); width: 100%; height: 100vh;
+    transition: 0.3s; padding-right: 0; z-index: 100;
+    display: flex; justify-content: center; align-items: center; padding-top: 0;
+    box-sizing: border-box;
+  }
+  .dark .menu { background-color: rgb(57, 57, 57); }
+  .menu.active { left: 0; }
+  .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; }
+
+  /* Full-width underline for mobile menu */
+  .menu-bar::after {
+    content: " ";
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background-color: rgb(0, 150, 255);
+    transition: width 0.2s ease-in-out;
+  }
+  .menu-bar:hover::after {
+    width: 100%;
+  }
+}
+
+/* ============================================= */
+/* Responsive: Small Mobile (576px)              */
+/* ============================================= */
+@media only screen and (max-width: 576px) {
+  h1 { font-size: 36px; line-height: 40px; }
+  p { font-size: 16px; }
+  .links { font-size: 16px; }
+  .wrapper a.icon { margin: 0 10px; }
+  .wrapper a.icon span { height: 50px; width: 50px; }
+  .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
+  .square > img:last-of-type { max-width: 200px !important; }
+  .header-controls { gap: 15px; }
+  .header-title { font-size: 14px; }
+}
+
+/* ============================================= */
+/* Responsive: Extra Small (402px)               */
+/* ============================================= */
 @media only screen and (max-width: 402px) {
+  .square {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 8px;
+  }
+
+  .square > img:last-of-type {
+    max-width: 160px !important;
+  }
+
+  .square h2 {
+    font-size: 28px;
+  }
+
+  .square p {
+    font-size: 15px;
+  }
+
+  .wrapper a.icon { margin: 0 5px; }
+  .wrapper a.icon span { height: 50px; width: 50px; }
+  .wrapper a.icon span i { line-height: 50px; font-size: 18px; }
+  #footer .wrapper { padding: 15px 15px; }
+
   .to-top2 {
     width: 40px;
     height: 40px;
@@ -95,86 +775,15 @@
   }
 }
 
-/* Hero Image/Cubes Layout */
-.hero-image {
-  position: relative;
-  width: 50%;
-  height: 350px;
-  display: block;
-  margin-bottom: 100px;
-}
-
-.cube {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  transform: rotate(-25deg) skew(25deg);
-  animation: fade-in-cube 4s;
-}
-
-.cube:before {
-  position: absolute;
-  content: "";
-  width: 21px;
-  height: 100%;
-  transform: skewY(-45deg);
-  left: -20px;
-  bottom: -10px;
-}
-
-.cube:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 21px;
-  transform: skewX(-45deg);
-  left: -10px;
-  bottom: -20px;
-}
-
-#html {
-  left: 100px; bottom: 80px; background-image: url("images/html-logo.png"); background-size: cover; background-color: rgb(175, 119, 227); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
-}
-#html:before { background-color: rgb(189, 154, 221); }
-#html:after { background-color: rgb(205, 188, 221); }
-
-#css {
-  left: 250px; bottom: 240px; background-image: url("images/css-logo.png"); background-size: cover; background-color: rgb(227, 119, 191); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
-}
-#css:before { background-color: rgb(221, 154, 207); }
-#css:after { background-color: rgb(221, 188, 211); }
-
-#javascript {
-  left: 450px; bottom: 200px; background-image: url("images/javascript-logo.png"); background-size: cover; background-color: rgb(119, 227, 186); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
-}
-#javascript:before { background-color: rgb(154, 221, 202); }
-#javascript:after { background-color: rgb(188, 221, 212); }
-
-#react {
-  left: 350px; bottom: 40px; background-image: url("images/react-logo.png"); background-size: cover; background-color: rgb(119, 193, 227); box-shadow: -60px 60px 20px rgb(50 50 50/ 15%);
-}
-#react:before { background-color: rgb(154, 189, 221); }
-#react:after { background-color: rgb(188, 200, 221); }
-
-.dark #html, .dark #css, .dark #javascript, .dark #react { box-shadow: -60px 60px 20px rgb(255 255 255 / 15%); }
-
-@keyframes fade-in-cube {
-  from { opacity: 0; } to { opacity: 1; }
-}
-
-/* Responsive Overrides */
-@media only screen and (min-width: 970px) {
-  .main-text { width: 50%; }
-}
-
-@media only screen and (max-width: 1300px) {
-  .hero-image {
-    position: relative; width: 50%; height: 350px; display: block; margin-bottom: 100px;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
-  .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
-  .hero-image { width: 100%; margin-bottom: 50px; }
+/* ============================================= */
+/* Responsive: Tiny Screens (400px)              */
+/* ============================================= */
+@media only screen and (max-width: 400px) {
+  .menu-bar { font-size: 14px; padding-right: 10px; }
+  .wrapper a.icon { margin: 0 5px; }
+  .wrapper a.icon span { height: 40px; width: 40px; }
+  .wrapper a.icon span i { line-height: 40px; font-size: 18px; }
+  #footer .wrapper { padding: 15px 15px; }
+  .header-controls { gap: 10px; }
+  .header-title { display: none; }
 }
