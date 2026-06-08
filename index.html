@@ -27,6 +27,40 @@
       @media only screen and (max-width: 992px) {
         .hamburger { display: flex !important; }
         .header-title { display: block !important; }
+        .header-brand { left: 15px !important; }
+        .header-controls { right: 15px !important; gap: 15px !important; }
+        .menu-bar { margin-right: 15px !important; }
+        .menu { display: none !important; }
+      }
+      @media only screen and (max-width: 992px) {
+        .menu.active {
+          display: flex !important;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(244, 241, 241, 0.95);
+          flex-direction: column;
+          padding: 20px 0;
+          gap: 15px;
+        }
+        .dark .menu.active {
+          background: rgba(57, 57, 57, 0.95);
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        .header-wrapper { padding: 20px !important; }
+        .header-brand { left: 10px !important; }
+        .header-controls { right: 10px !important; gap: 10px !important; }
+        .menu { gap: 15px !important; }
+        .menu-bar { margin-right: 10px !important; }
+      }
+      @media only screen and (max-width: 576px) {
+        .header-wrapper { padding: 15px !important; }
+        .header-brand { left: 8px !important; }
+        .header-controls { right: 8px !important; gap: 8px !important; }
+        .pageicon { height: 24px !important; width: 24px !important; }
+        .header-title { font-size: 14px !important; }
       }
     </style>
 </head>

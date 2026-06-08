@@ -227,7 +227,7 @@ header {
 .menu {
   display: flex;
   align-items: center;
-  padding-right: 570px;
+  padding-right: 0;
 }
 
 /* Style for the links with underline on hover */
