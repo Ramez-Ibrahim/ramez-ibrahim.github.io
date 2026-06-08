@@ -1556,7 +1556,8 @@ footer {
 	font-size: 19px;
 }
 
-.to-top {
+.to-top,
+.to-top2 {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1580,20 +1581,23 @@ footer {
   z-index: 2;
 }
 
-.to-top:hover {
+.to-top:hover,
+.to-top2:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px 0 rgba(31, 38, 135, 0.2);
   background: rgba(255, 255, 255, 0.6);
 }
 
-.dark .to-top {
+.dark .to-top,
+.dark .to-top2 {
   background: rgba(71, 71, 71, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   color: whitesmoke;
 }
 
-.dark .to-top:hover {
+.dark .to-top:hover,
+.dark .to-top2:hover {
   background: rgba(71, 71, 71, 0.5);
 }
 
