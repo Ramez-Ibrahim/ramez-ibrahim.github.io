@@ -1506,9 +1506,6 @@ footer {
 .pageicon {
 	height: 28px;
 	width: 28px;
-	position: absolute;
-	padding-top: 43px;
-	padding-left: 60px;
 	transition: transform 0.3s ease;
 	transform-origin: center center;
 }
