@@ -599,7 +599,14 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 }
 
 /* ============================================= */
-/* Responsive: Tablet (992px)                    */
+/* Responsive: Desktop Wide (>992px)             */
+/* ============================================= */
+@media only screen and (min-width: 993px) {
+    /* Desktop-specific overrides */
+}
+
+/* ============================================= */
+/* Responsive: Tablet (<992px)                   */
 /* ============================================= */
 @media only screen and (max-width: 992px) {
   h1 { font-size: 50px; line-height: 50px; }
@@ -614,7 +621,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 }
 
 /* ============================================= */
-/* Responsive: Mobile (768px) — Hero Grid + Menu */
+/* Responsive: Mobile (<768px)                   */
 /* ============================================= */
 @media only screen and (max-width: 768px) {
   .main-text { width: 100%; }
@@ -628,7 +635,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 
   /* Project cards single column */
   .square {
-    width: 100%; height: auto; padding: 15px;
+    width: 100% !important; height: auto !important; padding: 15px;
     margin-bottom: 20px;
   }
   .square > img:last-of-type { max-width: 250px !important; }
@@ -639,6 +646,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
     gap: 15px; height: auto; margin-bottom: 40px; position: static;
     padding: 0 15px;
     box-sizing: border-box;
+    width: 100%;
   }
 
   .cube {
@@ -722,6 +730,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
     width: 100%;
   }
 }
+
 
 /* ============================================= */
 /* Responsive: Small Mobile (576px)              */
