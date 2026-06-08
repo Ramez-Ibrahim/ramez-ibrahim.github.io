@@ -7,62 +7,6 @@
     <title>Code Cave | Ramez Ibrahim</title>
     <link id="favicon" rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="index.css">
-    <style>
-      header { display: unset !important; justify-content: unset !important; padding: unset !important; }
-      .header-wrapper { display: flex !important; justify-content: center !important; align-items: center !important; padding: 30px !important; position: sticky !important; top: 0 !important; z-index: 50 !important; background: rgba(244, 241, 241, 0.7) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important; box-shadow: 0 4px 30px rgba(31, 38, 135, 0.1) !important; }
-      .header-brand { display: flex !important; align-items: center !important; text-decoration: none !important; gap: 15px !important; position: absolute !important; left: 60px !important; }
-      .header-title { font-size: 18px !important; font-weight: 600 !important; color: rgb(57, 57, 57) !important; display: none !important; }
-      .dark .header-title { color: white !important; }
-      .menu { padding-right: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; flex: 1 !important; justify-content: center !important; text-align: center !important; }
-      .menu-bar { padding-right: 0 !important; margin-right: 30px !important; padding-top: 5px !important; }
-      .menu-bar::after { width: 0 !important; }
-      .menu-bar:hover::after { width: 100% !important; }
-      .pageicon { position: unset !important; padding: unset !important; margin: 0 !important; height: 30px !important; width: 30px !important; }
-      .header-controls { display: flex !important; align-items: center !important; gap: 20px !important; position: absolute !important; right: 60px !important; }
-      .dark .header-wrapper { background: rgba(57, 57, 57, 0.5) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important; }
-      .switch { position: relative !important; display: flex !important; align-items: center !important; }
-      .sun { display: none !important; }
-      .dark .sun { display: block !important; }
-      .hamburger { display: none !important; }
-      @media only screen and (max-width: 992px) {
-        .hamburger { display: flex !important; }
-        .header-title { display: block !important; }
-        .header-brand { left: 15px !important; }
-        .header-controls { right: 15px !important; gap: 15px !important; }
-        .menu-bar { margin-right: 15px !important; }
-        .menu { display: none !important; }
-      }
-      @media only screen and (max-width: 992px) {
-        .menu.active {
-          display: flex !important;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: rgba(244, 241, 241, 0.95);
-          flex-direction: column;
-          padding: 20px 0;
-          gap: 15px;
-        }
-        .dark .menu.active {
-          background: rgba(57, 57, 57, 0.95);
-        }
-      }
-      @media only screen and (max-width: 768px) {
-        .header-wrapper { padding: 20px !important; }
-        .header-brand { left: 10px !important; }
-        .header-controls { right: 10px !important; gap: 10px !important; }
-        .menu { gap: 15px !important; }
-        .menu-bar { margin-right: 10px !important; }
-      }
-      @media only screen and (max-width: 576px) {
-        .header-wrapper { padding: 15px !important; }
-        .header-brand { left: 8px !important; }
-        .header-controls { right: 8px !important; gap: 8px !important; }
-        .pageicon { height: 24px !important; width: 24px !important; }
-        .header-title { font-size: 14px !important; }
-      }
-    </style>
 </head>
 <body>
     <div id="preloader"></div>
