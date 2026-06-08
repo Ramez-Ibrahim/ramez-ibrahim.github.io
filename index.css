@@ -566,8 +566,6 @@ html { scroll-behavior: smooth; }
   align-items: center; 
   gap: 15px; 
   text-decoration: none; 
-  position: absolute; 
-  left: 60px; 
 }
 .pageicon { margin: 0; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; vertical-align: middle; }
 .header-title { display: none; font-family: 'Poppins', sans-serif; font-weight: 500; color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease; }
@@ -579,16 +577,15 @@ html { scroll-behavior: smooth; }
   display: flex; 
   align-items: center; 
   gap: 20px; 
-  position: absolute; 
-  right: 60px; 
 }
 
 /* Menu centering polish */
 .menu {
-  flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
-  padding-right: 0;
+  flex: 1;
 }
 
 .menu-bar {
@@ -705,11 +702,12 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 
   /* Header & Mobile Menu */
   .header-wrapper { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-  .header-title { display: block; font-size: 16px; overflow: hidden; text-overflow: ellipsis; }
-  .header-brand { margin-right: 10px; min-width: 0; }
-  .header-controls { min-width: 0; }
-  .pageicon { margin: 0 !important; width: 36px; height: 36px; }
-  .switch { order: 1; width: 65px; height: 32px; margin-top: 4px; }
+  .header-title { display: block; font-size: 16px; white-space: nowrap; }
+  .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
+  .header-brand .header-title { overflow: hidden; text-overflow: ellipsis; }
+  .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .pageicon { margin: 0 !important; width: 36px; height: 36px; flex-shrink: 0; }
+  .switch { width: 65px; height: 32px; }
   .flicker { width: 24px; height: 24px; top: 4px; left: 4px; }
   .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
   .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
@@ -753,6 +751,34 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .square > img:last-of-type { max-width: 200px !important; }
   .header-controls { gap: 15px; }
   .header-title { font-size: 14px; }
+}
+
+/* ============================================= */
+/* Responsive: Specific Device (402x874)         */
+/* ============================================= */
+@media only screen and (max-width: 402px) and (max-height: 874px) {
+  .header-wrapper { padding: 40px 10px 40px 0px; height: 80px; justify-content: space-between; flex-wrap: nowrap; }
+  .main { padding-top: 140px; }
+  .pfp-container { height: 280px; width: 280px; }
+  
+  /* Optimize header spacing and size */
+  .header-brand { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; overflow: visible; }
+  .pageicon { width: 25px; height: 25px; flex-shrink: 0; margin-right: 5px; }
+  .header-title { white-space: nowrap; overflow: visible; text-overflow: clip; font-size: 13px; max-width: none; }
+  
+  /* Improve Header Controls & Toggle Appearance */
+  .header-controls { display: flex; justify-content: flex-end; align-items: center; gap: 5px; flex-shrink: 0; }
+  .switch { width: 50px; height: 26px; border-radius: 13px; flex-shrink: 0; }
+  .flicker { width: 20px; height: 20px; top: 3px; left: 3px; }
+  .moon { width: 12px; height: 12px; top: 3px; left: 28px; box-shadow: 3px 3px 0 0 rgb(255, 255, 255); }
+  .sun { width: 12px; height: 12px; top: 7px; margin-left: 6px; }
+  
+  /* Toggle Dark Mode adjustments */
+  .dark .switch { background-color: rgb(255, 255, 255); }
+  .dark .flicker { transform: translateX(24px); background-color: rgb(0, 0, 0); box-shadow: none; }
+  .dark .moon { box-shadow: 3px 3px 0 0 rgb(39, 38, 38); }
+  
+  .hamburger { display: block; padding: 5px; flex-shrink: 0; }
 }
 
 /* ============================================= */
