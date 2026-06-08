@@ -214,6 +214,7 @@ header {
   header {
     justify-content: space-between;
     align-items: center;
+    padding: 40px 20px; /* Increased vertical padding */
   }
 }
 

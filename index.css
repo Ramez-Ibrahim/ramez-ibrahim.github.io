@@ -759,6 +759,8 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 /* Responsive: Extra Small (402px)               */
 /* ============================================= */
 @media only screen and (max-width: 402px) {
+  .header-wrapper { padding: 40px 15px; box-sizing: border-box; width: 100%; }
+  
   .square {
     padding-top: 20px;
     padding-bottom: 20px;
