@@ -216,6 +216,9 @@ header {
     align-items: center;
     padding: 40px 20px; /* Increased vertical padding */
   }
+  .header-brand .pageicon {
+    margin-right: 50px;
+  }
 }
 
 /* Style for the menu container */
