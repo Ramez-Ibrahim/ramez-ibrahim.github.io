@@ -560,7 +560,7 @@ html { scroll-behavior: smooth; }
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
 }
 
 .dark .header-wrapper {
@@ -708,7 +708,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 
 
   /* Header & Mobile Menu */
-  .header-wrapper { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .header-wrapper { padding: 45px 15px; display: flex; justify-content: space-between; align-items: center; }
   .header-title { display: block; font-size: 16px; white-space: nowrap; }
 
   .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
@@ -765,7 +765,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 /* Responsive: Specific Device (402x874)         */
 /* ============================================= */
 @media only screen and (max-width: 402px) and (max-height: 874px) {
-  .header-wrapper { padding: 40px 10px 40px 0px; height: 80px; justify-content: space-between; flex-wrap: nowrap; }
+  .header-wrapper { padding: 45px 10px 45px 0px; height: 80px; justify-content: space-between; flex-wrap: nowrap; }
   .main { padding-top: 140px; }
   .pfp-container { height: 280px; width: 280px; }
   
@@ -793,7 +793,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 /* Responsive: Extra Small (402px)               */
 /* ============================================= */
 @media only screen and (max-width: 402px) {
-  .header-wrapper { padding: 40px 15px; box-sizing: border-box; width: 100%; }
+  .header-wrapper { padding: 45px 15px; box-sizing: border-box; width: 100%; }
   
   .square {
     padding-top: 20px;
