@@ -259,6 +259,13 @@ body p.sub-heading {
   text-align: center;
 }
 
+@media only screen and (max-width: 576px) {
+  body p.sub-heading {
+    font-size: 32px;
+    padding: 15px;
+  }
+}
+
 /* ============================================= */
 /* Squares/Project Cards — Glassmorphism         */
 /* ============================================= */
@@ -703,6 +710,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   /* Header & Mobile Menu */
   .header-wrapper { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
   .header-title { display: block; font-size: 16px; white-space: nowrap; }
+
   .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
   .header-brand .header-title { overflow: hidden; text-overflow: ellipsis; }
   .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
@@ -750,7 +758,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
   .square > img:last-of-type { max-width: 200px !important; }
   .header-controls { gap: 15px; }
-  .header-title { font-size: 14px; }
+  .header-title { font-size: 18px; }
 }
 
 /* ============================================= */
@@ -764,7 +772,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   /* Optimize header spacing and size */
   .header-brand { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; overflow: visible; }
   .pageicon { width: 25px; height: 25px; flex-shrink: 0; margin-right: 5px; }
-  .header-title { white-space: nowrap; overflow: visible; text-overflow: clip; font-size: 13px; max-width: none; }
+  .header-title { white-space: nowrap; overflow: visible; text-overflow: clip; font-size: 16px; max-width: none; }
   
   /* Improve Header Controls & Toggle Appearance */
   .header-controls { display: flex; justify-content: flex-end; align-items: center; gap: 5px; flex-shrink: 0; }

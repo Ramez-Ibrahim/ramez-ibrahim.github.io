@@ -1098,8 +1098,8 @@ footer {
 
 /* Hamburger Menu Active State (Shared) */
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
-.hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
-.hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 .hamburger.active { position: fixed; top: 25px; right: 15px; }
 
 /* Mobile Override */

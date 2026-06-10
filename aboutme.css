@@ -600,8 +600,8 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
   .dark .flicker { transform: translateX(33px); }
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
-  .hamburger.active .bar:nth-child(1) { transform: translateY(10px) rotate(45deg); }
-  .hamburger.active .bar:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+  .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   .hamburger.active { position: fixed; top: 25px; right: 15px; }
   .menu {
     position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column;
