@@ -712,7 +712,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .header-title { display: block; font-size: 16px; white-space: nowrap; }
 
   .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
-  .header-brand .header-title { overflow: hidden; text-overflow: ellipsis; }
+  .header-brand .header-title { font-size: 14px; }
   .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .pageicon { margin: 0 !important; width: 36px; height: 36px; flex-shrink: 0; }
   .switch { width: 65px; height: 32px; }
