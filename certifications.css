@@ -82,54 +82,7 @@ p {
   color: white;
 }
 
-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 30px;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  padding-right: 570px;
-}
-
-.menu-bar {
-  padding-right: 30px;
-  padding-top: 5px;
-  font-family: 'Poppins', sans-serif;
-  color: rgb(57, 57, 57);
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-  display: inline-block;
-  position: relative;
-}
-
-.menu-bar::after {
-  content: " ";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: transparent;
-}
-
-.menu-bar:hover::after {
-  background-color: rgb(0, 150, 255);
-  width: calc(100% - 30px);
-}
-
-.menu-bar .idu {
-  border-bottom: 2.5px solid green;
-  padding-bottom: 2px;
-}
-
-.dark .menu-bar .idu {
-  border-bottom: 2.5px solid #DB4105;
-  padding-bottom: 2px;
-}
+/* Removed header styling as it was conflicting with global styles */
 
 .typewrite {
   display: inline-block;
@@ -407,6 +360,26 @@ footer {
   animation: fade-in-cube 4s;
 }
 
+.page-specific .square {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+}
+
+.page-specific .square {
+  height: 600px;
+}
+
+.page-specific .square:nth-child(3n+1) {
+  clear: left;
+}
+
+@media only screen and (min-width: 970px) {
+  .page-specific .square {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+  }
+}
+
 @media only screen and (min-width: 970px) {
   .main-text {
     width: 50%;
@@ -443,6 +416,43 @@ footer {
 
 @media only screen and (max-width: 768px) {
   .main-text {
+    width: 100%;
+  }
+
+  /* Header & Mobile Menu */
+  .header-wrapper { padding: 45px 15px; display: flex; justify-content: space-between; align-items: center; }
+  .header-title { display: block; font-size: 16px; white-space: nowrap; }
+
+  .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
+  .header-brand .header-title { font-size: 14px; }
+  .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .pageicon { margin: 0 !important; width: 36px; height: 36px; flex-shrink: 0; }
+  .switch { width: 65px; height: 32px; }
+  .flicker { width: 24px; height: 24px; top: 4px; left: 4px; }
+  .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
+  .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
+  .dark .flicker { transform: translateX(33px); }
+  .menu {
+    position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column;
+    background-color: rgb(244, 241, 241); width: 100%; height: 100vh;
+    transition: 0.3s; padding-right: 0; z-index: 100;
+    display: flex; justify-content: center; align-items: center; padding-top: 0;
+    box-sizing: border-box;
+  }
+  .dark .menu { background-color: rgb(57, 57, 57); }
+  .menu.active { left: 0; }
+  .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; }
+
+  /* Full-width underline for mobile menu */
+  .menu-bar::after {
+    content: " ";
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background-color: rgb(0, 150, 255);
+    transition: width 0.2s ease-in-out;
+  }
+  .menu-bar:hover::after {
     width: 100%;
   }
 
@@ -547,9 +557,17 @@ footer {
     background-color: rgba(230, 85, 180, 0.3) !important;
   }
 
-  .square {
-    width: 100%;
-    height: auto;
+  .page-specific .square {
+    width: 100% !important;
+    height: auto !important;
+    clear: none !important;
+    padding: 20px !important;
+  }
+
+  .page-specific .square img:not(.share) {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
   }
 }
 
@@ -563,8 +581,6 @@ footer {
 }
 
 @media only screen and (max-width: 420px) {
-  .header-controls { gap: 10px; }
-  .header-title { display: none; }
   .wrapper a.icon { margin: 0 8px; }
   .wrapper a.icon span { height: 45px; width: 45px; }
   .wrapper a.icon span i { line-height: 45px; font-size: 20px; }
@@ -589,25 +605,6 @@ footer {
   animation: fade-in-cube 4s;
 }
 
-.page-specific .square {
-  width: calc(33.33% - 20px);
-  margin: 10px;
-}
-
-.page-specific .square {
-  height: 600px;
-}
-
-.page-specific .square:nth-child(3n+1) {
-  clear: left;
-}
-
-@media only screen and (min-width: 970px) {
-  .page-specific .square {
-    width: calc(33.33% - 20px);
-    margin: 10px;
-  }
-}
 
 @keyframes fadeIn {
   to {
@@ -742,6 +739,16 @@ footer {
 	transform-origin: center center;
 }
 
+/* Reset .pageicon inside the header so it sits inline with the title */
+.header-brand .pageicon {
+  position: static;
+  padding: 0;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
 .date {
 	padding-top: 40px;
 	font-size: 25px;
@@ -847,6 +854,14 @@ html {
   margin-bottom: 50px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+@media only screen and (max-width: 768px) {
+  .logos {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 30px 0;
+  }
 }
 
 .dark .logos {

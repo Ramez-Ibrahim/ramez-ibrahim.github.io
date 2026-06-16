@@ -1,208 +1,20 @@
-
+<!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8" />
-    <title>Code Cave | Ramez Ibrahim</title>
-    <link rel="stylesheet" href="certifications.css"/>
-    <link rel="stylesheet" href="styles.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-	  <link rel="stylesheet" href="lightbox.css"/>
-    <style>
-      /* Override conflicting styles from styles.css */
-      header { display: unset !important; justify-content: unset !important; padding: unset !important; }
-      .header-wrapper { display: flex !important; justify-content: center !important; align-items: center !important; padding: 30px !important; position: sticky !important; top: 0 !important; z-index: 50 !important; background: rgba(244, 241, 241, 0.7) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important; box-shadow: 0 4px 30px rgba(31, 38, 135, 0.1) !important; }
-      .header-brand { display: flex !important; align-items: center !important; text-decoration: none !important; gap: 15px !important; position: absolute !important; left: 60px !important; }
-      .header-title { font-size: 18px !important; font-weight: 600 !important; color: rgb(57, 57, 57) !important; display: none !important; }
-      .dark .header-title { color: white !important; }
-      .menu { padding-right: 0 !important; display: flex !important; align-items: center !important; gap: 30px !important; flex: 1 !important; justify-content: center !important; text-align: center !important; }
-      .menu-bar { padding-right: 0 !important; margin-right: 30px !important; padding-top: 5px !important; }
-      .menu-bar::after { width: 0 !important; }
-      .menu-bar:hover::after { width: 100% !important; }
-      .pageicon { position: unset !important; padding: unset !important; margin: 0 !important; height: 30px !important; width: 30px !important; }
-      .header-controls { display: flex !important; align-items: center !important; gap: 20px !important; position: absolute !important; right: 60px !important; }
-      .dark .header-wrapper { background: rgba(57, 57, 57, 0.5) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important; }
-      .switch { position: relative !important; display: flex !important; align-items: center !important; }
-      .sun { display: none !important; }
-      .dark .sun { display: block !important; }
-      .hamburger { display: none !important; }
-      .main { margin-top: 40px !important; }
-
-      /* New typewriter animation */
-      .typewrite {
-        display: inline-block !important;
-        border-right: 3px solid rgb(57, 57, 57) !important;
-        animation: blink-caret .75s step-end infinite !important;
-        white-space: nowrap !important;
-        overflow: unset !important;
-        width: unset !important;
-      }
-
-      @keyframes blink-caret {
-        50% { border-color: transparent; }
-      }
-
-      .typewrite.typing-done {
-        animation: none !important;
-        border-right-color: transparent !important;
-      }
-
-      .dark .typewrite {
-        border-right-color: white !important;
-      }
-
-      .dark .typewrite.typing-done {
-        border-right-color: transparent !important;
-      }
-
-      /* Override footer to use new design from projects.css */
-      footer {
-        display: flex !important; flex-direction: column !important; justify-content: center !important;
-        align-items: center !important; padding: 40px 15px 20px !important;
-        background-color: transparent !important;
-      }
-
-      #footer .wrapper {
-        display: flex !important; justify-content: center !important; align-items: center !important;
-        padding: 20px 30px !important; margin-bottom: 20px !important;
-        background: rgba(255, 255, 255, 0.4) !important; backdrop-filter: blur(10px) !important;
-        border-radius: 50px !important; border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
-      }
-
-      .dark #footer .wrapper {
-        background: rgba(71, 71, 71, 0.3) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
-      }
-
-      .wrapper a.icon {
-        margin: 0 20px !important; text-align: center !important; cursor: pointer !important; display: flex !important;
-        align-items: center !important; justify-content: center !important; flex-direction: column !important;
-        position: relative !important; z-index: 2 !important;
-        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
-        text-decoration: none !important;
-      }
-
-      .wrapper a.icon span {
-        display: block !important; height: 60px !important; width: 60px !important; background: #fff !important;
-        border-radius: 50% !important; position: relative !important; z-index: 2 !important;
-        box-shadow: 0px 10px 10px rgba(0,0,0,0.1) !important;
-        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
-      }
-
-      .wrapper a.icon span i {
-        line-height: 60px !important; font-size: 25px !important; color: #333 !important;
-      }
-
-      .wrapper a.icon .tooltip {
-        position: absolute !important; top: 0 !important; z-index: 1 !important; background: #fff !important; color: #fff !important;
-        padding: 10px 18px !important; font-size: 20px !important; font-weight: 500 !important; border-radius: 25px !important;
-        opacity: 0 !important; pointer-events: none !important; box-shadow: 0px 10px 10px rgba(0,0,0,0.1) !important;
-        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
-      }
-
-      .wrapper a.icon:hover .tooltip {
-        top: -70px !important; opacity: 1 !important; pointer-events: auto !important;
-      }
-
-      .icon .tooltip:before {
-        position: absolute !important; content: "" !important; height: 15px !important; width: 15px !important;
-        background: #fff !important; left: 50% !important; bottom: -6px !important;
-        transform: translateX(-50%) rotate(45deg) !important;
-        transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
-      }
-
-      .wrapper a.icon:hover span i {
-        color: white !important;
-      }
-
-      .wrapper a.icon:hover span, .wrapper a.icon:hover .tooltip {
-        text-shadow: 0px -1px 0px rgba(0,0,0,0.4) !important;
-      }
-
-      .wrapper .linkedin:hover span, .wrapper .linkedin:hover .tooltip, .wrapper .linkedin:hover .tooltip:before {
-        background: #0072b1 !important;
-      }
-
-      .wrapper .twitter:hover span, .wrapper .twitter:hover .tooltip, .wrapper .twitter:hover .tooltip:before {
-        background: #46C1F6 !important;
-      }
-
-      .wrapper .instagram:hover span, .wrapper .instagram:hover .tooltip, .wrapper .instagram:hover .tooltip:before {
-        background: #e1306c !important;
-      }
-
-      .wrapper .github:hover span, .wrapper .github:hover .tooltip, .wrapper .github:hover .tooltip:before {
-        background: #333 !important;
-      }
-
-      .wrapper .envelope:hover span, .wrapper .envelope:hover .tooltip, .wrapper .envelope:hover .tooltip:before {
-        background: #DE463B !important;
-      }
-
-      .dark .wrapper a.icon span i {
-        color: black !important;
-      }
-
-      .dark .wrapper a.icon:hover span i {
-        color: white !important;
-      }
-
-      .credit {
-        font-size: 12px !important; text-align: center !important; color: rgb(57, 57, 57) !important;
-        text-decoration: none !important; font-weight: 500 !important;
-      }
-
-      .dark .credit {
-        color: white !important;
-      }
-
-      @media only screen and (max-width: 992px) {
-        .hamburger { display: flex !important; }
-        .header-title { display: block !important; }
-        .header-brand { left: 15px !important; }
-        .header-controls { right: 15px !important; gap: 15px !important; }
-        .menu-bar { margin-right: 15px !important; }
-        .menu { display: none !important; }
-      }
-      @media only screen and (max-width: 992px) {
-        .menu.active {
-          display: flex !important;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: rgba(244, 241, 241, 0.95);
-          flex-direction: column;
-          padding: 20px 0;
-          gap: 15px;
-        }
-        .dark .menu.active {
-          background: rgba(57, 57, 57, 0.95);
-        }
-      }
-      @media only screen and (max-width: 768px) {
-        .header-wrapper { padding: 20px !important; }
-        .header-brand { left: 10px !important; }
-        .header-controls { right: 10px !important; gap: 10px !important; }
-        .menu { gap: 15px !important; }
-        .menu-bar { margin-right: 10px !important; }
-      }
-      @media only screen and (max-width: 576px) {
-        .header-wrapper { padding: 15px !important; }
-        .header-brand { left: 8px !important; }
-        .header-controls { right: 8px !important; gap: 8px !important; }
-        .pageicon { height: 24px !important; width: 24px !important; }
-        .header-title { font-size: 14px !important; }
-      }
-    </style>
-  </head>
-
-  <body>
+    <title>Code Cave | Ramez Ibrahim</title>
+    <link id="favicon" rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="certifications.css">
+    <link rel="stylesheet" href="lightbox.css">
+</head>
+<body>
     <div id="preloader"></div>
+
     <header class="header-wrapper">
         <a href="index.html" class="header-brand">
             <img src="images/favicon.png" class="pageicon">
@@ -229,7 +41,6 @@
             </div>
         </div>
     </header>
-
 
     <section class="main">
       <div class="main-text">
@@ -555,31 +366,34 @@
       <i class="fa-solid fa-angles-up"></i>
     </a>
 
-    <footer id="footer">
-      <div class="wrapper">
-        <a href="#" class="icon envelope" onclick="redirectToMail(); return false;">
-          <div class="tooltip">Email</div>
-          <span><i class="far fa-envelope"></i></span>
-        </a>
-        <a href="#" class="icon twitter" onclick="redirectToX(); return false;">
-          <div class="tooltip">X.com</div>
-          <span><i class="fa-brands fa-x-twitter"></i></span>
-        </a>
-        <a href="#" class="icon instagram" onclick="redirectToInstgram(); return false;">
-          <div class="tooltip">Instagram</div>
-          <span><i class="fab fa-instagram"></i></span>
-        </a>
-        <a href="#" class="icon github" onclick="redirectToGitHub(); return false;">
-          <div class="tooltip">Github</div>
-          <span><i class="fab fa-github"></i></span>
-        </a>
-        <a href="#" class="icon linkedin" onclick="redirectToLinkedIn(); return false;">
-          <div class="tooltip">LinkedIn</div>
-          <span><i class="fab fa-linkedin-in"></i></span>
-        </a>
-      </div>
-    </footer>
-  
+  <footer id="footer">
+    <div class="wrapper">
+      <a href="mailto:ramezamr2008@gmail.com" class="icon envelope" aria-label="Email">
+        <div class="tooltip">Email</div>
+        <span><i class="far fa-envelope"></i></span>
+      </a>
+      <a href="https://x.com/ramezibrahimm" target="_blank" rel="noopener noreferrer" class="icon twitter" aria-label="X.com / Twitter">
+        <div class="tooltip">X.com</div>
+        <span><i class="fa-brands fa-x-twitter"></i></span>
+      </a>
+      <a href="https://www.instagram.com/ramezibrahimm/" target="_blank" rel="noopener noreferrer" class="icon instagram" aria-label="Instagram">
+        <div class="tooltip">Instagram</div>
+        <span><i class="fab fa-instagram"></i></span>
+      </a>
+      <a href="https://github.com/Ramez-Ibrahim" target="_blank" rel="noopener noreferrer" class="icon github" aria-label="Github">
+        <div class="tooltip">Github</div>
+        <span><i class="fab fa-github"></i></span>
+      </a>
+      <a href="https://www.linkedin.com/in/ramez-ibrahim-4708721b4/" target="_blank" rel="noopener noreferrer" class="icon linkedin" aria-label="LinkedIn">
+        <div class="tooltip">LinkedIn</div>
+        <span><i class="fab fa-linkedin-in"></i></span>
+      </a>
+    </div>
+    <div class="credit">
+      <p>Coded Line by Line — Ramez Ibrahim <a href="https://github.com/Ramez-Ibrahim" target="_blank" rel="noopener noreferrer"></a></p>
+    </div>
+  </footer>
+
   <script src="index.js"></script>
   <script src="scripts.js"></script>
 	<script src="lightbox-plus-jquery.js"></script>
