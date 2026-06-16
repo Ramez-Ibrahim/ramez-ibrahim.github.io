@@ -414,6 +414,7 @@ footer {
 @media only screen and (max-width: 992px) {
   h1 { font-size: 50px; line-height: 50px; }
   h2 { font-size: 32px; line-height: 32px; }
+  body p.sub-heading { font-size: 38px; }
   .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
   .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
   .hero-image { width: 100%; margin-bottom: 50px; }
@@ -596,6 +597,7 @@ footer {
 @media only screen and (max-width: 576px) {
   h1 { font-size: 36px; line-height: 40px; }
   p { font-size: 16px; }
+  body p.sub-heading { font-size: 26px; padding: 15px 20px; }
   .links { font-size: 16px; }
   .wrapper a.icon { margin: 0 10px; }
   .wrapper a.icon span { height: 50px; width: 50px; }
