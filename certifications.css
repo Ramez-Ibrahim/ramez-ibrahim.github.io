@@ -569,6 +569,17 @@ footer {
     max-width: 350px !important;
     height: auto !important;
   }
+
+  /* Allow titles to wrap freely on mobile — no need to truncate in single-column layout */
+  .square h2 {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    text-overflow: clip;
+    height: auto;
+    white-space: normal;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -882,6 +893,14 @@ html {
   height: 100%;
   content: "";
   z-index: 2;
+}
+
+/* Shrink fade edges on mobile so they don't overlap on narrow screens */
+@media only screen and (max-width: 768px) {
+  .logos:before,
+  .logos:after {
+    width: 80px;
+  }
 }
 
 .logos:before {
