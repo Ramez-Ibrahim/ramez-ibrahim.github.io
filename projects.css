@@ -248,12 +248,12 @@ p {
 
 /* Squares/Projects section */
 .square {
-  width: 98%;
-  margin: 1%;
+  width: 100%;
+  margin: 0;
   padding: 25px;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s, border 0.3s, opacity 1.5s, transform 1.5s;
+  transition: background 0.3s, border 0.3s, opacity 1.5s, transform 1.5s, box-shadow 0.3s ease;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -262,19 +262,26 @@ p {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   opacity: 0;
   transform: translateY(50px);
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* Adds space between title, p, icons, link, and image */
+  justify-content: flex-start;
+  gap: 15px;
+  min-height: 400px;
 }
 
 .square > * {
-    margin-bottom: 10px; /* Re-add some basic margin for spacing */
+  margin-bottom: 10px;
 }
 
 .square > *:last-child {
-    margin-bottom: 0; /* Remove margin from the last element */
+  margin-bottom: 0;
+}
+
+.square:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+  transform: translateY(-5px);
 }
 
 
@@ -290,8 +297,11 @@ p {
 }
 
 .sub-section {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 /* Project images and icons */
@@ -496,11 +506,10 @@ html { scroll-behavior: smooth; }
 }
 
 /* Responsive design */
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 993px) {
   .main-text { width: 50%; }
-  .square { 
-    width: 48%; 
-    margin: 1%; 
+  .sub-section {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
