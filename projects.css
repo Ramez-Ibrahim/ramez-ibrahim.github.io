@@ -250,7 +250,7 @@ p {
 .square {
   width: 100%;
   margin: 0;
-  padding: 25px;
+  padding: 40px;
   box-sizing: border-box;
   text-align: center;
   transition: background 0.3s, border 0.3s, opacity 1.5s, transform 1.5s, box-shadow 0.3s ease;
@@ -266,16 +266,16 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  min-height: 400px;
+  min-height: 450px;
 }
 
-.square > * {
-  margin-bottom: 10px;
-}
+.square > h2 { margin-bottom: 15px; font-size: 32px; }
+.square > p { margin-bottom: 25px; font-size: 20px; }
+.square > .tech-stack-icons { margin-bottom: 25px; }
+.square > img { margin-bottom: 25px; max-height: 350px; }
 
-.square > *:last-child {
+.square > .links {
+  margin-top: auto;
   margin-bottom: 0;
 }
 
@@ -304,21 +304,19 @@ p {
   box-sizing: border-box;
 }
 
-/* Project images and icons */
-.square > img:last-of-type {
-    max-width: 350px;
-    height: auto;
-    border-radius: 12px;
+.square .links {
+  display: block;
+  width: 100%;
 }
 
 .tech-stack-icons {
     line-height: 0;
 }
 
-.tech-stack-icons .icons {
-    width: 40px;
-    height: auto;
-    margin: 0 10px;
+.square > img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
 }
 
 
@@ -520,14 +518,14 @@ html { scroll-behavior: smooth; }
 /* Mobile Hero Section (2x2 Colored Glass Grid) */
 @media only screen and (max-width: 768px) {
   .square { 
-    width: 100%; height: auto; padding: 15px;
+    width: 100%; height: auto; padding: 25px 25px 40px 25px;
     margin-bottom: 20px;
   }
   .square > img:last-of-type { max-width: 250px !important; }
 
   .hero-image {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 15px; height: auto; margin-bottom: 40px; position: static;
+    gap: 25px; height: auto; margin-bottom: 40px; position: static;
     padding: 0 15px;
     box-sizing: border-box;
   }
