@@ -390,11 +390,15 @@ body p.sub-heading {
   align-items: center;
   overflow: visible;
   border-radius: 8px;
-  transition: box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: background 0.3s, border 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.square:hover {
+.square:hover,
+.square.show:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .dark .square {
@@ -907,7 +911,7 @@ footer {
 @keyframes fade-in-square {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -918,7 +922,9 @@ footer {
 /* Apply the fade-in animation to the squares */
 .square.show {
   display: block;
-  animation: fade-in-square 1.5s; /* Adjust the duration as needed */
+  opacity: 1;
+  transform: translateY(0);
+  animation: fade-in-square 1.5s ease-out; /* Adjust the duration as needed */
 }
 
 /* Add the fade-in animation for the cubes */

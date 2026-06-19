@@ -283,7 +283,7 @@ body p.sub-heading {
   padding: 25px;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s, border 0.3s, opacity 1.5s, transform 1.5s, box-shadow 0.3s ease;
+  transition: background 0.3s, border 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -300,11 +300,6 @@ body p.sub-heading {
   min-height: 400px;
 }
 
-.square:hover {
-  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
-  transform: translateY(-5px);
-}
-
 .square > * {
   margin-bottom: 10px;
 }
@@ -316,6 +311,12 @@ body p.sub-heading {
 .square.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.square:hover,
+.square.show:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+  transform: translateY(-5px);
 }
 
 .dark .square {
