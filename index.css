@@ -468,17 +468,32 @@ body p.sub-heading {
 /* Footer & Socials — Glassmorphism              */
 /* ============================================= */
 footer {
-  display: flex; flex-direction: column; justify-content: center;
-  align-items: center; padding: 40px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px 20px;
   background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #footer .wrapper {
-  display: flex; justify-content: center; align-items: center;
-  padding: 20px 30px; margin-bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 14px;
+  padding: 16px 24px;
+  margin: 0 auto 20px;
+  max-width: min(100%, 640px);
+  width: auto;
+  box-sizing: border-box;
   transition: background 0.3s, border 0.3s, padding 0.3s;
-  background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); border-radius: 50px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
@@ -819,7 +834,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .wrapper a.icon { margin: 0 5px; }
   .wrapper a.icon span { height: 50px; width: 50px; }
   .wrapper a.icon span i { line-height: 50px; font-size: 18px; }
-  #footer .wrapper { padding: 15px 15px; }
+  #footer .wrapper { padding: 14px 16px; gap: 10px; flex-wrap: nowrap; overflow-x: hidden; justify-content: center; }
 
   .to-top2 {
     width: 40px;
@@ -836,9 +851,9 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 @media only screen and (max-width: 400px) {
   .menu-bar { font-size: 14px; padding-right: 10px; }
   .wrapper a.icon { margin: 0 5px; }
-  .wrapper a.icon span { height: 40px; width: 40px; }
-  .wrapper a.icon span i { line-height: 40px; font-size: 18px; }
-  #footer .wrapper { padding: 15px 15px; }
+  .wrapper a.icon span { height: 50px; width: 50px; }
+  .wrapper a.icon span i { line-height: 50px; font-size: 18px; }
+  #footer .wrapper { padding: 14px 16px; gap: 10px; flex-wrap: nowrap; overflow-x: hidden; justify-content: center; }
   .header-controls { gap: 10px; }
   .header-title { display: none; }
 }
