@@ -81,7 +81,7 @@ p {
 .header-brand {
   display: flex; align-items: center; gap: 12px; text-decoration: none;
 }
-.pageicon { margin-left: 28px; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; }
+.pageicon { margin: 0; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; }
 .header-title { display: none; font-family: 'Poppins', sans-serif; font-weight: 500; color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease; }
 .dark .header-title { color: white; }
 
@@ -212,6 +212,8 @@ p {
 .pfp-container {
   width: 500px;
   height: 500px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vw - 40px);
   margin-right: 10px;
   border-radius: 50%;
   animation: fadeIn 3s ease-in-out forwards;
@@ -246,12 +248,13 @@ p {
 
 .mentors-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 30px;
   width: 100%;
   max-width: 1000px; /* MODIFIED: This limits the grid to a max of 3 columns */
   margin: 0 auto 10px auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .mentor-card {
@@ -427,7 +430,7 @@ p {
 
 .github-card-item {
   flex: 1; /* Allows cards to grow and share space */
-  min-width: 320px; /* Defines the minimum width before wrapping */
+  min-width: min(320px, 100%); /* Defines the minimum width before wrapping */
   max-width: 450px;
 }
 
