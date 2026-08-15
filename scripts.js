@@ -35,16 +35,6 @@ function copyToClipboard(text) {
 }
 
 
-// Function to fade in logos after page load
-function fadeInLogos() {
-  const cubes = document.querySelectorAll(".cube");
-  setTimeout(() => {
-    cubes.forEach((cube) => {
-      cube.classList.add("fade-in-logo");
-    });
-  }, 500);
-}
-
 function updateCertificationTitleTooltips() {
   document.querySelectorAll(".square h2[data-full-title]").forEach((title) => {
     title.classList.remove("is-truncated");
@@ -249,9 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('.square').forEach(square => scrollObserver.observe(square));
 
-  // Fade in logos
-  fadeInLogos();
-
   updateCertificationTitleTooltips();
   window.addEventListener("resize", scheduleCertificationTitleTooltipUpdate);
   if (document.fonts) {
@@ -344,11 +331,27 @@ document.addEventListener("DOMContentLoaded", function () {
       // Close menu when clicking on a link
       const menuLinks = document.querySelectorAll('.menu-bar');
       menuLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              hamburger.classList.remove('active');
-              navMenu.classList.remove('active');
-              document.documentElement.classList.remove('menu-open');
-              window.removeEventListener('touchmove', preventScroll, { passive: false });
+          link.addEventListener('click', (event) => {
+              const closeMenu = () => {
+                  hamburger.classList.remove('active');
+                  navMenu.classList.remove('active');
+                  document.documentElement.classList.remove('menu-open');
+                  window.removeEventListener('touchmove', preventScroll, { passive: false });
+              };
+
+              // On the mobile menu, play the underline animation before navigating
+              const isPlainClick = !event.ctrlKey && !event.metaKey && !event.shiftKey && event.button === 0;
+              if (window.matchMedia('(max-width: 768px)').matches && isPlainClick) {
+                  event.preventDefault();
+                  link.classList.add('underline-play');
+                  closeMenu();
+                  setTimeout(() => {
+                      window.location.href = link.href;
+                  }, 250);
+                  return;
+              }
+
+              closeMenu();
           });
       });
   }

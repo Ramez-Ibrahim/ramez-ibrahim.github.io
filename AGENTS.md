@@ -1,42 +1,39 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
+Static personal portfolio site (HTML + CSS + vanilla JS). No build step or package manager. Deploys to GitHub Pages from `main` — pushes to main go live.
 
-This repository is a static personal portfolio site built with HTML, CSS, and vanilla JavaScript. Top-level pages are organized by feature:
+## Project Structure
 
-- `index.html`, `index.css`, `index.js`: home page.
-- `projects.html`, `projects.css`, `projects.js`: projects gallery and interactions.
-- `certifications.html`, `certifications.css`: certifications page.
-- `aboutme.html`, `aboutme.css`, `aboutme.js`: biography and contact page.
-- `styles.css`: shared site-wide styling.
-- `scripts.js`: shared behavior such as navigation, theme handling, animations, and loading behavior.
-- `images/`: screenshots, certification images, and visual assets.
-- `logos/`: technology logo assets.
-- `lightbox.css`, `lightbox.js`, `lightbox-plus-jquery.js`: lightbox dependency files.
+- `index.*`, `projects.*`, `certifications.*`, `aboutme.*`: one feature per top-level page set.
+- `styles.css` (shared styling) and `scripts.js` (shared behavior) are loaded by every page.
+- `images/`: site assets and screenshots. `logos/`: technology logos.
+- `loading.html` + `loadings.css`: standalone animated loading page, not part of the main nav.
+- `lightbox.css` + `lightbox-plus-jquery.js`: bundled jQuery + lightbox plugin, used only by `certifications.html`. `lightbox.js` is an empty leftover — ignore it.
+- `GEMINI.md`: more detailed companion doc (features, TODOs).
 
-Keep new page-specific code next to its page. Put reusable behavior in `scripts.js` and reusable visual rules in `styles.css`.
+Keep new page-specific code next to its page; put reusable behavior in `scripts.js` and reusable visual rules in `styles.css`.
 
-## Build, Test, and Development Commands
+## Commands
 
-There is no package manager or build step. The site can be opened directly in a browser.
+- No package manager or build. Serve locally with `python -m http.server 8000`, or just open `index.html`.
+- Use a local server when validating asset paths, navigation links, or GitHub Pages behavior.
 
-- `python -m http.server 8000`: serve the repository locally at `http://localhost:8000`.
-- Open `index.html`: quick manual check without a server.
+## Key conventions & gotchas
 
-Use a local server when validating asset paths, navigation links, or GitHub Pages behavior.
+- Theme: `scripts.js` toggles `body.dark`, persisted in `localStorage["mode"]`. Put dark-mode CSS under `.dark` (or `html.dark, body.dark` in `loadings.css`). Do not copy the stale `dark-mode` class that `loading.html` still carries.
+- Every page needs a `<div id="preloader">` and a `scripts.js` include; scripts.js owns navigation, hamburger menu, theme, preloader, and scroll animations. Page-specific JS is loaded *before* scripts.js.
+- The typewriter effect exists twice (`initTypewriter` in scripts.js and a copy in projects.js); don't add a third implementation.
+- `certifications.html` loads `index.css`, `projects.css`, and `certifications.css` together, so page CSS is not strictly isolated.
+- Font Awesome is pulled from a CDN in each page's `<head>`; icons require network access.
 
-## Coding Style & Naming Conventions
+## Coding Style
 
-Use 2-space indentation for HTML, CSS, and JavaScript. Prefer semantic HTML, descriptive class names, and page-scoped CSS where styles are not shared. Keep theme-specific CSS under the existing `.dark` body mode pattern. Prefer vanilla JavaScript for new behavior; only use jQuery where interacting with the existing lightbox dependency requires it.
+Use 2-space indentation. Prefer semantic HTML, descriptive class names, and page-scoped CSS where styles are not shared. Prefer vanilla JS; jQuery is only needed for the existing lightbox. Name new page files consistently, e.g. `contact.html`, `contact.css`, `contact.js`.
 
-Name new page files consistently, for example `contact.html`, `contact.css`, and `contact.js`.
+## Testing
 
-## Testing Guidelines
+No automated test framework. Validate manually in a modern browser: desktop and mobile widths, dark and light modes, hamburger navigation, scroll animations, image lightbox behavior, and links between pages. Verify new images load from `images/` or `logos/` with correct relative paths.
 
-No automated test framework is configured. Validate changes manually in a modern browser. Check desktop and mobile widths, dark and light modes, hamburger navigation, scroll animations, image lightbox behavior, and links between pages. When editing assets, verify that images load from `images/` or `logos/` with correct relative paths.
+## Commits & PRs
 
-## Commit & Pull Request Guidelines
-
-Recent commits use short descriptive messages such as `responsive edits`, `certifications`, and `Styling edits`. Follow that style: keep commits concise and focused on one change.
-
-For pull requests, include a brief description, list the pages affected, mention manual browser checks performed, and attach screenshots for visible layout or styling changes.
+Keep commits short and focused on one change (repo style: `header`, `responsive`, `certifications`, `fix: ...`). For PRs, include a brief description, list the pages affected, mention manual browser checks performed, and attach screenshots for visible layout or styling changes.

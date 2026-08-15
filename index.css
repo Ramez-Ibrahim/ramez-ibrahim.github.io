@@ -80,7 +80,7 @@ p {
 .menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 0;
   padding-right: 0;
 }
 
@@ -238,13 +238,14 @@ p {
 /* Main Hero Section                             */
 /* ============================================= */
 .main {
-  height: 80vh;
+  min-height: max(80vh, 600px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-items: safe center;
   padding: 30px;
-  padding-top: 120px;
+  padding-top: 140px;
 }
 
 .main-text {
@@ -593,9 +594,6 @@ html { scroll-behavior: smooth; }
 .pageicon { margin: 0; height: 30px; width: 30px; transition: width 0.3s ease, height 0.3s ease; border-radius: 8px; vertical-align: middle; }
 .header-title { display: none; font-family: 'Poppins', sans-serif; font-weight: 500; color: rgb(57, 57, 57); white-space: nowrap; transition: color 0.3s ease; }
 .dark .header-title { color: white; }
-.hamburger { display: none; cursor: pointer; padding: 5px; z-index: 101; }
-.bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background-color: rgb(57, 57, 57); }
-.dark .bar { background-color: white; }
 .header-controls { 
   display: flex; 
   align-items: center; 
@@ -605,9 +603,9 @@ html { scroll-behavior: smooth; }
 /* Menu centering polish */
 .menu {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 30px;
+  gap: 0;
   flex: 1;
 }
 
@@ -616,7 +614,6 @@ html { scroll-behavior: smooth; }
 }
 
 /* Scroll effects */
-html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 .header-wrapper.scrolled { background-color: rgba(244, 241, 241, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .dark .header-wrapper.scrolled { background-color: rgba(57, 57, 57, 0.85); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); }
 
@@ -646,7 +643,7 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 @media only screen and (max-width: 992px) {
   h1 { font-size: 50px; line-height: 50px; }
   h2 { font-size: 32px; line-height: 32px; }
-  .main { flex-direction: column; height: auto; padding: 20px; padding-top: 120px; }
+  .main { flex-direction: column; height: auto; padding: 20px; padding-top: 165px; }
   .main-text { width: 100% !important; margin-bottom: 40px; padding: 15px; }
   .hero-image { width: 100%; margin-bottom: 50px; }
   .sub-section {
@@ -659,8 +656,8 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 /* Responsive: Mobile (<768px)                   */
 /* ============================================= */
 @media only screen and (max-width: 768px) {
+  .main { padding-top: 130px; }
   .main-text { width: 100%; }
-  .menu-bar { font-size: 16px; }
 
   /* Back-to-top mobile adjustment */
   .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
@@ -726,11 +723,11 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 
 
   /* Header & Mobile Menu */
-  .header-wrapper { padding: 45px 15px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; width: 100%; max-width: 100vw; }
-  .header-title { display: block; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .header-wrapper { padding: 25px 15px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; width: 100%; max-width: 100vw; }
+  .header-title { display: block; font-size: 12px; white-space: nowrap; overflow: visible; }
 
   .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
-  .header-brand .header-title { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .header-brand .header-title { font-size: 12px; overflow: visible; white-space: nowrap; min-width: 0; }
   .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .pageicon { margin: 0 !important; width: 36px; height: 36px; flex-shrink: 0; }
   .switch { width: 65px; height: 32px; }
@@ -738,29 +735,6 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
   .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
   .dark .flicker { transform: translateX(33px); }
-  .menu {
-    position: fixed; left: -100%; top: 0; gap: 0; flex-direction: column;
-    background-color: rgb(244, 241, 241); width: 100%; height: 100vh;
-    transition: 0.3s; padding-right: 0; z-index: 100;
-    display: flex; justify-content: center; align-items: center; padding-top: 0;
-    box-sizing: border-box;
-  }
-  .dark .menu { background-color: rgb(57, 57, 57); }
-  .menu.active { left: 0; }
-  .menu-bar { margin: 16px 0; font-size: 24px; padding-right: 0; }
-
-  /* Full-width underline for mobile menu */
-  .menu-bar::after {
-    content: " ";
-    position: absolute;
-    bottom: -2px; left: 0;
-    width: 0; height: 2px;
-    background-color: rgb(0, 150, 255);
-    transition: width 0.2s ease-in-out;
-  }
-  .menu-bar:hover::after {
-    width: 100%;
-  }
 }
 
 
@@ -775,43 +749,30 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
   .wrapper a.icon span { height: 50px; width: 50px; }
   .wrapper a.icon span i { line-height: 50px; font-size: 20px; }
   .square > img:last-of-type { max-width: 200px !important; }
-  .header-controls { gap: 15px; }
-  .header-title { font-size: 18px; }
-}
 
-/* ============================================= */
-/* Responsive: Specific Device (402x874)         */
-/* ============================================= */
-@media only screen and (max-width: 402px) and (max-height: 874px) {
-  .header-wrapper { padding: 45px 10px 45px 0px; height: 80px; justify-content: space-between; flex-wrap: nowrap; }
-  .main { padding-top: 140px; }
-  .pfp-container { height: 280px; width: 280px; }
-  
-  /* Optimize header spacing and size */
-  .header-brand { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; overflow: visible; }
-  .pageicon { width: 25px; height: 25px; flex-shrink: 0; margin-right: 5px; }
-  .header-title { white-space: nowrap; overflow: visible; text-overflow: clip; font-size: 16px; max-width: none; }
-  
-  /* Improve Header Controls & Toggle Appearance */
+  .main { padding-top: 100px; }
+
+  /* Compact header for narrow screens */
+  .header-brand { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 8px; margin-right: 10px; }
+  .pageicon { width: 25px; height: 25px; flex-shrink: 0; }
+  .header-title, .header-brand .header-title { font-size: clamp(11px, 6.1vw - 8.5px, 16px); white-space: nowrap; min-width: 0; }
   .header-controls { display: flex; justify-content: flex-end; align-items: center; gap: 5px; flex-shrink: 0; }
   .switch { width: 50px; height: 26px; border-radius: 13px; flex-shrink: 0; }
   .flicker { width: 20px; height: 20px; top: 3px; left: 3px; }
   .moon { width: 12px; height: 12px; top: 3px; left: 28px; box-shadow: 3px 3px 0 0 rgb(255, 255, 255); }
   .sun { width: 12px; height: 12px; top: 7px; margin-left: 6px; }
-  
+
   /* Toggle Dark Mode adjustments */
   .dark .switch { background-color: rgb(255, 255, 255); }
   .dark .flicker { transform: translateX(24px); background-color: rgb(0, 0, 0); box-shadow: none; }
   .dark .moon { box-shadow: 3px 3px 0 0 rgb(39, 38, 38); }
-  
-  .hamburger { display: block; padding: 5px; flex-shrink: 0; }
 }
 
 /* ============================================= */
 /* Responsive: Extra Small (402px)               */
 /* ============================================= */
 @media only screen and (max-width: 402px) {
-  .header-wrapper { padding: 45px 15px; box-sizing: border-box; width: 100%; }
+  .header-wrapper { padding: 25px 15px; box-sizing: border-box; width: 100%; }
   
   .square {
     padding-top: 20px;
@@ -849,11 +810,9 @@ html.menu-open { position: fixed; width: 100%; overflow-y: scroll; }
 /* Responsive: Tiny Screens (400px)              */
 /* ============================================= */
 @media only screen and (max-width: 400px) {
-  .menu-bar { font-size: 14px; padding-right: 10px; }
   .wrapper a.icon { margin: 0 5px; }
   .wrapper a.icon span { height: 50px; width: 50px; }
   .wrapper a.icon span i { line-height: 50px; font-size: 18px; }
   #footer .wrapper { padding: 14px 16px; gap: 10px; flex-wrap: nowrap; overflow-x: hidden; justify-content: center; }
   .header-controls { gap: 10px; }
-  .header-title { display: none; }
 }

@@ -405,5 +405,5 @@ html.dark, body.dark { /* Target both html and body for dark mode */
 }
 
 disapper{
-	animation: vanish 1s forwards;
+  animation: vanish 1s forwards;
 }
