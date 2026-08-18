@@ -174,6 +174,13 @@ p {
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+.mentor-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fade-in-square 1.5s ease-out;
 }
 .mentor-card:hover {
   transform: translateY(-8px);
@@ -326,7 +333,7 @@ p {
   flex-wrap: wrap; /* Allows cards to stack on smaller screens */
   gap: 40px;       /* MODIFIED: Increased gap for more spacing */
   justify-content: flex-start; /* Aligns cards to the left */
-  align-items: center; /* Vertically center-aligns the cards */
+  align-items: stretch; /* Cards stretch to equal height on each row */
 }
 
 .github-card-item {
@@ -335,23 +342,397 @@ p {
   max-width: 450px;
 }
 
-.github-card-item img {
-  width: 100%;
-  height: auto;
+/* Top Languages Card */
+.langs-card {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  transition: all 0.3s ease;
+}
+.langs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px 0 rgba(31, 38, 135, 0.2);
+  background: rgba(255, 255, 255, 0.6);
 }
 
-/* Reusable class-based dark mode toggling for images */
-.light-mode-img {
-  display: block; /* Show by default in light mode */
+.langs-card-title {
+  margin: 0 0 14px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.85;
 }
-.dark-mode-img {
-  display: none;  /* Hide by default in light mode */
+
+.github-card-item:nth-child(2) .langs-card,
+.github-card-item:nth-child(3) .langs-card {
+  position: relative;
 }
-.dark .light-mode-img {
-  display: none; /* Hide in dark mode */
+
+/* Total Contributions Stat Card */
+.stat-card {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  min-height: 190px;
 }
-.dark .dark-mode-img {
-  display: block; /* Show in dark mode */
+
+.card-header {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header .langs-card-title {
+  margin: 0;
+}
+
+.stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: rgb(0, 119, 255);
+  background: rgba(0, 119, 255, 0.12);
+}
+
+.stat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 52px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 3.8rem;
+  font-weight: 600;
+  line-height: 1;
+  background: linear-gradient(135deg, rgb(0, 119, 255), rgb(0, 70, 180));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.stat-sub {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: inherit;
+  opacity: 0.55;
+}
+
+.dark .stat-icon {
+  color: rgb(105, 229, 235);
+  background: rgba(105, 229, 235, 0.15);
+}
+
+.dark .stat-value {
+  background: linear-gradient(135deg, rgb(105, 229, 235), rgb(64, 160, 230));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.langs-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 52px;
+}
+
+.langs-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.langs-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.dark .langs-icon {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.langs-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.langs-bar-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.langs-bar-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.langs-bar-label {
+  font-size: 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.langs-bar {
+  flex: 1;
+  height: 10px;
+  border-radius: 4px;
+  background: rgba(0, 119, 255, 0.12);
+  overflow: hidden;
+}
+
+.langs-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.langs-bar-value {
+  min-width: 34px;
+  font-size: 0.95rem;
+  color: inherit;
+  opacity: 0.7;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.langs-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* Contribution Heatmap Card */
+.github-card-heatmap {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.contribution-total {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.heatmap-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.heatmap-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: max-content;
+}
+
+.heatmap-months {
+  display: flex;
+  height: 14px;
+}
+
+.heatmap-month {
+  flex-basis: 0;
+  font-size: 0.65rem;
+  line-height: 14px;
+  color: inherit;
+  opacity: 0.65;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.heatmap-weeks {
+  display: flex;
+  gap: 3px;
+}
+
+.heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.heatmap-day {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(0, 119, 255, 0.08);
+}
+
+.heatmap-day-0 { background: rgba(0, 119, 255, 0.08); }
+.heatmap-day-1 { background: rgba(0, 119, 255, 0.2); }
+.heatmap-day-2 { background: rgba(0, 119, 255, 0.45); }
+.heatmap-day-3 { background: rgba(0, 119, 255, 0.7); }
+.heatmap-day-4 { background: rgb(0, 119, 255); }
+
+.heatmap-legend {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  justify-content: flex-end;
+}
+
+.heatmap-legend .heatmap-day {
+  width: 10px;
+  height: 10px;
+}
+
+.heatmap-legend-label {
+  font-size: 0.7rem;
+  color: inherit;
+  opacity: 0.7;
+  margin: 0 4px;
+}
+
+/* Featured Repositories Card */
+.repos-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 52px;
+}
+
+.repo-item {
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0, 119, 255, 0.15);
+}
+
+.repo-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.repo-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgb(0, 119, 255);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.repo-name:hover {
+  color: rgb(0, 100, 220);
+}
+
+.repo-desc {
+  margin: 1px 0 4px 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 0.72rem;
+  opacity: 0.8;
+}
+
+.repo-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.repo-lang-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.repo-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dark .heatmap-day-0 { background: rgba(105, 229, 235, 0.08); }
+.dark .heatmap-day-1 { background: rgba(105, 229, 235, 0.2); }
+.dark .heatmap-day-2 { background: rgba(105, 229, 235, 0.45); }
+.dark .heatmap-day-3 { background: rgba(105, 229, 235, 0.7); }
+.dark .heatmap-day-4 { background: rgb(105, 229, 235); }
+.dark .repo-name {
+  color: rgb(105, 229, 235);
+}
+.dark .repo-name:hover {
+  color: rgb(84, 183, 188);
+}
+.dark .repo-item {
+  border-bottom-color: rgba(105, 229, 235, 0.15);
 }
 
 /* Dark Mode for Career Section */
@@ -359,6 +740,16 @@ p {
   background: rgba(71, 71, 71, 0.3);
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+.dark .langs-card {
+  background: rgba(71, 71, 71, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+.dark .langs-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
+  background: rgba(71, 71, 71, 0.5);
 }
 .dark .career-card p {
   opacity: 0.7;

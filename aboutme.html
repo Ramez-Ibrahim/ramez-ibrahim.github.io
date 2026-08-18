@@ -101,17 +101,62 @@
           <h3>My GitHub Activity</h3>
           <p>A snapshot of my most used languages and contribution statistics from my public GitHub repositories.</p>
           <div class="github-cards-wrapper">
-            <!-- Card 1: Streak Stats -->
+            <!-- Card 1: Total Contributions -->
             <div class="github-card-item">
-              <a href="https://git.io/streak-stats" target="_blank" rel="noopener noreferrer">
-                <img class="light-mode-img" src="https://git-hub-streak-stats.vercel.app?user=ramez-ibrahim&mode=weekly&hide_border=true&background=00000000&stroke=393939&ring=0077ff&fire=0077ff&currStreakNum=393939&sideNums=393939&currStreakLabel=393939&sideLabels=393939&dates=393939" alt="Ramez Ibrahim's GitHub Streak - Light Mode" />
-                <img class="dark-mode-img" src="https://git-hub-streak-stats.vercel.app?user=ramez-ibrahim&mode=weekly&hide_border=true&background=00000000&stroke=ffffff&ring=69e5eb&fire=69e5eb&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=ffffff&sideLabels=ffffff&dates=ffffff" alt="Ramez Ibrahim's GitHub Streak - Dark Mode" />
-              </a>
+              <div class="langs-card stat-card">
+                <div class="card-header">
+                  <span class="stat-icon"><i class="fa-solid fa-code-branch"></i></span>
+                  <h4 class="langs-card-title">Total Contributions</h4>
+                </div>
+                <div class="stat-body">
+                  <div class="stat-value" id="stat-contributions">0</div>
+                  <div class="stat-sub">Life Time</div>
+                </div>
+              </div>
             </div>
             <!-- Card 2: Top Languages -->
             <div class="github-card-item">
-              <img class="light-mode-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ramez-Ibrahim&layout=compact&hide_border=true&bg_color=00000000&title_color=393939&icon_color=0077ff&text_color=393939&langs_count=8" alt="Ramez Ibrahim's Most Used Languages on GitHub - Light Mode">
-              <img class="dark-mode-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ramez-Ibrahim&layout=compact&hide_border=true&bg_color=00000000&title_color=ffffff&icon_color=69e5eb&text_color=ffffff&langs_count=8" alt="Ramez Ibrahim's Most Used Languages on GitHub - Dark Mode">
+              <div class="langs-card">
+                <div class="card-header">
+                  <span class="stat-icon"><i class="fa-solid fa-layer-group"></i></span>
+                  <h4 class="langs-card-title">Tech Stack</h4>
+                </div>
+                <div class="langs-icons" id="langs-icons"></div>
+                <div class="langs-bars" id="langs-bars">
+                  <p class="langs-status">Loading languages…</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3: Featured Repositories -->
+            <div class="github-card-item">
+              <div class="langs-card">
+                <div class="card-header">
+                  <span class="stat-icon"><i class="fa-solid fa-book"></i></span>
+                  <h4 class="langs-card-title">Featured Repositories</h4>
+                </div>
+                <div class="repos-list" id="repos-list">
+                  <p class="langs-status">Loading repositories…</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 4: Contribution Heatmap -->
+            <div class="github-card-item github-card-heatmap">
+              <div class="langs-card">
+                <h4 class="langs-card-title">Contributions (2026)</h4>
+                <p class="contribution-total" id="contribution-total">Loading contributions…</p>
+                <div class="heatmap-container" id="heatmap-container">
+                  <div class="heatmap-grid" id="heatmap-grid"></div>
+                </div>
+                <div class="heatmap-legend" aria-hidden="true">
+                  <span class="heatmap-legend-label">Less</span>
+                  <span class="heatmap-day heatmap-day-0"></span>
+                  <span class="heatmap-day heatmap-day-1"></span>
+                  <span class="heatmap-day heatmap-day-2"></span>
+                  <span class="heatmap-day heatmap-day-3"></span>
+                  <span class="heatmap-day heatmap-day-4"></span>
+                  <span class="heatmap-legend-label">More</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

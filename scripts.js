@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.square').forEach(square => scrollObserver.observe(square));
+  document.querySelectorAll('.square, .mentor-card').forEach(el => scrollObserver.observe(el));
 
   updateCertificationTitleTooltips();
   window.addEventListener("resize", scheduleCertificationTitleTooltipUpdate);
