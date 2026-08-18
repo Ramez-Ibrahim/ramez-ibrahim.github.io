@@ -246,7 +246,30 @@ p {
 }
 
 .tech-stack-icons {
-    line-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.icons {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  padding: 5px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.icons:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.dark .icons {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .square > img {

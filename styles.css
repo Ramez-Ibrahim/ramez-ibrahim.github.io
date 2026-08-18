@@ -435,7 +435,7 @@ body p.sub-heading {
 }
 
 
-#threads img {
+#threads img:not(.icons) {
   width: 350px;
   height: auto;
   border-radius: 50px;
@@ -474,59 +474,59 @@ body p.sub-heading {
   background-color: rgb(57, 57, 57);
 }
 
-#amazon img {
+#amazon img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
-#calc img {
+#calc img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
-#dino img {
+#dino img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
-#elon img {
+#elon img:not(.icons) {
   width: 335px;
   height: auto;
 }
 
-#barista img {
+#barista img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
-#web img {
+#web img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
-#todo img {
+#todo img:not(.icons) {
   width: 350px;
   height: auto;
 }
 
 
-#netflix img {
+#netflix img:not(.icons) {
   width: 350px; /* Set the desired width for the image */
   height: auto;
   border-radius: 50px;
 }
 
-#expneses img {
+#expneses img:not(.icons) {
   width: 350px; /* Set the desired width for the image */
   height: auto;
 }
 
-#dino img {
+#dino img:not(.icons) {
   width: 350px; /* Set the desired width for the image */
   height: auto;
 }
 
-#notes img {
+#notes img:not(.icons) {
   width: 350px; /* Set the desired width for the image */
   height: auto;
 }
@@ -1105,13 +1105,6 @@ footer {
 
 .carousel-button.next {
   right: 1rem;
-}
-
-#notes .icons, #expneses .icons, #barista .icons, #threads .icons,
-#amazon .icons, #calc .icons, #dino .icons, #elon .icons,
-#web .icons, #todo .icons {
-  width: 40px;
-  height: auto;
 }
 
 /* Hamburger Menu - Shared Styles */
