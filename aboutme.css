@@ -257,6 +257,15 @@ p {
 .resume-container {
   padding-top: 40px;
   border-top: 1px solid rgba(57, 57, 57, 0.15);
+
+  /* Side-by-side layout: text on the left, buttons on the right */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.resume-text {
+  flex: 1;
 }
 .dark .resume-container {
   border-top-color: rgba(255, 255, 255, 0.15);
@@ -279,16 +288,17 @@ p {
 
 /* Button Styles */
 .button-group {
-  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .btn {
   padding: 12px 24px;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  border: 1px solid transparent;
+  border-radius: 14px;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
@@ -297,33 +307,44 @@ p {
   gap: 8px;
   transition: all 0.3s ease;
   cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.15);
 }
 .btn i {
   font-size: 1.1em;
 }
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px 0 rgba(31, 38, 135, 0.2);
 }
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px 0 rgba(31, 38, 135, 0.15);
 }
 
 .btn-primary {
-  background-color: rgb(0, 119, 255);
+  background: linear-gradient(135deg, rgb(0, 119, 255), rgb(0, 70, 180));
+  border-color: rgba(255, 255, 255, 0.25);
   color: white;
 }
 .btn-primary:hover {
-  background-color: rgb(0, 100, 220);
+  background: linear-gradient(135deg, rgb(0, 100, 220), rgb(0, 55, 160));
+  box-shadow: 0 12px 24px 0 rgba(0, 119, 255, 0.35);
 }
-.btn-secondary {
-  background-color: transparent;
-  border-color: rgb(0, 119, 255);
-  color: rgb(0, 119, 255);
+
+/* Override legacy .btn rules from styles.css (position/size/margins) */
+.resume-container .btn {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 12px 24px;
+  border-radius: 14px;
 }
-.btn-secondary:hover {
-  background-color: rgba(0, 119, 255, 0.1);
+.resume-container .btn::before,
+.resume-container .btn::after {
+  content: none;
 }
 
 /* GitHub Stats Card Styles */
@@ -754,19 +775,17 @@ p {
 .dark .career-card p {
   opacity: 0.7;
 }
+.dark .btn {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 .dark .btn-primary {
-  background-color: rgb(105, 229, 235);
+  background: linear-gradient(135deg, rgb(105, 229, 235), rgb(64, 160, 230));
+  border-color: rgba(255, 255, 255, 0.15);
   color: #212121;
 }
 .dark .btn-primary:hover {
-  background-color: rgb(84, 183, 188);
-}
-.dark .btn-secondary {
-  border-color: rgb(105, 229, 235);
-  color: rgb(105, 229, 235);
-}
-.dark .btn-secondary:hover {
-  background-color: rgba(105, 229, 235, 0.1);
+  background: linear-gradient(135deg, rgb(84, 183, 188), rgb(52, 130, 200));
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* ==================================================== */
@@ -904,6 +923,8 @@ html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radi
   .career-card h3 { font-size: 24px; }
   .career-card p { font-size: 15px; }
   .career-card { padding: 20px; }
+  .resume-container { flex-direction: column; align-items: flex-start; gap: 0; }
+  .button-group { margin-top: 25px; }
   
 }
 

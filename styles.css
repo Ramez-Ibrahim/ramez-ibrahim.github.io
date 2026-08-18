@@ -16,6 +16,59 @@ body {
   background-color: rgb(244, 241, 241);
   font-family: 'Poppins', sans-serif;
   color: rgb(57, 57, 57);
+  position: relative;
+  isolation: isolate;
+}
+
+/* ============================================= */
+/* Aurora Mesh Gradient Background               */
+/* ============================================= */
+.aurora-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 45%, rgba(0, 150, 255, 0.28) 0%, rgba(0, 150, 255, 0.14) 40%, transparent 72%),
+    radial-gradient(ellipse 50% 60% at 82% 18%, rgba(175, 119, 227, 0.24) 0%, rgba(175, 119, 227, 0.12) 40%, transparent 72%),
+    radial-gradient(ellipse 55% 45% at 50% 85%, rgba(119, 227, 186, 0.24) 0%, rgba(119, 227, 186, 0.12) 40%, transparent 72%),
+    radial-gradient(ellipse 45% 55% at 68% 62%, rgba(227, 119, 191, 0.20) 0%, rgba(227, 119, 191, 0.10) 40%, transparent 72%),
+    radial-gradient(ellipse 40% 50% at 90% 80%, rgba(119, 193, 227, 0.20) 0%, rgba(119, 193, 227, 0.10) 40%, transparent 72%);
+  filter: url(#aurora-mesh) blur(2px);
+  animation: aurora-drift 30s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+body.dark::before {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 45%, rgba(105, 229, 235, 0.40) 0%, rgba(105, 229, 235, 0.20) 40%, transparent 75%),
+    radial-gradient(ellipse 50% 60% at 82% 18%, rgba(175, 119, 227, 0.34) 0%, rgba(175, 119, 227, 0.17) 40%, transparent 75%),
+    radial-gradient(ellipse 55% 45% at 50% 85%, rgba(0, 150, 255, 0.34) 0%, rgba(0, 150, 255, 0.17) 40%, transparent 75%),
+    radial-gradient(ellipse 45% 55% at 68% 62%, rgba(227, 119, 191, 0.30) 0%, rgba(227, 119, 191, 0.15) 40%, transparent 75%),
+    radial-gradient(ellipse 40% 50% at 90% 80%, rgba(119, 193, 227, 0.30) 0%, rgba(119, 193, 227, 0.15) 40%, transparent 75%);
+}
+
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(3%, -2%) scale(1.02); }
+  100% { transform: translate(-2%, 3%) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
 }
 
 #preloader {
