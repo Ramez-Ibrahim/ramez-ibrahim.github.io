@@ -1,0 +1,164 @@
+{
+  "generatedAt": "2026-08-16T23:31:58.837Z",
+  "repos": [
+    {
+      "name": "ramez-ibrahim.github.io",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/ramez-ibrahim.github.io",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2026-08-15T09:54:14Z"
+    },
+    {
+      "name": "Calendar",
+      "description": "A sleek and intuitive calendar app for managing your schedule, events, and reminders effortlessly 🗓️",
+      "html_url": "https://github.com/Ramez-Ibrahim/Calendar",
+      "language": "HTML",
+      "stargazers_count": 2,
+      "pushed_at": "2024-09-22T18:57:22Z"
+    },
+    {
+      "name": "F1",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/F1",
+      "language": null,
+      "stargazers_count": 0,
+      "pushed_at": "2025-11-28T18:33:18Z"
+    },
+    {
+      "name": "Calculator",
+      "description": "Transforms Numbers Into Answers 🧮",
+      "html_url": "https://github.com/Ramez-Ibrahim/Calculator",
+      "language": "JavaScript",
+      "stargazers_count": 1,
+      "pushed_at": "2024-10-06T13:35:37Z"
+    },
+    {
+      "name": "Expense-Tracker",
+      "description": "This project is simple Expense Tracker App ",
+      "html_url": "https://github.com/Ramez-Ibrahim/Expense-Tracker",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2024-08-31T20:28:34Z"
+    },
+    {
+      "name": "Note-Taking-App",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Note-Taking-App",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2024-06-25T10:44:07Z"
+    },
+    {
+      "name": "Finance-App",
+      "description": "Monitor stock prices and market trends📈📊📉",
+      "html_url": "https://github.com/Ramez-Ibrahim/Finance-App",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2024-06-24T22:25:00Z"
+    },
+    {
+      "name": "Snake-Game",
+      "description": "Slithering Fun, Grow, Conquer, Don't Crash 🐍",
+      "html_url": "https://github.com/Ramez-Ibrahim/Snake-Game",
+      "language": "Python",
+      "stargazers_count": 0,
+      "pushed_at": "2024-06-24T12:53:53Z"
+    },
+    {
+      "name": "Weather-App",
+      "description": "Get real-time weather updates and forecasts ⛅",
+      "html_url": "https://github.com/Ramez-Ibrahim/Weather-App",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2024-06-23T20:35:47Z"
+    },
+    {
+      "name": "CS50x",
+      "description": "A journal of my cs50x adventure 💡🐤",
+      "html_url": "https://github.com/Ramez-Ibrahim/CS50x",
+      "language": "C",
+      "stargazers_count": 0,
+      "pushed_at": "2024-04-28T11:44:14Z"
+    },
+    {
+      "name": "Todo-App",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Todo-App",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "pushed_at": "2023-06-24T15:29:30Z"
+    },
+    {
+      "name": "CodeCave",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/CodeCave",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2024-04-17T06:55:05Z"
+    },
+    {
+      "name": "ElonMuskWebsite",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/ElonMuskWebsite",
+      "language": "HTML",
+      "stargazers_count": 0,
+      "pushed_at": "2024-04-16T12:16:53Z"
+    },
+    {
+      "name": "Rock-Paper-Scissors",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Rock-Paper-Scissors",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "pushed_at": "2023-06-22T22:42:32Z"
+    },
+    {
+      "name": "Dino-Game",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Dino-Game",
+      "language": "CSS",
+      "stargazers_count": 0,
+      "pushed_at": "2023-06-19T21:27:21Z"
+    },
+    {
+      "name": "Web-Scraper",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Web-Scraper",
+      "language": "JavaScript",
+      "stargazers_count": 0,
+      "pushed_at": "2023-06-23T14:58:51Z"
+    },
+    {
+      "name": "Robot-Barista",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Robot-Barista",
+      "language": null,
+      "stargazers_count": 0,
+      "pushed_at": "2023-05-21T19:44:12Z"
+    },
+    {
+      "name": "Crypto-Tracker",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/Crypto-Tracker",
+      "language": null,
+      "stargazers_count": 0,
+      "pushed_at": "2023-05-21T19:43:38Z"
+    },
+    {
+      "name": "E-Commerce-Store",
+      "description": null,
+      "html_url": "https://github.com/Ramez-Ibrahim/E-Commerce-Store",
+      "language": null,
+      "stargazers_count": 0,
+      "pushed_at": "2023-05-21T19:37:39Z"
+    }
+  ],
+  "languageTotals": {
+    "JavaScript": 741285,
+    "CSS": 234958,
+    "HTML": 180603,
+    "Python": 42857,
+    "C": 4793
+  }
+}
