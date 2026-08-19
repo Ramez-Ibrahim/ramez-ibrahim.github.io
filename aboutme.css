@@ -74,7 +74,7 @@ p {
   justify-content: space-between;
   align-items: center;
   align-items: safe center;
-  padding: 140px 30px 30px 30px;
+  padding: 160px 30px 30px 30px;
   box-sizing: border-box;
 }
 
@@ -901,7 +901,7 @@ html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radi
 @media only screen and (max-width: 992px) {
   h2 { font-size: 36px; padding: 15px; }
   h1 { font-size: 50px; line-height: 50px; }
-  .main { flex-direction: column; height: auto; padding: 165px 20px 20px 20px; }
+  .main { flex-direction: column; height: auto; padding: 180px 20px 20px 20px; }
   .main-text {
     width: 100% !important;
     margin-bottom: 40px;
@@ -913,7 +913,7 @@ html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radi
 
 
 @media only screen and (max-width: 768px) {
-  .main { padding: 100px 20px 20px 20px; }
+  .main { padding: 150px 20px 20px 20px; }
   .main-text { width: 100%; }
   .pfp-container { height: 300px; width: 300px; }
   .to-top2 { right: 20px; background: rgba(255, 255, 255, 0.6); }
@@ -929,6 +929,7 @@ html::-webkit-scrollbar-thumb { background-color: rgb(90, 110, 130); border-radi
 }
 
 @media only screen and (max-width: 576px) {
+  .main { padding: 130px 20px 20px 20px; }
   h1 { font-size: 36px; line-height: 40px; }
   p { font-size: 16px; }
   h2 { font-size: 30px; }
