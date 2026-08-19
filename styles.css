@@ -1169,7 +1169,7 @@ footer {
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
 .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-.hamburger.active { position: fixed; top: 25px; right: 15px; }
+.hamburger.active { position: fixed; top: 32px; right: 15px; }
 
 /* Mobile Override: show the hamburger */
 @media only screen and (max-width: 992px) {
