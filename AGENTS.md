@@ -6,8 +6,7 @@ Static personal portfolio site (HTML + CSS + vanilla JS). No build step or packa
 
 - `index.*`, `projects.*`, `certifications.*`, `aboutme.*`: one feature per top-level page set.
 - `styles.css` (shared styling) and `scripts.js` (shared behavior) are loaded by every page.
-- `images/`: site assets and screenshots. `logos/`: technology logos.
-- `loading.html` + `loadings.css`: standalone animated loading page, not part of the main nav.
+- `images/`: site assets and screenshots. `logos/`: technology logos. `loader.gif`/`loaderD.webp` are unused leftovers from the old gif preloader.
 - `lightbox.css` + `lightbox-plus-jquery.js`: bundled jQuery + lightbox plugin, used only by `certifications.html`. `lightbox.js` is an empty leftover — ignore it.
 - `GEMINI.md`: more detailed companion doc (features, TODOs).
 
@@ -20,8 +19,8 @@ Keep new page-specific code next to its page; put reusable behavior in `scripts.
 
 ## Key conventions & gotchas
 
-- Theme: `scripts.js` toggles `body.dark`, persisted in `localStorage["mode"]`. Put dark-mode CSS under `.dark` (or `html.dark, body.dark` in `loadings.css`). Do not copy the stale `dark-mode` class that `loading.html` still carries.
-- Every page needs a `<div id="preloader">` and a `scripts.js` include; scripts.js owns navigation, hamburger menu, theme, preloader, and scroll animations. Page-specific JS is loaded *before* scripts.js.
+- Theme: `scripts.js` toggles `body.dark`, persisted in `localStorage["mode"]`. Put dark-mode CSS under `.dark`.
+- Every page needs a `<div id="preloader">` (containing the `.container`/`.box` animation markup) and a `scripts.js` include; scripts.js owns navigation, hamburger menu, theme, preloader, and scroll animations. Page-specific JS is loaded *before* scripts.js. Preloader styles live only in `styles.css`.
 - The typewriter effect exists twice (`initTypewriter` in scripts.js and a copy in projects.js); don't add a third implementation.
 - `certifications.html` loads `index.css`, `projects.css`, and `certifications.css` together, so page CSS is not strictly isolated.
 - Font Awesome is pulled from a CDN in each page's `<head>`; icons require network access.

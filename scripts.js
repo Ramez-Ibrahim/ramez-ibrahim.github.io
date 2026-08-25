@@ -214,12 +214,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 3. Manual Toggle Switch Logic
+  // 3. Manual Toggle Switch Logic (expanding circle transition)
   const switchElements = document.querySelectorAll(".switch");
   switchElements.forEach((el) => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (e) => {
       const newMode = document.body.classList.contains("dark") ? "light" : "dark";
+
+      // Skip animation for users who prefer reduced motion
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        applyTheme(newMode, true);
+        return;
+      }
+
+      // Get the toggle's center position
+      const rect = el.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // Max radius to cover the entire viewport from the toggle position
+      const radius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      // Create overlay with the OLD theme's background color (full coverage)
+      const overlay = document.createElement("div");
+      overlay.className = "theme-transition-overlay";
+      overlay.style.backgroundColor = newMode === "dark" ? "rgb(244, 241, 241)" : "rgb(57, 57, 57)";
+      overlay.style.clipPath = "circle(" + radius + "px at " + x + "px " + y + "px)";
+      document.body.appendChild(overlay);
+
+      // Force reflow so the full-coverage clip-path is applied
+      overlay.offsetHeight;
+
+      // Toggle theme underneath the overlay
       applyTheme(newMode, true);
+
+      // Shrink the circle to reveal the new theme
+      overlay.style.transition = "clip-path 0.7s cubic-bezier(0.4, 0, 0.2, 1)";
+      overlay.style.clipPath = "circle(0% at " + x + "px " + y + "px)";
+
+      overlay.addEventListener("transitionend", () => {
+        overlay.remove();
+      }, { once: true });
     });
   });
 

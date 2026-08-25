@@ -13,25 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Preloader */
-#preloader {
-  background: white url(images/loader.gif) no-repeat center center;
-  background-size: 60%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
-
-.dark #preloader {
-  background: #21242d url(images/loaderD.webp) no-repeat center center;
-  background-size: 50%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
-
 /* Typography */
 h1 {
   font-size: 70px;
@@ -59,7 +40,7 @@ p {
   text-decoration: none;
   font-weight: 500;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s;
 }
 
 .links:hover {
@@ -155,84 +136,7 @@ p {
   border-right-color: white;
 }
 
-/* ============================================= */
-/* Theme Switch                                  */
-/* ============================================= */
-.switch {
-  width: 80px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: rgb(39, 38, 38);
-  position: relative;
-  transition: background-color 0.3s;
-}
-
-.flicker {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  transition: 0.3s;
-  box-shadow: inset 4px 4px 4px rgb(255, 255, 255), inset -4px -4px 4px rgb(195 193 198 / 90%);
-}
-
-.switch:hover {
-  cursor: pointer;
-}
-
-.moon {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 0 rgb(255, 255, 255);
-  position: absolute;
-  top: 5px;
-  left: 45px;
-  transition: box-shadow 0.3s;
-}
-
-.sun {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  opacity: 0;
-  margin-left: 10px;
-  transition: opacity 0.3s;
-}
-
-.dark .sun {
-  opacity: 1;
-}
-
-/* ============================================= */
-/* Dark Mode                                     */
-/* ============================================= */
-.dark {
-  background-color: rgb(57, 57, 57);
-  transition: 0.3s;
-}
-
-.dark .switch {
-  background-color: rgb(255, 255, 255);
-}
-
-.dark .flicker {
-  transform: translateX(40px);
-  background-color: rgb(0, 0, 0);
-  box-shadow: none;
-}
-
-.dark .moon {
-  box-shadow: 4px 4px 0 0 rgb(39, 38, 38);
-}
-
-.dark > * {
-  color: rgb(255, 255, 255);
-}
+/* Theme Switch & Dark Mode base styles live in styles.css (shared across pages) */
 
 /* ============================================= */
 /* Main Hero Section                             */
@@ -284,7 +188,7 @@ body p.sub-heading {
   padding: 25px;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s, border 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s, border 0.3s, color 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -565,9 +469,11 @@ html { scroll-behavior: smooth; }
 .header-wrapper {
   position: fixed;
 top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
   min-width: min(720px, calc(100% - 40px));
   max-width: calc(100% - 40px);
   box-sizing: border-box;
@@ -578,16 +484,28 @@ top: 32px;
   padding: 12px 32px;
   border-radius: 999px;
   z-index: 99;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.header-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   background: rgba(244, 241, 241, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+  z-index: -1;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .dark .header-wrapper {
-  background: rgba(57, 57, 57, 0.55);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dark .header-wrapper::before {
+  background: rgba(57, 57, 57, 0.55);
 }
 
 .header-brand { 
@@ -619,8 +537,10 @@ top: 32px;
 }
 
 /* Scroll effects */
-.header-wrapper.scrolled { background-color: rgba(244, 241, 241, 0.92); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.dark .header-wrapper.scrolled { background-color: rgba(57, 57, 57, 0.92); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+.header-wrapper.scrolled { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); }
+.header-wrapper.scrolled::before { background-color: rgba(244, 241, 241, 0.92); }
+.dark .header-wrapper.scrolled { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+.dark .header-wrapper.scrolled::before { background-color: rgba(57, 57, 57, 0.92); }
 
 /* Removed redundant media query */
 
@@ -733,18 +653,13 @@ top: 32px;
 
 
   /* Header & Mobile Menu */
-  .header-wrapper { padding: 10px 14px; gap: 12px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; width: auto; min-width: 0; max-width: calc(100% - 28px); top: 20px; }
-  .header-title { display: block; font-size: 12px; white-space: nowrap; overflow: visible; }
+  .header-wrapper { padding: 10px 14px; gap: 12px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; width: fit-content; min-width: 0; max-width: calc(100% - 36px); max-width: calc(100% - 36px - env(safe-area-inset-left) - env(safe-area-inset-right)); top: 20px; z-index: auto; }
+  .header-title { display: block; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
   .header-brand { position: static; display: flex; align-items: center; gap: 10px; margin-right: 10px; flex: 1; min-width: 0; }
-  .header-brand .header-title { font-size: 12px; overflow: visible; white-space: nowrap; min-width: 0; }
+  .header-brand .header-title { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .header-controls { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
   .pageicon { margin: 0 !important; width: 36px; height: 36px; flex-shrink: 0; }
-  .switch { width: 65px; height: 32px; }
-  .flicker { width: 24px; height: 24px; top: 4px; left: 4px; }
-  .moon { width: 15px; height: 15px; top: 4px; left: 38px; }
-  .sun { width: 15px; height: 15px; top: 8px; margin-left: 8px; }
-  .dark .flicker { transform: translateX(33px); }
 }
 
 
@@ -763,26 +678,18 @@ top: 32px;
   .main { padding-top: 130px; }
 
   /* Compact header for narrow screens */
+  .header-wrapper { width: calc(100% - 36px); }
   .header-brand { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 8px; margin-right: 10px; }
   .pageicon { width: 25px; height: 25px; flex-shrink: 0; }
-  .header-title, .header-brand .header-title { font-size: clamp(11px, 6.1vw - 8.5px, 16px); white-space: nowrap; min-width: 0; }
+  .header-title, .header-brand .header-title { font-size: clamp(13px, 4vw - 1.8px, 16px); white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .header-controls { display: flex; justify-content: flex-end; align-items: center; gap: 5px; flex-shrink: 0; }
-  .switch { width: 50px; height: 26px; border-radius: 13px; flex-shrink: 0; }
-  .flicker { width: 20px; height: 20px; top: 3px; left: 3px; }
-  .moon { width: 12px; height: 12px; top: 3px; left: 28px; box-shadow: 3px 3px 0 0 rgb(255, 255, 255); }
-  .sun { width: 12px; height: 12px; top: 7px; margin-left: 6px; }
-
-  /* Toggle Dark Mode adjustments */
-  .dark .switch { background-color: rgb(255, 255, 255); }
-  .dark .flicker { transform: translateX(24px); background-color: rgb(0, 0, 0); box-shadow: none; }
-  .dark .moon { box-shadow: 3px 3px 0 0 rgb(39, 38, 38); }
 }
 
 /* ============================================= */
 /* Responsive: Extra Small (402px)               */
 /* ============================================= */
 @media only screen and (max-width: 402px) {
-  .header-wrapper { padding: 8px 12px; gap: 8px; box-sizing: border-box; width: auto; min-width: 0; max-width: calc(100% - 16px); top: 14px; }
+  .header-wrapper { padding: 8px 12px; gap: 8px; box-sizing: border-box; width: calc(100% - 32px); min-width: 0; max-width: calc(100% - 32px); max-width: calc(100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)); top: 14px; }
   
   .square {
     padding-top: 20px;

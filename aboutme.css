@@ -15,21 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Preloader */
-#preloader {
-  background: white url(images/loader.gif) no-repeat center center;
-  background-size: 60%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
-
-.dark #preloader {
-  background: #21242d url(images/loaderD.webp) no-repeat center center;
-  background-size: 60%;
-}
-
 /* Typography */
 h1 {
   font-size: 70px;
@@ -51,20 +36,9 @@ p {
   font-size: 20px;
 }
 
-/* Dark mode base styles */
-.dark {
-  background-color: rgb(57, 57, 57);
-  transition: 0.3s;
-}
-
-.dark > * {
-  color: rgb(255, 255, 255);
-}
+/* Dark mode base styles live in styles.css (shared across pages) */
 
 /* Header and Navigation - using shared styles from index.css */
-
-.dark .switch { background-color: rgb(255, 255, 255); }
-.dark .sun { opacity: 1; }
 
 /* Main section styling */
 .main {
@@ -103,7 +77,7 @@ p {
 
 .links {
   color: rgb(0, 150, 255); font-size: 20px; text-decoration: none;
-  font-weight: 500; position: relative; transition: transform 0.3s ease;
+  font-weight: 500; position: relative; transition: transform 0.3s ease, color 0.3s;
 }
 .links:hover { color:  rgb(0, 110, 215); }
 .dark .links { color: rgb(105, 229, 235); }
@@ -973,14 +947,13 @@ body {
   overflow-x: hidden;
 }
 
-.header-wrapper {
+.header-wrapper::before {
   background: rgba(244, 241, 241, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.dark .header-wrapper {
+.dark .header-wrapper::before {
   background: rgba(57, 57, 57, 0.55);
 }
 

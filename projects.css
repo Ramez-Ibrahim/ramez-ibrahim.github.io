@@ -10,25 +10,6 @@ body {
   color: rgb(57, 57, 57);
 }
 
-/* Preloader */
-#preloader {
-  background: white url(images/loader.gif) no-repeat center center;
-  background-size: 60%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
-
-.dark #preloader {
-  background: #21242d url(images/loaderD.webp) no-repeat center center;
-  background-size: 50%;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
-
 /* Typography */
 h1 {
   font-size: 70px;
@@ -56,7 +37,7 @@ p {
   text-decoration: none;
   font-weight: 500;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s;
 }
 
 .links:hover {
@@ -155,15 +136,7 @@ p {
   border-right-color: white;
 }
 
-/* Dark mode styles */
-.dark {
-  background-color: rgb(57, 57, 57);
-  transition: 0.3s;
-}
-
-.dark > * {
-  color: rgb(255, 255, 255);
-}
+/* Dark mode base styles live in styles.css (shared across pages) */
 
 /* Main section */
 .main {
@@ -189,7 +162,7 @@ p {
   padding: 40px;
   box-sizing: border-box;
   text-align: center;
-  transition: background 0.3s, border 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s, border 0.3s, color 0.3s, opacity 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
