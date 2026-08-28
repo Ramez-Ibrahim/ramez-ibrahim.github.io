@@ -563,10 +563,12 @@ header {
   width: 100%;
 }
 
-/* Instant full underline on click so navigation doesn't cut the animation */
-.menu-bar:active::after {
-  width: 100%;
-  transition: none;
+/* Instant full underline on click — desktop only so hamburger underline stays animated */
+@media only screen and (min-width: 993px) {
+  .menu-bar:active::after {
+    width: 100%;
+    transition: none;
+  }
 }
 
 .menu-bar .idu {
@@ -604,9 +606,11 @@ header {
   background-color: rgb(105, 229, 235);
 }
 
-.dark .menu-bar:active::after {
-  width: 100%;
-  transition: none;
+@media only screen and (min-width: 993px) {
+  .dark .menu-bar:active::after {
+    width: 100%;
+    transition: none;
+  }
 }
 
 /* ============================================= */
@@ -1496,9 +1500,10 @@ html.menu-open .header-wrapper::before { display: none; }
   .menu .menu-bar:hover::after {
     width: 100%;
   }
-  /* Hold underline at full width while the mobile page transition plays */
+  /* Hold underline at full width while the hamburger transition plays — menu stays at left:0 */
   .menu .menu-bar.underline-play::after {
     width: 100%;
+    transition: width 0.2s ease-in-out;
   }
 }
 

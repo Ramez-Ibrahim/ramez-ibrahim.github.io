@@ -376,18 +376,23 @@ document.addEventListener("DOMContentLoaded", function () {
                   window.removeEventListener('touchmove', preventScroll, { passive: false });
               };
 
-              // On the mobile menu, play the underline animation before navigating
+              // On the hamburger overlay, keep menu visible while underline animates before navigating
               const isPlainClick = !event.ctrlKey && !event.metaKey && !event.shiftKey && event.button === 0;
-              if (window.matchMedia('(max-width: 768px)').matches && isPlainClick) {
+              const isHamburgerVisible = window.getComputedStyle(hamburger).display !== 'none';
+              const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              const isMenuOpen = navMenu.classList.contains('active');
+              if (isHamburgerVisible && isMenuOpen && isPlainClick && !prefersReducedMotion && !link.dataset.navigating) {
                   event.preventDefault();
+                  link.dataset.navigating = 'true';
                   link.classList.add('underline-play');
-                  closeMenu();
+                  // Keep menu at left:0 and scroll lock during 0.2s draw + hold
                   setTimeout(() => {
                       window.location.href = link.href;
-                  }, 250);
+                  }, 320);
                   return;
               }
 
+              // Reduced-motion or desktop or modifier click: close immediately, no delay
               closeMenu();
           });
       });
