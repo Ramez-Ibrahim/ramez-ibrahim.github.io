@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T04:19:54.706Z",
+  "generatedAt": "2026-10-18T03:16:52.439Z",
   "repos": [
     {
       "name": "CSCE-1001",
@@ -7,7 +7,7 @@
       "html_url": "https://github.com/Ramez-Ibrahim/CSCE-1001",
       "language": "C++",
       "stargazers_count": 0,
-      "pushed_at": "2026-10-09T17:51:54Z"
+      "pushed_at": "2026-10-12T06:43:33Z"
     },
     {
       "name": "ramez-ibrahim.github.io",
@@ -15,7 +15,7 @@
       "html_url": "https://github.com/Ramez-Ibrahim/ramez-ibrahim.github.io",
       "language": "JavaScript",
       "stargazers_count": 0,
-      "pushed_at": "2026-10-04T04:35:43Z"
+      "pushed_at": "2026-10-11T04:19:55Z"
     },
     {
       "name": "Calendar",
@@ -163,7 +163,7 @@
     }
   ],
   "languageTotals": {
-    "C++": 5054,
+    "C++": 6904,
     "JavaScript": 754059,
     "CSS": 242911,
     "HTML": 185495,
