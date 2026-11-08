@@ -1,45 +1,8 @@
 {
-  "generatedAt": "2026-11-01T04:40:29.235Z",
+  "generatedAt": "2026-11-08T04:43:44.968Z",
   "lifetimeContributions": 1359,
   "lastYearTotalContributions": 62,
   "weeks": [
-    [
-      {
-        "date": "2025-11-02",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-03",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-04",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-05",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-06",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-07",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-11-08",
-        "count": 0,
-        "level": 0
-      }
-    ],
     [
       {
         "date": "2025-11-09",
@@ -1930,6 +1893,43 @@
     [
       {
         "date": "2026-11-01",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-02",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-03",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-04",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-05",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-06",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-11-07",
+        "count": 0,
+        "level": 0
+      }
+    ],
+    [
+      {
+        "date": "2026-11-08",
         "count": 0,
         "level": 0
       }
